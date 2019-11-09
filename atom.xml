@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-11-08T12:19:03.848Z</updated>
+  <updated>2019-11-09T08:21:33.249Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>秦九韶算法详解</title>
+    <link href="https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/"/>
+    <id>https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/</id>
+    <published>2019-11-09T08:05:02.000Z</published>
+    <updated>2019-11-09T08:21:33.249Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#秦九韶算法&lt;br&gt;秦九韶算法是将一元n次多项式的求值问题转化为n个一次式的算法，比普通计算方式提高了一个数量级&lt;br&gt;普通算式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;a*x^i&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;因为多次求幂，消耗了大量的计算时间&lt;/p&gt;
+&lt;p&gt;我们来分析一下秦九韶算
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://www.ajin.cloud/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://www.ajin.cloud/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>article title</title>
