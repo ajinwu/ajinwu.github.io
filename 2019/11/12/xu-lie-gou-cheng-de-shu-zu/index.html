@@ -4,11 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机概论, python bigdata docker spark linux django">
+    <meta name="keywords" content="序列构成的数组, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="数据表示方式数字系统在计算机中, 所有的数据都是二进制
-文字编码系统常用的英文编码都是ascii, 每个符号(英文, 数字, 或符号等)都会占用一个bytes, 总共会有2^8中变化, 目前所使用的Unicode编码系统解决了这个问题
-软件">
+    <meta name="description" content="内置序列类型
+python标准库使用c实现了丰富的序列类型
+
+容器序列:list, tuple, collection.deque这些序列能存放不同类型的数据
+扁平序列:str, bytes, bytesarray, memoryview和">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>计算机概论 | ajin的博客</title>
+    <title>序列构成的数组 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,7 +315,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        计算机概论
+                        序列构成的数组
                     </div>
                 </div>
             </div>
@@ -425,8 +427,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/">
-                                <span class="chip bg-color">计算机系统/linux</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
                     </div>
@@ -437,8 +439,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/" class="post-category">
-                                计算机系统/linux
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -450,7 +452,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-11
+                    2019-11-12
                 </div>
                 
 
@@ -459,14 +461,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    901
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 				
@@ -482,49 +484,96 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数据表示方式"><a href="#数据表示方式" class="headerlink" title="数据表示方式"></a>数据表示方式</h1><h2 id="数字系统"><a href="#数字系统" class="headerlink" title="数字系统"></a>数字系统</h2><p>在计算机中, 所有的数据都是二进制</p>
-<h2 id="文字编码系统"><a href="#文字编码系统" class="headerlink" title="文字编码系统"></a>文字编码系统</h2><p>常用的英文编码都是ascii, 每个符号(英文, 数字, 或符号等)都会占用一个bytes, 总共会有2^8中变化, 目前所使用的Unicode编码系统解决了这个问题</p>
-<h1 id="软件程序运作"><a href="#软件程序运作" class="headerlink" title="软件程序运作"></a>软件程序运作</h1><p>目前计算机都将软件分为两大类, 系统软件和应用程序</p>
-<h2 id="机器程序与编译程序"><a href="#机器程序与编译程序" class="headerlink" title="机器程序与编译程序"></a>机器程序与编译程序</h2><p>cpu具有微指令集, 让cpu帮忙工作必须要参考微指令集, 这个流程包括一下方面</p>
+                <h1 id="内置序列类型"><a href="#内置序列类型" class="headerlink" title="内置序列类型"></a>内置序列类型</h1><ol>
+<li><p>python标准库使用c实现了丰富的序列类型</p>
 <ol>
-<li>需要了解机器语言</li>
-<li>需要了解所有硬件的相关功能函数</li>
-<li>程序具有不可移植性, 每个cpu都有独特的微指令集, 同样, 每个硬件都有相关功能函数</li>
-<li>程序具有专一性, 要面对相关硬件来编写</li>
+<li>容器序列:list, tuple, collection.deque这些序列能存放不同类型的数据</li>
+<li>扁平序列:str, bytes, bytesarray, memoryview和array.array, 这种序列只能容纳一种类型<blockquote>
+<p>容器序列存放的是他们所包含的对象的引用, 扁平序列存放的是值, 换句话来说, 扁平序列是一段连续的内存空间</p>
+</blockquote>
+</li>
+<li>可变序列:list, bytesarray, array.array, collections.deque, memoryview</li>
+<li>不可变序列: tuple, str和bytes</li>
 </ol>
-<p>编译程序做了将高级语言转化为机器语言的功能来完成程序的运行</p>
-<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>操作系统也是一组程序, 这组程序主要来管理计算机以及相关硬件</p>
-<p>操作系统放置在内存中的受保护区域, 开机后一直常驻与内存</p>
-<h2 id="system-call"><a href="#system-call" class="headerlink" title="system call"></a>system call</h2><p>操作系统除了核心程序之外, 通常会提供开发接口, 就是sc, 开发工程师只需要遵循sc参数开发软件</p>
+</li>
+<li><p>列表推导和生成器表达式</p>
 <ol>
-<li>操作系统的核心层直接参看硬件规格, 所以同一个操作系统不能再不同硬件平台运作</li>
-<li>操作系统只管理硬件资源, 包括cpu, 内存, 输入输出装置及文件系统文件</li>
-<li>应用程序开发参考操作系统提供开发接口</li>
+<li>列表推导式并不一定比map慢</li>
+<li>在初始化序列类型时, 使用生成器表达式是更好的选择, 生成器表达式遵守了迭代器协议, 可以逐个产生元素, 列表推导式是先建立一个完整的列表, 然后再把这个列表传递到某个构造函数里面, 不够节省内存.</li>
+<li>生成器表达式每次for循环才会生成一个组合, 所以会省掉笛卡尔积的for循环开销</li>
 </ol>
-<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><ol>
-<li>system call interface</li>
-<li>程序管理, 内核控制分配cpu资源   </li>
-<li>内存管理</li>
-<li>文件系统管理</li>
-<li>硬件驱动</li>
-</ol>
-<h2 id="操作系统与驱动程序"><a href="#操作系统与驱动程序" class="headerlink" title="操作系统与驱动程序"></a>操作系统与驱动程序</h2><p>操作系统会提供开发接口给硬件开发商, 根据接口设计驱动程序</p>
+</li>
+<li><p>元组不仅仅是不可变的列表</p>
 <ol>
-<li>操作系统必须能够驱动硬件, 应用程序才能使用该硬件</li>
-<li>一般来说, 操作系统会提供开发接口</li>
-<li>使用新硬件, 必须安装驱动程序</li>
-<li>驱动程序由开发者提供, 与操作系统开发者无关</li>
+<li>元组和记录: 元组其实是对数据的记录, 元组的每个元素都存放了一个字段的数据, for循环可以自动拆包元组, 迭代过程中, print可以接受一个元组作为参数输入, 拆包让元组当做记录来使用.</li>
+<li>元组拆包可以应用到任何可迭代对象上, 但是可迭代对象的元素必须要跟接受这些元素的元组的空挡数已知</li>
+<li>拆包中对于不定长参数使用*获取, 可以应用与任何位置, 自动对应长度</li>
+<li>python3中函数参数不接受元组型(不接受所有迭代序列, 例如(a, b), [a, b])</li>
 </ol>
-<h1 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h1><p>应用程序是参考操作系统开发接口开发的软件, 达到某些计算机功能</p>
-<p>应用程序与操作系统有关系</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>计算机定义: 接受用户输入指令与数据, 经过中央处理器的算逻单元运算后, 产生或存储有用的信息</li>
-<li>计算机五大单元: 输入输出单元, 控制单元, 算逻单元, 记忆单元, cpu占有控制, 算逻单元, 记忆单元又包含主存储器与辅助内存</li>
-<li>数据搂入流出是cpu发出的控制指令, cpu处理的数据来着主存储器</li>
-<li>cpu设计理念分为: 精简指令集与复杂指令集</li>
-<li>新的cpu设计中已经将北桥的内存控制芯片整合到cpu中, 而cpu与主存储器, 显示适配器沟通的总线是系统总线, 南桥是I/O总线</li>
-<li>cpu每次能够处理的数据量称为字组大小, 目前有32/64位区分</li>
-<li>一个byte=8bits</li>
+</li>
+<li><p>具名元组</p>
+<ol>
+<li>创建一个具名元组需要两个参数, 一个是类名, 另一个是类的各个字段的名字, 后者可以由数个字符串组成的可迭代对象, 或者是有空格分割开的字段名组成的字符串</li>
+<li>存放在对应字段里的数据要以一串参数的形式传入到构造函数中, 元组的构造函数只接受单一的可迭代对象</li>
+<li>可以通过字段名获取对应位置的字段信息</li>
+<li>具名元组里面可以叠加具名元组, 实现高级数据结构</li>
+<li>具名元组相当于一个类</li>
+<li>重复拼接方法<strong>mul</strong>(n), 生成一个新的对象</li>
+</ol>
+</li>
+<li><p>切片</p>
+<ol>
+<li>切片和区间操作会忽略最后一个元素, 符合以0为开始的风格</li>
+<li>python的内置序列类型都是一维的, 他们只支持单一索引</li>
+<li>如果把切片放在赋值语句的左边, 或者把他作为del操作的对象, 我们就可以对序列进行嫁接, 切除, 或者就地修改等操作</li>
+<li>如果赋值的对象是一个切片, 那么右值必须是一个可迭代序列</li>
+</ol>
+</li>
+<li><p>对序列使用+*</p>
+<ol>
+<li>序列支持+*, 在拼接的过程中, 两个被操作的序列都不回被修改, python会新建一个包含同类型的序列作为拼接的结果</li>
+<li>不要使用[[“_”]] * 3这种语法</li>
+<li>序列增量赋值要实现<strong>iadd</strong>方法, 如果没有实现, 解释器会自动转向<strong>add</strong>方法</li>
+<li>在元组中, 有可变序列时, 需要append而不是直接+=</li>
+</ol>
+</li>
+<li><p>list.sort和内置函数sorted</p>
+<ol>
+<li>list.sort()方法会原地赋值, 返回值为None, 并不会产生新的对象</li>
+<li>sorted可以接受任何可迭代的对象作为参数, 甚至不可变序列或生成器</li>
+<li>reverse和key作为可选关键字, key用于序列中的每一个元素, 作为排序的对比关键字, 比如key=len, 进行基于字符串长度的排序</li>
+</ol>
+</li>
+<li><p>用bisect来管理已排序的序列</p>
+<ol>
+<li>bisect.insort(list, item), 讲一个新的item放入list, 保持有序的同时插入, 函数有返回值, 返回值为在新序列中的位置</li>
+<li>bisect中的方法都有left和right可选, 区别在于放在左边还是右边</li>
+</ol>
+</li>
+<li><p>当列表不是首选时</p>
+<ol>
+<li>数组<ol>
+<li>数组支持所有跟可变序列有关的操作, 还提供从文件读取和存入文件更快的方法, frombytes和tofile方法</li>
+<li>数组只能存放限定类型的数据</li>
+</ol>
+</li>
+<li>内存视图, 看不懂</li>
+<li>双向队列<ol>
+<li>maxlen是可选参数, 固定后不可改变</li>
+<li>对满队列添加元素时会自动删除左端或者右端元素</li>
+<li>deque原子操作, 是线程安全的</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>总结</p>
+<ol>
+<li>序列类型分为可变序列和不可变序列, 或者说是扁平序列和容器序列, 扁平序列只能保存原子操作, 容器序列可以保存其他序列, 容器:有些对象包含其他对象的引用.</li>
+<li>对于重复拼接在遇到不可变序列时, 会产生新的序列, 如果遇到可变的会就地修改</li>
+<li>元组存放没有关系的数据</li>
+<li>sorted和list.sort背后的算法是timsort自适应算法, 会根据原始数据的特点交替使用插入排序和归并排序</li>
+</ol>
+</li>
 </ol>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -569,7 +618,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/11/11/ji-suan-ji-gai-lun/">https://www.ajin.cloud/2019/11/11/ji-suan-ji-gai-lun/</a>
+                    <a href="https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/">https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,8 +656,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/">
-                                    <span class="chip bg-color">计算机系统/linux</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
                         </div>
@@ -779,7 +828,7 @@
         repo: 'ajinwu.github.io',
         owner: 'ajinwu',
         admin: "ajinwu",
-        id: '2019-11-11T20-07-50',
+        id: '2019-11-12T18-46-01',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -800,9 +849,9 @@
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/11/11/ji-suan-ji-gai-lun/';
-        this.page.identifier = '/2019/11/11/ji-suan-ji-gai-lun/';
-        this.page.title = '计算机概论';
+        this.page.url = 'https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/';
+        this.page.identifier = '/2019/11/12/xu-lie-gou-cheng-de-shu-zu/';
+        this.page.title = '序列构成的数组';
     };
     let disqus_shortname = '';
 
@@ -825,9 +874,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/11/12/xu-lie-gou-cheng-de-shu-zu/">
                     <div class="card-image">
@@ -849,9 +899,9 @@ python标准库使用c实现了丰富的序列类型
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -864,6 +914,7 @@ python标准库使用c实现了丰富的序列类型
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -882,35 +933,33 @@ python标准库使用c实现了丰富的序列类型
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/09/python-shu-ju-mo-xing/">
+                <a href="/2019/11/11/ji-suan-ji-gai-lun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="python数据模型">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="计算机概论">
                         
-                        <span class="card-title">python数据模型</span>
+                        <span class="card-title">计算机概论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            python 风格
-特殊风格
-
-getitem方法是实现列表进行选取的方法, 并且还支持切片语法, 并且只要实现了这个方法, 这个对象就变成了可迭代的对象, 实现方式, 返回一个本对象的一个结点
-in运算符是contains方法实现的, 如
+                            数据表示方式数字系统在计算机中, 所有的数据都是二进制
+文字编码系统常用的英文编码都是ascii, 每个符号(英文, 数字, 或符号等)都会占用一个bytes, 总共会有2^8中变化, 目前所使用的Unicode编码系统解决了这个问题
+软件
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/" class="post-category">
+                                    计算机系统/linux
                                 </a>
                             
                             
@@ -920,8 +969,8 @@ in运算符是contains方法实现的, 如
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/">
+                        <span class="chip bg-color">计算机系统/linux</span>
                     </a>
                     
                 </div>

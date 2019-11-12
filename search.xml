@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>序列构成的数组</title>
+      <link href="/2019/11/12/xu-lie-gou-cheng-de-shu-zu/"/>
+      <url>/2019/11/12/xu-lie-gou-cheng-de-shu-zu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="内置序列类型"><a href="#内置序列类型" class="headerlink" title="内置序列类型"></a>内置序列类型</h1><ol><li><p>python标准库使用c实现了丰富的序列类型</p><ol><li>容器序列:list, tuple, collection.deque这些序列能存放不同类型的数据</li><li>扁平序列:str, bytes, bytesarray, memoryview和array.array, 这种序列只能容纳一种类型<blockquote><p>容器序列存放的是他们所包含的对象的引用, 扁平序列存放的是值, 换句话来说, 扁平序列是一段连续的内存空间</p></blockquote></li><li>可变序列:list, bytesarray, array.array, collections.deque, memoryview</li><li>不可变序列: tuple, str和bytes</li></ol></li><li><p>列表推导和生成器表达式</p><ol><li>列表推导式并不一定比map慢</li><li>在初始化序列类型时, 使用生成器表达式是更好的选择, 生成器表达式遵守了迭代器协议, 可以逐个产生元素, 列表推导式是先建立一个完整的列表, 然后再把这个列表传递到某个构造函数里面, 不够节省内存.</li><li>生成器表达式每次for循环才会生成一个组合, 所以会省掉笛卡尔积的for循环开销</li></ol></li><li><p>元组不仅仅是不可变的列表</p><ol><li>元组和记录: 元组其实是对数据的记录, 元组的每个元素都存放了一个字段的数据, for循环可以自动拆包元组, 迭代过程中, print可以接受一个元组作为参数输入, 拆包让元组当做记录来使用.</li><li>元组拆包可以应用到任何可迭代对象上, 但是可迭代对象的元素必须要跟接受这些元素的元组的空挡数已知</li><li>拆包中对于不定长参数使用*获取, 可以应用与任何位置, 自动对应长度</li><li>python3中函数参数不接受元组型(不接受所有迭代序列, 例如(a, b), [a, b])</li></ol></li><li><p>具名元组</p><ol><li>创建一个具名元组需要两个参数, 一个是类名, 另一个是类的各个字段的名字, 后者可以由数个字符串组成的可迭代对象, 或者是有空格分割开的字段名组成的字符串</li><li>存放在对应字段里的数据要以一串参数的形式传入到构造函数中, 元组的构造函数只接受单一的可迭代对象</li><li>可以通过字段名获取对应位置的字段信息</li><li>具名元组里面可以叠加具名元组, 实现高级数据结构</li><li>具名元组相当于一个类</li><li>重复拼接方法<strong>mul</strong>(n), 生成一个新的对象</li></ol></li><li><p>切片</p><ol><li>切片和区间操作会忽略最后一个元素, 符合以0为开始的风格</li><li>python的内置序列类型都是一维的, 他们只支持单一索引</li><li>如果把切片放在赋值语句的左边, 或者把他作为del操作的对象, 我们就可以对序列进行嫁接, 切除, 或者就地修改等操作</li><li>如果赋值的对象是一个切片, 那么右值必须是一个可迭代序列</li></ol></li><li><p>对序列使用+*</p><ol><li>序列支持+*, 在拼接的过程中, 两个被操作的序列都不回被修改, python会新建一个包含同类型的序列作为拼接的结果</li><li>不要使用[[“_”]] * 3这种语法</li><li>序列增量赋值要实现<strong>iadd</strong>方法, 如果没有实现, 解释器会自动转向<strong>add</strong>方法</li><li>在元组中, 有可变序列时, 需要append而不是直接+=</li></ol></li><li><p>list.sort和内置函数sorted</p><ol><li>list.sort()方法会原地赋值, 返回值为None, 并不会产生新的对象</li><li>sorted可以接受任何可迭代的对象作为参数, 甚至不可变序列或生成器</li><li>reverse和key作为可选关键字, key用于序列中的每一个元素, 作为排序的对比关键字, 比如key=len, 进行基于字符串长度的排序</li></ol></li><li><p>用bisect来管理已排序的序列</p><ol><li>bisect.insort(list, item), 讲一个新的item放入list, 保持有序的同时插入, 函数有返回值, 返回值为在新序列中的位置</li><li>bisect中的方法都有left和right可选, 区别在于放在左边还是右边</li></ol></li><li><p>当列表不是首选时</p><ol><li>数组<ol><li>数组支持所有跟可变序列有关的操作, 还提供从文件读取和存入文件更快的方法, frombytes和tofile方法</li><li>数组只能存放限定类型的数据</li></ol></li><li>内存视图, 看不懂</li><li>双向队列<ol><li>maxlen是可选参数, 固定后不可改变</li><li>对满队列添加元素时会自动删除左端或者右端元素</li><li>deque原子操作, 是线程安全的</li></ol></li></ol></li><li><p>总结</p><ol><li>序列类型分为可变序列和不可变序列, 或者说是扁平序列和容器序列, 扁平序列只能保存原子操作, 容器序列可以保存其他序列, 容器:有些对象包含其他对象的引用.</li><li>对于重复拼接在遇到不可变序列时, 会产生新的序列, 如果遇到可变的会就地修改</li><li>元组存放没有关系的数据</li><li>sorted和list.sort背后的算法是timsort自适应算法, 会根据原始数据的特点交替使用插入排序和归并排序</li></ol></li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机概论</title>
       <link href="/2019/11/11/ji-suan-ji-gai-lun/"/>
       <url>/2019/11/11/ji-suan-ji-gai-lun/</url>

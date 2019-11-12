@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-11-11T12:10:56.981Z</updated>
+  <updated>2019-11-12T10:47:21.968Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>序列构成的数组</title>
+    <link href="https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/"/>
+    <id>https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/</id>
+    <published>2019-11-12T10:46:01.000Z</published>
+    <updated>2019-11-12T10:47:21.968Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;内置序列类型&quot;&gt;&lt;a href=&quot;#内置序列类型&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机概论</title>
