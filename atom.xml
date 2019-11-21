@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-11-12T14:19:58.596Z</updated>
+  <updated>2019-11-21T08:41:33.700Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker高级</title>
+    <link href="https://www.ajin.cloud/2019/11/21/docker-gao-ji/"/>
+    <id>https://www.ajin.cloud/2019/11/21/docker-gao-ji/</id>
+    <published>2019-11-21T08:36:23.000Z</published>
+    <updated>2019-11-21T08:41:33.700Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Docker&quot;&gt;&lt;a href=&quot;#Docker&quot; class=&quot;headerlink&quot; title=&quot;Docker&quot;&gt;&lt;/a&gt;Docker&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;docker隔离的东西(linux
+        
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://www.ajin.cloud/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://www.ajin.cloud/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker初级</title>
+    <link href="https://www.ajin.cloud/2019/11/21/docker-chu-ji/"/>
+    <id>https://www.ajin.cloud/2019/11/21/docker-chu-ji/</id>
+    <published>2019-11-21T08:31:40.000Z</published>
+    <updated>2019-11-21T08:32:56.072Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;获取docker镜像&quot;&gt;&lt;a href=&quot;#获取docker镜像&quot; class=&quot;headerlink&quot; title=&quot;获取docker镜像&quot;&gt;&lt;/a&gt;获取docker镜像&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;获取镜像&lt;ul&gt;
+&lt;li&gt;docker pull
+        
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://www.ajin.cloud/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://www.ajin.cloud/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>字典和集合</title>
@@ -129,7 +186,7 @@
     <link href="https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/"/>
     <id>https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/</id>
     <published>2019-11-09T08:05:02.000Z</published>
-    <updated>2019-11-09T08:21:33.249Z</updated>
+    <updated>2019-11-21T08:43:48.396Z</updated>
     
     <summary type="html">
     
