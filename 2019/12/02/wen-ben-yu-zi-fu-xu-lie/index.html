@@ -459,14 +459,14 @@ python3的str类型基本相当于python2的Unicode类型
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    637
+                    959
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 				
@@ -520,6 +520,80 @@ python3的str类型基本相当于python2的Unicode类型
 <li>非ascii文本排序使用的是locale.strxfrm作为key, 但是要这样做必须要设置区域, 不建议这样使用</li>
 <li>使用pyuca可以直接进行排序</li>
 </ol>
+<h1 id="本章代码"><a href="#本章代码" class="headerlink" title="本章代码"></a>本章代码</h1><pre class="line-numbers language-python"><code class="language-python">s <span class="token operator">=</span> <span class="token string">"Café"</span> <span class="token comment" spellcheck="true"># 是四个Unicode字符</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 转换为字节(bytes)对象</span>
+b <span class="token operator">=</span> s<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 转换为str对象</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span>
+cafe <span class="token operator">=</span> bytes<span class="token punctuation">(</span><span class="token string">"café"</span><span class="token punctuation">,</span> encoding <span class="token operator">=</span> <span class="token string">"utf8"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cafe<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cafe<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 是range(256)以内的整数</span>
+<span class="token comment" spellcheck="true"># print(cafe[-1]) # 还是bytes类型</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cafe<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+cafe_arr <span class="token operator">=</span> bytearray<span class="token punctuation">(</span>cafe<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cafe_arr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cafe_arr<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cafe_arr<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">import</span> array
+num <span class="token operator">=</span> array<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 有符号整数</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> chardet
+city <span class="token operator">=</span> <span class="token string">"São Paulo"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>city<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>city<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"utf-16"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>city<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"iso8859_1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>city<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"cp437"</span><span class="token punctuation">,</span> errors <span class="token operator">=</span> <span class="token string">"ignore"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>city<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"cp437"</span><span class="token punctuation">,</span> errors <span class="token operator">=</span> <span class="token string">"replace"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+octes <span class="token operator">=</span> b<span class="token string">"Montr\xe9al"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>octes<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"cp1252"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>octes<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"iso8859_7"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>octes<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"koi8_r"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"/home/ajin_w/github/record-for-ajin_w/流畅的python/文本和字节序列/编码.py"</span><span class="token punctuation">,</span><span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>chardet<span class="token punctuation">.</span>detect<span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>chardet<span class="token punctuation">.</span>detect<span class="token punctuation">(</span>b<span class="token string">"Montr\xe9al"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> unicodedata <span class="token keyword">import</span> normalize
+s2 <span class="token operator">=</span> <span class="token string">"cafe\u0301"</span>
+s1 <span class="token operator">=</span> <span class="token string">"café"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>normalize<span class="token punctuation">(</span><span class="token string">"NFC"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>normalize<span class="token punctuation">(</span><span class="token string">"NFC"</span><span class="token punctuation">,</span> s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>normalize<span class="token punctuation">(</span><span class="token string">"NFD"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>normalize<span class="token punctuation">(</span><span class="token string">"NFD"</span><span class="token punctuation">,</span> s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>normalize<span class="token punctuation">(</span><span class="token string">"NFD"</span><span class="token punctuation">,</span> s1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> len<span class="token punctuation">(</span>normalize<span class="token punctuation">(</span><span class="token string">"NFD"</span><span class="token punctuation">,</span> s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+micro <span class="token operator">=</span> <span class="token string">"μ"</span>
+<span class="token keyword">from</span> unicodedata <span class="token keyword">import</span> name
+<span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">(</span>micro<span class="token punctuation">)</span><span class="token punctuation">)</span>
+micro_cf <span class="token operator">=</span> micro<span class="token punctuation">.</span>casefold<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">(</span>micro_cf<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>micro <span class="token operator">==</span> micro_cf<span class="token punctuation">)</span>
+
+<span class="token keyword">import</span> unicodedata
+<span class="token keyword">def</span> <span class="token function">shave_marks</span><span class="token punctuation">(</span>txt<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    norm_txt <span class="token operator">=</span> normalize<span class="token punctuation">(</span><span class="token string">"NFD"</span><span class="token punctuation">,</span> txt<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 分解基字符和组合记号</span>
+    shaved <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>c <span class="token keyword">for</span> c <span class="token keyword">in</span> norm_txt <span class="token keyword">if</span> <span class="token operator">not</span> unicodedata<span class="token punctuation">.</span>combining<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 去掉组合记号</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>shaved<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> normalize<span class="token punctuation">(</span><span class="token string">"NFC"</span><span class="token punctuation">,</span> shaved<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 重新规范化</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>shave_marks<span class="token punctuation">(</span><span class="token string">"café"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">import</span> locale
+l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"éac"</span><span class="token punctuation">,</span><span class="token string">"eac"</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sorted<span class="token punctuation">(</span>l<span class="token punctuation">,</span> key <span class="token operator">=</span> locale<span class="token punctuation">.</span>strxfrm<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">import</span> pyuca
+coll <span class="token operator">=</span> pyuca<span class="token punctuation">.</span>Collator<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sorted<span class="token punctuation">(</span>l<span class="token punctuation">,</span> key<span class="token operator">=</span>coll<span class="token punctuation">.</span>sort_key<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1115,7 +1189,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 <br>
                 
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                    class="white-color">19.5k</span>&nbsp;字
+                    class="white-color">19.8k</span>&nbsp;字
                 
                 
                 
