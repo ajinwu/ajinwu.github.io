@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>文本与字符序列</title>
+      <link href="/2019/12/02/wen-ben-yu-zi-fu-xu-lie/"/>
+      <url>/2019/12/02/wen-ben-yu-zi-fu-xu-lie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="字符问题"><a href="#字符问题" class="headerlink" title="字符问题"></a>字符问题</h1><p>对于字节序列, 可以理解为机器转储, Unicode字符是人类可读的文本</p><p>python3的str类型基本相当于python2的Unicode类型</p><h1 id="字节概要"><a href="#字节概要" class="headerlink" title="字节概要"></a>字节概要</h1><p>python3内置两种基本的二进制序列类型: python3引入的不可变bytes类型和python2.6添加的可变bytearray类型(python2.6的bytes类型是str的别名, 与python3不同)</p><p>bytes及bytesarray对象切片后还是bytes或者bytesarray对象</p><p>bytes也拥有str对象(除了几个)的方法</p><p>解决单个有符号整数<code>int.from_bytes(b'\xfe\xff', 'little', signed=True)</code></p><h1 id="结构体和内存视图"><a href="#结构体和内存视图" class="headerlink" title="结构体和内存视图"></a>结构体和内存视图</h1><p>bytes的解码方式</p><pre class="line-numbers language-python"><code class="language-python">struct<span class="token punctuation">.</span>unpack<span class="token punctuation">(</span><span class="token string">"&lt;hhhhh"</span><span class="token punctuation">,</span>bytes<span class="token punctuation">(</span>b<span class="token string">"\xfe\xff\xff\xff\x00\x00\x01\x00\x02\x00"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>其他format地址<a href="https://docs.python.org/zh-cn/3/library/struct.html#byte-order-size-and-alignment" target="_blank" rel="noopener">struct</a></p><h1 id="基本的编解码器"><a href="#基本的编解码器" class="headerlink" title="基本的编解码器"></a>基本的编解码器</h1><ol><li>Latin1(即iso8859_1)一种重要的编码, 是其他编码的基础, 例如cp1512和Unicode</li><li>cp1512是微软的latin1超集</li><li>cp437是最初的IBM最初的字符集, 与Latin1不兼容</li><li>gb2312用于编码简体中文的陈旧标准</li><li>utf-8是常见的8位编码, 与ascii兼容</li><li>字节使用decode解码</li><li>字符使用encode编码</li></ol><h1 id="了解编解码问题"><a href="#了解编解码问题" class="headerlink" title="了解编解码问题"></a>了解编解码问题</h1><ol><li>对字符编码时, 可以采用errors=”ignore”或者”replace”来忽略或者替换错误</li><li>cp1252可以解码拉丁文, 他是Latin1的有效超集</li><li>一个检查字符头的哭chardet, 使用chardetect filiname来判断或者在code里面<code>chardet.detect(f.read())</code></li><li>字节序标记即BOM头</li><li>需要在多台设备或者不同平台下运行代码必须要指明编码格式</li><li>除非是进行编码判断, 尽量不要使用二进制打开文本文件</li></ol><h1 id="规范Unicode字符串"><a href="#规范Unicode字符串" class="headerlink" title="规范Unicode字符串"></a>规范Unicode字符串</h1><p>使用unicodedata.normalize函数进行规范化中, NFC, NFD, NFKC, NFKD都可以使用</p><ol><li>NFC使用最少的码位构成等价的字符串, 而NFD是把组合字符分解成基字符和单独的组合字符</li><li>NFKC或者NFKD规范时会导致数据损失</li><li>在大小写折叠中casefold与lower是相同的, 但是<code>μ</code>和<code>β</code>是不同的</li><li>使用nfc对比时是最好的规范化形式, 规范中不区分大小写是应该使用cafeflod</li><li>极端规范化可以将变音符号去掉</li></ol><h1 id="Unicode文本排序"><a href="#Unicode文本排序" class="headerlink" title="Unicode文本排序"></a>Unicode文本排序</h1><ol><li>非ascii文本排序使用的是locale.strxfrm作为key, 但是要这样做必须要设置区域, 不建议这样使用</li><li>使用pyuca可以直接进行排序</li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文本与字符序列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机网络复习概要</title>
       <link href="/2019/11/28/ji-suan-ji-wang-luo-fu-xi-gai-yao/"/>
       <url>/2019/11/28/ji-suan-ji-wang-luo-fu-xi-gai-yao/</url>

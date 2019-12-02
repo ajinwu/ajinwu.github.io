@@ -4,14 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="docker初级, python bigdata docker spark linux django">
+    <meta name="keywords" content="文本与字符序列, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="获取docker镜像
-获取镜像
-docker pull ubuntu:18.10  下载镜像
-默认不填版本号会选最新版本的，即latest，默认使用官方镜像
-非官方镜像下载 
-docker pull hub.c.163.com/public">
+    <meta name="description" content="字符问题对于字节序列, 可以理解为机器转储, Unicode字符是人类可读的文本
+python3的str类型基本相当于python2的Unicode类型
+字节概要python3内置两种基本的二进制序列类型: python3引入的不可变byt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +16,7 @@ docker pull hub.c.163.com/public">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>docker初级 | ajin的博客</title>
+    <title>文本与字符序列 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,13 +307,13 @@ docker pull hub.c.163.com/public">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        docker初级
+                        文本与字符序列
                     </div>
                 </div>
             </div>
@@ -428,8 +425,8 @@ docker pull hub.c.163.com/public">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/docker/">
-                                <span class="chip bg-color">docker</span>
+                            <a href="/tags/%E6%96%87%E6%9C%AC%E4%B8%8E%E5%AD%97%E7%AC%A6%E5%BA%8F%E5%88%97/">
+                                <span class="chip bg-color">文本与字符序列</span>
                             </a>
                         
                     </div>
@@ -440,8 +437,8 @@ docker pull hub.c.163.com/public">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/docker/" class="post-category">
-                                docker
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -453,7 +450,7 @@ docker pull hub.c.163.com/public">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-21
+                    2019-12-02
                 </div>
                 
 
@@ -462,14 +459,14 @@ docker pull hub.c.163.com/public">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    637
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    2 分
                 </div>
                 
 				
@@ -485,215 +482,44 @@ docker pull hub.c.163.com/public">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="获取docker镜像"><a href="#获取docker镜像" class="headerlink" title="获取docker镜像"></a>获取docker镜像</h1><ul>
-<li>获取镜像<ul>
-<li>docker pull ubuntu:18.10  下载镜像<ul>
-<li>默认不填版本号会选最新版本的，即latest，默认使用官方镜像</li>
-<li>非官方镜像下载 <blockquote>
-<p>docker pull hub.c.163.com/public/centos:6.5</p>
-</blockquote>
-</li>
-<li>pull 参数<ul>
-<li>-a，    –all表示获取所有镜像，默认为否</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>- 查看镜像
-    - docker images列出镜像
-        - images参数
-            - -a，    列出所有镜像
-            - -f ，   列出过滤的镜像，例如列出没有被使用的镜像
-                &gt;docker images -f dangling=true
-    - docker tag ubuntu:latest ajinwu:test给镜像起别名，类似于软链接
-    - docker inspect web列出web这个容器的详细信息(注意，并不是镜像名)
-        - -f参数
-            &gt;docker inspect -f {{".Networks"}} web  显示web容器的网络信息
-    - docker history ajinwu:test列出镜像的创建过程
-        &gt;docker history --no-trunc ajinwu:test  显示截断的信息
-
-
-- 搜寻镜像
-    - docker search [option] keyword
-        - -f    过滤输出内容
-            &gt; docker search -f=is-official=true nginx   查找镜像，官方给出的带有nginx的镜像
-        - --limit int 限制输出内容
-            &gt; docker search --limit=3 nginx         显示前三条结果
-
-
-- 清理镜像
-    - docker rmi ubuntu:18.10       删除镜像标签为18.10的ubuntu镜像
-    - -f强制删除，即使有容器依赖
-    - docker ps -a  列出本机用过的所有容器
-    - 先删除容器在删除镜像
-        &gt; docker rm [CONTAINER ID]  删除镜像
-        &gt; docker rmi -f ajinwu/commit_test1:latest  强制删除镜像
-        &gt; docker images prune -f 自动清除遗留文件层
-
-
-- 创建镜像
-    - docker commit -m "add a new file" -a "docker ajin" c57 ajinwu/commit_test     制作一个新镜像，信息为add  file，作者信息为docker  ajin，容器id为c57开头,仓库名为ajinwu/,镜像名为commit_test 的新镜像
-    - 还可以添加-p暂停容器的运行
-    - 可以使用openVZ提供的模板来创建镜像
-        - cat ubuntu-18.04-x86_64.tar.gz | docker import - ubuntu:18.04
-    - dockerfile构建镜像
-        - docker build -t="ajinwu/dockerfile" .     -t参数为镜像名，后面加上dockerfile的目录
-
-
-- 存出镜像和载入镜像
-    - 存出镜像 docker save -o ubuntu_commit.tar ajinwu/commit_test
-    - 载入镜像  docker load &lt; ubuntu_commit.tar
-    - 上传镜像
-        - 先修改标签，格式为用户ID/镜像名docker tag test:test ajinwu/test
-        - 上传  docker push ajinwu/test</code></pre><ul>
-<li><p>操作容器</p>
-<ul>
-<li><p>创建容器</p>
-<ul>
-<li><p>docker create -it ajinwu:test创建一个容器不运行</p>
-</li>
-<li><p>docker run -it ajinwu:test /bin/bash 使用ajinwu:test镜像创建一个容器并开启交互式终端使用/bin/bash</p>
-</li>
-<li><p>docker run -p 8111:80 –name nginx -i -t ubuntu /bin/bash     创建一个容器名为nginx的容器，将本地的8111端口映射到容器的80端口，可使用容器的地址直接访问</p>
-</li>
-<li><p>常用参数说明</p>
-<ul>
-<li>-i    保持标准输入输出打开</li>
-<li>-t    分配伪终端</li>
-<li>-d    是否后台运行，默认为否</li>
-<li>–net=”bridge”    开启桥接网络</li>
-<li>–expose      暴露端口</li>
-<li>-p映射端口 -p</li>
-</ul>
-</li>
-<li><p>开启容器docker start 042  注意，只能使用id</p>
-</li>
-<li><p>docker run ubuntu /bin/echo “hello wolrd”</p>
-<ul>
-<li>检查本地是否有ubuntu镜像</li>
-<li>利用镜像创建一个容器，并启动该容器</li>
-<li>分配一个文件系统给容器，并在只读镜像层外面挂载一层可读写层</li>
-<li>从宿主主机的配置的网桥接口中桥接一个虚拟接口到容器</li>
-<li>从网桥的地址池配置一个ip给容器</li>
-<li>执行用户指定的应用程序</li>
-<li>执行完命令容器被自动终止</li>
-</ul>
-</li>
-<li><p>查看容器输出</p>
-<ul>
-<li><blockquote>
-<p>docker logs  -f -t  –tail 10 test       查看最后10条并持续输出显示时间</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>停止容器</p>
-<ul>
-<li>docker run –name=ajin2 -it –rm ubuntu bash运行一个容器，命名为ajin2，交互式伪终端运行bash，运行结束后删除该容器</li>
-<li>Ctrl +p    Ctrl+q 后台运行容器，不停止容器的退出</li>
-<li>docker pause ajin2 暂停容器ajin2</li>
-<li>docker stop ajin2 终止容器ajin2</li>
-<li>docker ps 查看容器<ul>
-<li>-l    查看正在运行的容器</li>
-<li>-a    查看所有容器</li>
-<li>-qa   只查看所有容器的id</li>
-</ul>
-</li>
-<li>docker restart 042    重启容器</li>
-</ul>
-</li>
-<li><p>进入容器</p>
-<ul>
-<li>docker attach 042  进入后台容器</li>
-<li>docker exec -it 042 bash  推荐这种方式，在不影响运行应用的情况下开启一个新的bash</li>
-</ul>
-</li>
-<li><p>docker rm -f 042      强行删除容器（不建议）</p>
-</li>
-<li><p>导入和导出容器</p>
-<ul>
-<li>导出容器<ul>
-<li>docker export -o test_export.tar 4ac</li>
-</ul>
-</li>
-<li>导入容器<ul>
-<li>docker import test_export.tar - test/ubuntu:v11这命令我不知道为啥错了</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>查看容器</p>
-<ul>
-<li>docker top 4ac       查看运行中的容器进程</li>
-<li>docker stats 4ac  类似与htop命令</li>
-<li>docker inspect 4ac    查看容器信息</li>
-</ul>
-</li>
-<li><p>其他容器命令</p>
-<ul>
-<li>复制文件docker cp dp_2.py 4ac:/tmp，复制本机的文件到容器的tmp下</li>
-<li>反向赋值docker cp 4ac:/test.txt .</li>
-<li>docker  diff 4ac     查看容器数据修改</li>
-<li>docker container port d8  查看端口映射<h1 id="访问docker仓库"><a href="#访问docker仓库" class="headerlink" title="访问docker仓库"></a>访问docker仓库</h1></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>各大镜像仓库</p>
-<ul>
-<li>阿里云，网易云，腾讯云docker pull  url</li>
-</ul>
-</li>
-<li><p>搭建本地私有仓库，大家自行学习</p>
-</li>
-</ul>
-<h1 id="docker数据管理"><a href="#docker数据管理" class="headerlink" title="docker数据管理"></a>docker数据管理</h1><ul>
-<li><p>数据卷</p>
-<ul>
-<li>docker volume create -d local test 会在宿主机/var/lib/docker/volumes下创建一个test数据卷</li>
-<li>绑定数据卷<br>  docker run -it -p 80 –name=blog -v /home/ajin_w/blogbak:/home/ajin_w/blog ubuntu /bin/bash     此命令为开启一个名为blog的容器，-v参数为映射本地文件夹blogbak目录到容器blog下，映射目录相当于一个网络驱动器，容器内外的修改均会生效，可在映射结束的位置添加读写权限，例如ro</li>
-</ul>
-</li>
-<li><p>数据容器</p>
-<ul>
-<li><p>数据容器的创建使得挂载该数据容器的容器间可以很方便的进行数据交换</p>
-</li>
-<li><p>创建数据容器</p>
-<ul>
-<li>docker run -it -v /dbdata –name dbdata ubuntu</li>
-</ul>
-</li>
-<li><p>挂载数据容器</p>
-<ul>
-<li>docker run -it –volumes-from dbdata –name db1 ubuntu</li>
-</ul>
-</li>
-<li><p>数据容器不需要保持在运行状态</p>
-</li>
-<li><p>删除数据卷必须在最后一个挂载他的容器显式使用docker rm -v命令来指定同时删除关联的容器</p>
-</li>
-<li><p>数据迁移</p>
-<ul>
-<li>docker run –volumes-from dbdata -v $(pwd):/backup –name worker ubuntu tar -cvf /backup/backup.tar /dbdata</li>
-<li>以上命令解释：创建一个worker容器，挂载dbdata数据卷，使用-v参数挂载本地当前目录到worker的容器的backup目录，容器启动后，打包dbdata为容器的/backup/backup.tar，即宿主机的当前目录下的backup.tar      意思就是挂载两个数据卷，一个本地目录，一个数据卷或者数据容器，将容器内的数据卷打包到容器的backup目录，因为直接挂载数据卷在/目录下，在挂载一个目录，将/目录下的数据卷打包进backup就好，本地目录变成了backup</li>
-</ul>
-</li>
-<li><p>数据恢复</p>
-<ul>
-<li>docker run -v /dbdata –name dbdata2 ubuntu /bin/bash </li>
-<li>创建一个容器挂载dbdata数据卷，名为dbdata2</li>
-<li>docker run –volumes-from dbdata2 -v $(pwd):/backup ubuntu tar xvf /backup/backup.tar </li>
-<li>创建另一份容器挂载dbdata2和当前目录到/backup目录，将本地的目录解压</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+                <h1 id="字符问题"><a href="#字符问题" class="headerlink" title="字符问题"></a>字符问题</h1><p>对于字节序列, 可以理解为机器转储, Unicode字符是人类可读的文本</p>
+<p>python3的str类型基本相当于python2的Unicode类型</p>
+<h1 id="字节概要"><a href="#字节概要" class="headerlink" title="字节概要"></a>字节概要</h1><p>python3内置两种基本的二进制序列类型: python3引入的不可变bytes类型和python2.6添加的可变bytearray类型(python2.6的bytes类型是str的别名, 与python3不同)</p>
+<p>bytes及bytesarray对象切片后还是bytes或者bytesarray对象</p>
+<p>bytes也拥有str对象(除了几个)的方法</p>
+<p>解决单个有符号整数<code>int.from_bytes(b'\xfe\xff', 'little', signed=True)</code></p>
+<h1 id="结构体和内存视图"><a href="#结构体和内存视图" class="headerlink" title="结构体和内存视图"></a>结构体和内存视图</h1><p>bytes的解码方式</p>
+<pre class="line-numbers language-python"><code class="language-python">struct<span class="token punctuation">.</span>unpack<span class="token punctuation">(</span><span class="token string">"&lt;hhhhh"</span><span class="token punctuation">,</span>bytes<span class="token punctuation">(</span>b<span class="token string">"\xfe\xff\xff\xff\x00\x00\x01\x00\x02\x00"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>其他format地址<a href="https://docs.python.org/zh-cn/3/library/struct.html#byte-order-size-and-alignment" target="_blank" rel="noopener">struct</a></p>
+<h1 id="基本的编解码器"><a href="#基本的编解码器" class="headerlink" title="基本的编解码器"></a>基本的编解码器</h1><ol>
+<li>Latin1(即iso8859_1)一种重要的编码, 是其他编码的基础, 例如cp1512和Unicode</li>
+<li>cp1512是微软的latin1超集</li>
+<li>cp437是最初的IBM最初的字符集, 与Latin1不兼容</li>
+<li>gb2312用于编码简体中文的陈旧标准</li>
+<li>utf-8是常见的8位编码, 与ascii兼容</li>
+<li>字节使用decode解码</li>
+<li>字符使用encode编码</li>
+</ol>
+<h1 id="了解编解码问题"><a href="#了解编解码问题" class="headerlink" title="了解编解码问题"></a>了解编解码问题</h1><ol>
+<li>对字符编码时, 可以采用errors=”ignore”或者”replace”来忽略或者替换错误</li>
+<li>cp1252可以解码拉丁文, 他是Latin1的有效超集</li>
+<li>一个检查字符头的哭chardet, 使用chardetect filiname来判断或者在code里面<code>chardet.detect(f.read())</code></li>
+<li>字节序标记即BOM头</li>
+<li>需要在多台设备或者不同平台下运行代码必须要指明编码格式</li>
+<li>除非是进行编码判断, 尽量不要使用二进制打开文本文件</li>
+</ol>
+<h1 id="规范Unicode字符串"><a href="#规范Unicode字符串" class="headerlink" title="规范Unicode字符串"></a>规范Unicode字符串</h1><p>使用unicodedata.normalize函数进行规范化中, NFC, NFD, NFKC, NFKD都可以使用</p>
+<ol>
+<li>NFC使用最少的码位构成等价的字符串, 而NFD是把组合字符分解成基字符和单独的组合字符</li>
+<li>NFKC或者NFKD规范时会导致数据损失</li>
+<li>在大小写折叠中casefold与lower是相同的, 但是<code>μ</code>和<code>β</code>是不同的</li>
+<li>使用nfc对比时是最好的规范化形式, 规范中不区分大小写是应该使用cafeflod</li>
+<li>极端规范化可以将变音符号去掉</li>
+</ol>
+<h1 id="Unicode文本排序"><a href="#Unicode文本排序" class="headerlink" title="Unicode文本排序"></a>Unicode文本排序</h1><ol>
+<li>非ascii文本排序使用的是locale.strxfrm作为key, 但是要这样做必须要设置区域, 不建议这样使用</li>
+<li>使用pyuca可以直接进行排序</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -737,7 +563,7 @@ docker pull hub.c.163.com/public">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/11/21/docker-chu-ji/">https://www.ajin.cloud/2019/11/21/docker-chu-ji/</a>
+                    <a href="https://www.ajin.cloud/2019/12/02/wen-ben-yu-zi-fu-xu-lie/">https://www.ajin.cloud/2019/12/02/wen-ben-yu-zi-fu-xu-lie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -775,8 +601,8 @@ docker pull hub.c.163.com/public">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/docker/">
-                                    <span class="chip bg-color">docker</span>
+                                <a href="/tags/%E6%96%87%E6%9C%AC%E4%B8%8E%E5%AD%97%E7%AC%A6%E5%BA%8F%E5%88%97/">
+                                    <span class="chip bg-color">文本与字符序列</span>
                                 </a>
                             
                         </div>
@@ -947,7 +773,7 @@ docker pull hub.c.163.com/public">
         repo: 'ajinwu.github.io',
         owner: 'ajinwu',
         admin: "ajinwu",
-        id: '2019-11-21T16-31-40',
+        id: '2019-12-02T21-39-29',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -968,9 +794,9 @@ docker pull hub.c.163.com/public">
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/11/21/docker-chu-ji/';
-        this.page.identifier = '/2019/11/21/docker-chu-ji/';
-        this.page.title = 'docker初级';
+        this.page.url = 'https://www.ajin.cloud/2019/12/02/wen-ben-yu-zi-fu-xu-lie/';
+        this.page.identifier = '/2019/12/02/wen-ben-yu-zi-fu-xu-lie/';
+        this.page.title = '文本与字符序列';
     };
     let disqus_shortname = '';
 
@@ -993,85 +819,31 @@ docker pull hub.c.163.com/public">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/21/docker-gao-ji/">
+                <a href="/2019/12/02/wen-ben-yu-zi-fu-xu-lie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="docker高级">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="文本与字符序列">
                         
-                        <span class="card-title">docker高级</span>
+                        <span class="card-title">文本与字符序列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Docker
-docker隔离的东西(linux namespace+chroot)
-UTS(主机名和域名)
-User(用户)
-Mount挂载点(文件系统)
-IPC(信号量, 消息队列, 共享队列)
-Pid(进程编号)
-Network(网络
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/docker/" class="post-category">
-                                    docker
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/12/zi-dian-he-ji-he/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="字典和集合">
-                        
-                        <span class="card-title">字典和集合</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            泛映射类型collection.abc 模块中有mapping和mutaleMapping这两个抽象基类, 往往为dict和其他类似的类型定义形式接口
-非抽象映射类型一般不会直接继承抽象基类, 会直接对dict或者collection.us
+                            字符问题对于字节序列, 可以理解为机器转储, Unicode字符是人类可读的文本
+python3的str类型基本相当于python2的Unicode类型
+字节概要python3内置两种基本的二进制序列类型: python3引入的不可变byt
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-02
                             </span>
                         <span class="publish-author">
                             
@@ -1085,11 +857,70 @@ Network(网络
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E6%96%87%E6%9C%AC%E4%B8%8E%E5%AD%97%E7%AC%A6%E5%BA%8F%E5%88%97/">
+                        <span class="chip bg-color">文本与字符序列</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/28/ji-suan-ji-wang-luo-fu-xi-gai-yao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="计算机网络复习概要">
+                        
+                        <span class="card-title">计算机网络复习概要</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            概述互联网的核心部分起特殊作用的是路由器. 路由器实现分组交换的关键构件, 其任务是转发收到的分组
+
+电路交换的三个步骤:
+
+建立连接
+通话
+释放连接;在通话的全部时间内, 通话的两个用户始终占用全部端到端的通信资源
+
+
+分组交换技术的主要
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
                 </div>
