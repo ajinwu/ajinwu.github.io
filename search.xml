@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>docker网络配置</title>
+      <link href="/2019/12/10/docker-wang-luo-pei-zhi/"/>
+      <url>/2019/12/10/docker-wang-luo-pei-zhi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h1><p>docker网络有六种设备, 对于不同的情景使用最优的设备是最好的选择</p><ol><li>bridge: 桥接网络, 是容器的默认网络, 桥接网络是经常使用在独立容器应用中, 用来通信的网络</li><li>host: 对于独立的容器, 去掉容器和主机之间的网络隔离, 使用主机网络转发, host网络仅可以使用在高于17.06的swarm服务中</li><li>overlay: overlay网络连接不同的docker daemon守护进程, 并且开启swarm服务在每一个docker daemon中通信, 能够使用overlay网络在不同的swarm服务和不同或者相同独立的容器中进行通信, 这个技术消除了操作系统级别的网络需求</li><li>macvlan: 虚拟地址网络允许给容器设置mac地址, 使其作为网络上的物理设备来使用, docker daemon将根据容器的mac地址将流量路由转发到容器</li><li>none: 对于这个容器, 禁用网络, 通常与自定义网络一起使用</li><li>网络插件: 查看dockerhub或者第三方提供商</li></ol><h1 id="网络选择"><a href="#网络选择" class="headerlink" title="网络选择"></a>网络选择</h1><ol><li>桥接网络在同一个主机上的不同容器间进行通信中使用</li><li>主机网路在需要不适用docker网络, 但是需要使用容器时使用(直接使用内网或者公网使用)</li><li>overlay网路在不同的docker主机中进行通信, 或者不同网络应用网络均使用swarm服务</li><li>macvlan网络在迁移容器到其他物理主机使用,使用唯一的mac地址</li><li>第三方网络</li></ol><h1 id="docker-EE-features"><a href="#docker-EE-features" class="headerlink" title="docker EE features"></a>docker EE features</h1><ol><li>相同网络上使用不同的服务, 根据客户机的需求, UCP路由转发到合适的服务上</li><li>对于需要有状态会话的应用程序，会话粘性允许您在HTTP标头中指定UCP用于将后续请求路由到相同服务任务的信息。(机翻)</li></ol><h1 id="使用桥接网络"><a href="#使用桥接网络" class="headerlink" title="使用桥接网络"></a>使用桥接网络</h1><p>桥接网络是链路层设备, 在不同的网络段中转发流量, docker允许连接同一个桥接网络的容器进行通信, 同时隔离没有与桥接网络连接的容器</p><h1 id="用户自定义网桥和默认网桥的区别"><a href="#用户自定义网桥和默认网桥的区别" class="headerlink" title="用户自定义网桥和默认网桥的区别"></a>用户自定义网桥和默认网桥的区别</h1><ol><li>用户自定义的网路在不同的容器间提供了更好的隔离性与互操作性</li></ol><p>容器连接一个桥接网络自动暴露所有的端口对于连接同一个桥接网络, 所有的端口都不暴露出去, 这样使得容器很容易进行通信</p><ol start="2"><li>用户自定义网桥提供了在不同容器间自动dns解析</li></ol><p>容器使用的默认桥接网络只能使用ip地址访问, 除非使用<code>--link</code> 选项, 在用户自定义网络中, 容器可使用别名进行互相解析, 对于很多的容器会增加复杂性, 或者使用hosts也会带来不可以预估的错误</p><ol start="3"><li>可以动态在用户自定义网段中删除或者添加容器</li><li>每一个自定义网段都可以创建配置</li></ol><p>对于使用默认网桥来说, 所有的容器使用一套配置, 重新配置后需要重启docker, 但是用自定义网桥, 可以创建不同的网络配置来满足需求</p><ol start="5"><li>连接默认容器来共享环境变量</li></ol><p>起初只有使用了<code>--like</code>连接了不同容器才能共享环境变量, 但是还有其他方案</p><ol><li>不同容器挂载同一个文件或者目录</li><li>使用docker-compose</li><li>swarm</li></ol><h1 id="管理用户自定义网络"><a href="#管理用户自定义网络" class="headerlink" title="管理用户自定义网络"></a>管理用户自定义网络</h1><p>docker create network –help</p><h2 id="正在运行中的容器进行网络切换"><a href="#正在运行中的容器进行网络切换" class="headerlink" title="正在运行中的容器进行网络切换"></a>正在运行中的容器进行网络切换</h2><pre class="line-numbers language-docker"><code class="language-docker">docker network connect mybr0 my<span class="token punctuation">-</span>nginxdocker network disconnect my<span class="token punctuation">-</span>net my<span class="token punctuation">-</span>nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="ipv6支持"><a href="#ipv6支持" class="headerlink" title="ipv6支持"></a>ipv6支持</h2><p>需要手动开启,创建是加上<code>--ipv6</code>来开启, 但是不能选择在支持ipv6的网桥上禁用</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker构建一次性镜像以及缓存问题</title>
+      <link href="/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/"/>
+      <url>/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<h1 id="通过管道传递dockerfile"><a href="#通过管道传递dockerfile" class="headerlink" title="通过管道传递dockerfile"></a>通过管道传递dockerfile</h1><p>管道中的dockerfile通过stdin可以执行一次性构建在无需在磁盘上构建</p><pre class="line-numbers language-docker"><code class="language-docker">echo <span class="token punctuation">-</span>e <span class="token string">'FROM busybox\nRUN echo "hello world"'</span> <span class="token punctuation">|</span> docker build <span class="token punctuation">-</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre class="line-numbers language-docker"><code class="language-docker">docker build <span class="token punctuation">-</span>&lt;&lt;EOF<span class="token keyword">FROM</span> busybox<span class="token keyword">RUN</span> echo <span class="token string">"hello world"</span>EOF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="来自stdin构建的的镜像无需发送上下文-其中的连字符用来占据PATH位置-但是如果需要复制文件-这样就会无法找到path"><a href="#来自stdin构建的的镜像无需发送上下文-其中的连字符用来占据PATH位置-但是如果需要复制文件-这样就会无法找到path" class="headerlink" title="来自stdin构建的的镜像无需发送上下文, 其中的连字符用来占据PATH位置, 但是如果需要复制文件, 这样就会无法找到path"></a>来自stdin构建的的镜像无需发送上下文, 其中的连字符用来占据PATH位置, 但是如果需要复制文件, 这样就会无法找到path</h2><h2 id="如果需要复制文件应当使用-f-参数"><a href="#如果需要复制文件应当使用-f-参数" class="headerlink" title="如果需要复制文件应当使用-f-参数"></a>如果需要复制文件应当使用<code>-f-</code>参数</h2><pre class="line-numbers language-docker"><code class="language-docker">docker build <span class="token punctuation">-</span>t myimage<span class="token punctuation">:</span>latest <span class="token punctuation">-</span>f<span class="token punctuation">-</span> . &lt;&lt;EOF<span class="token keyword">FROM</span> busybox<span class="token keyword">COPY</span> somefile.txt .<span class="token keyword">RUN</span> cat /somefile.txtEOF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>如果不使用本地文件, 他可以从github拉取文件</p><h1 id="利用缓存构建镜像"><a href="#利用缓存构建镜像" class="headerlink" title="利用缓存构建镜像"></a>利用缓存构建镜像</h1><p>在构建镜像时, docker将顺序执行指令, 在检查每一条指令时, docker会在缓存中查找可重用的镜像, 这符合docker的分层理念.</p><p>如果不想使用缓存时, 可以在构建时加上<code>--no-cache=true</code>来强制构建新镜像, docker匹配遵守下列规则</p><ol><li>从已缓存的父镜像开始, 将下一条指令从基本镜像进行比较, 查看是否是完全相同的命令产生的指令构建</li><li>对于ADD和COPY指令, 将检查镜像中的内容, 并检查文件计算校验和, 不考虑最后修改时间和最后访问时间, 如果文件内容发生了更改, 缓存失效</li><li>除了ADD和COPY以外, 缓存不会检查容器中的更新的文件以确定是否存在缓存, 仅使用命令字符串本身来查找匹配内容</li></ol><p>一旦缓存失效, 所有后续命令都会生成新镜像, 并且不适用缓存</p><h1 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h1><p>安装工具必须首先更新缓存, 安装完成后建议删除缓存rm -rf /var/lib/apt/lists/*</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>文本与字符序列</title>
       <link href="/2019/12/02/wen-ben-yu-zi-fu-xu-lie/"/>
       <url>/2019/12/02/wen-ben-yu-zi-fu-xu-lie/</url>

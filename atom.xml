@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-12-02T13:44:13.048Z</updated>
+  <updated>2019-12-10T12:53:46.292Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker网络配置</title>
+    <link href="https://www.ajin.cloud/2019/12/10/docker-wang-luo-pei-zhi/"/>
+    <id>https://www.ajin.cloud/2019/12/10/docker-wang-luo-pei-zhi/</id>
+    <published>2019-12-10T12:52:44.000Z</published>
+    <updated>2019-12-10T12:53:46.292Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;网络设备&quot;&gt;&lt;a href=&quot;#网络设备&quot; class=&quot;headerlink&quot; title=&quot;网络设备&quot;&gt;&lt;/a&gt;网络设备&lt;/h1&gt;&lt;p&gt;docker网络有六种设备, 对于不同的情景使用最优的设备是最好的选择&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;bridge:
+        
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://www.ajin.cloud/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://www.ajin.cloud/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker构建一次性镜像以及缓存问题</title>
+    <link href="https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/"/>
+    <id>https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/</id>
+    <published>2019-12-10T12:51:09.000Z</published>
+    <updated>2019-12-10T12:52:16.016Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;通过管道传递dockerfile&quot;&gt;&lt;a href=&quot;#通过管道传递dockerfile&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://www.ajin.cloud/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://www.ajin.cloud/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>文本与字符序列</title>

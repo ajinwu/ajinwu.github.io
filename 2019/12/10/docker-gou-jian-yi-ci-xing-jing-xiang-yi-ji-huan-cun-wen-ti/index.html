@@ -4,14 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="秦九韶算法详解, python bigdata docker spark linux django">
+    <meta name="keywords" content="docker构建一次性镜像以及缓存问题, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="#秦九韶算法秦九韶算法是将一元n次多项式的求值问题转化为n个一次式的算法，比普通计算方式提高了一个数量级普通算式
-a*x^i因为多次求幂，消耗了大量的计算时间
-我们来分析一下秦九韶算法例如：
-求
-1+x+2x^2+3x^3
-当x=2时的值首">
+    <meta name="description" content="通过管道传递dockerfile管道中的dockerfile通过stdin可以执行一次性构建在无需在磁盘上构建
+echo -e &#39;FROM busybox\nRUN echo &#34;hello world&#34;&#39; | docker build - ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +15,7 @@ a*x^i因为多次求幂，消耗了大量的计算时间
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>秦九韶算法详解 | ajin的博客</title>
+    <title>docker构建一次性镜像以及缓存问题 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,13 +306,13 @@ a*x^i因为多次求幂，消耗了大量的计算时间
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        秦九韶算法详解
+                        docker构建一次性镜像以及缓存问题
                     </div>
                 </div>
             </div>
@@ -339,8 +335,8 @@ a*x^i因为多次求幂，消耗了大量的计算时间
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
                             </a>
                         
                     </div>
@@ -351,8 +347,8 @@ a*x^i因为多次求幂，消耗了大量的计算时间
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/docker/" class="post-category">
+                                docker
                             </a>
                         
                     </div>
@@ -364,7 +360,7 @@ a*x^i因为多次求幂，消耗了大量的计算时间
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-09
+                    2019-12-10
                 </div>
                 
 
@@ -373,7 +369,7 @@ a*x^i因为多次求幂，消耗了大量的计算时间
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    435
+                    499
                 </div>
                 
 
@@ -396,52 +392,27 @@ a*x^i因为多次求幂，消耗了大量的计算时间
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#秦九韶算法<br>秦九韶算法是将一元n次多项式的求值问题转化为n个一次式的算法，比普通计算方式提高了一个数量级<br>普通算式</p>
-<pre><code>a*x^i</code></pre><p>因为多次求幂，消耗了大量的计算时间</p>
-<p>我们来分析一下秦九韶算法<br>例如：</p>
-<pre><code>求
-1+x+2x^2+3x^3
-当x=2时的值</code></pre><p>首先我们将系数按照从大到小的方式提出来排列<br>如图所示，我们需要将系数这样排列计算<br>除了第一个值以外，其他的处置我们都在循环内取得，首先我们需要得到第一个值（注明，从第二个循环开始即使用sum结果进行乘积）</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>n<span class="token number">-1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        sum <span class="token operator">=</span> sum <span class="token operator">*</span> x <span class="token operator">+</span> arr<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>从第一个数开始每次乘了加上下一个值，然后继续使用结果乘以x加下一个值<br>#下面附上源码</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">define</span> MAX 10  </span><span class="token comment" spellcheck="true">//只建议十项</span>
-<span class="token keyword">int</span> <span class="token function">algorithm</span><span class="token punctuation">(</span><span class="token keyword">double</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">double</span> sum<span class="token punctuation">;</span>
-    sum <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>n<span class="token number">-1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        sum <span class="token operator">=</span> sum <span class="token operator">*</span> x <span class="token operator">+</span> arr<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    <span class="token keyword">double</span> x<span class="token punctuation">;</span>
-    <span class="token keyword">double</span> sum<span class="token punctuation">;</span>
-    <span class="token keyword">double</span> arr<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"请输入项数(注明,项数为最高项的幂+1):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"请输入从小到大的系数，以空格隔开，没有的用0代替:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//必须反向存</span>
-        <span class="token punctuation">{</span>
-            <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%lf"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"请输入乘数x:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%lf"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        sum <span class="token operator">=</span> <span class="token function">algorithm</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.9lf"</span><span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="通过管道传递dockerfile"><a href="#通过管道传递dockerfile" class="headerlink" title="通过管道传递dockerfile"></a>通过管道传递dockerfile</h1><p>管道中的dockerfile通过stdin可以执行一次性构建在无需在磁盘上构建</p>
+<pre class="line-numbers language-docker"><code class="language-docker">echo <span class="token punctuation">-</span>e <span class="token string">'FROM busybox\nRUN echo "hello world"'</span> <span class="token punctuation">|</span> docker build <span class="token punctuation">-</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-docker"><code class="language-docker">docker build <span class="token punctuation">-</span>&lt;&lt;EOF
+<span class="token keyword">FROM</span> busybox
+<span class="token keyword">RUN</span> echo <span class="token string">"hello world"</span>
+EOF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="来自stdin构建的的镜像无需发送上下文-其中的连字符用来占据PATH位置-但是如果需要复制文件-这样就会无法找到path"><a href="#来自stdin构建的的镜像无需发送上下文-其中的连字符用来占据PATH位置-但是如果需要复制文件-这样就会无法找到path" class="headerlink" title="来自stdin构建的的镜像无需发送上下文, 其中的连字符用来占据PATH位置, 但是如果需要复制文件, 这样就会无法找到path"></a>来自stdin构建的的镜像无需发送上下文, 其中的连字符用来占据PATH位置, 但是如果需要复制文件, 这样就会无法找到path</h2><h2 id="如果需要复制文件应当使用-f-参数"><a href="#如果需要复制文件应当使用-f-参数" class="headerlink" title="如果需要复制文件应当使用-f-参数"></a>如果需要复制文件应当使用<code>-f-</code>参数</h2><pre class="line-numbers language-docker"><code class="language-docker">docker build <span class="token punctuation">-</span>t myimage<span class="token punctuation">:</span>latest <span class="token punctuation">-</span>f<span class="token punctuation">-</span> . &lt;&lt;EOF
+<span class="token keyword">FROM</span> busybox
+<span class="token keyword">COPY</span> somefile.txt .
+<span class="token keyword">RUN</span> cat /somefile.txt
+EOF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果不使用本地文件, 他可以从github拉取文件</p>
+<h1 id="利用缓存构建镜像"><a href="#利用缓存构建镜像" class="headerlink" title="利用缓存构建镜像"></a>利用缓存构建镜像</h1><p>在构建镜像时, docker将顺序执行指令, 在检查每一条指令时, docker会在缓存中查找可重用的镜像, 这符合docker的分层理念.</p>
+<p>如果不想使用缓存时, 可以在构建时加上<code>--no-cache=true</code>来强制构建新镜像, docker匹配遵守下列规则</p>
+<ol>
+<li>从已缓存的父镜像开始, 将下一条指令从基本镜像进行比较, 查看是否是完全相同的命令产生的指令构建</li>
+<li>对于ADD和COPY指令, 将检查镜像中的内容, 并检查文件计算校验和, 不考虑最后修改时间和最后访问时间, 如果文件内容发生了更改, 缓存失效</li>
+<li>除了ADD和COPY以外, 缓存不会检查容器中的更新的文件以确定是否存在缓存, 仅使用命令字符串本身来查找匹配内容</li>
+</ol>
+<p>一旦缓存失效, 所有后续命令都会生成新镜像, 并且不适用缓存</p>
+<h1 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h1><p>安装工具必须首先更新缓存, 安装完成后建议删除缓存rm -rf /var/lib/apt/lists/*</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -485,7 +456,7 @@ a*x^i因为多次求幂，消耗了大量的计算时间
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/">https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/</a>
+                    <a href="https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/">https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -523,8 +494,8 @@ a*x^i因为多次求幂，消耗了大量的计算时间
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
                                 </a>
                             
                         </div>
@@ -695,7 +666,7 @@ a*x^i因为多次求幂，消耗了大量的计算时间
         repo: 'ajinwu.github.io',
         owner: 'ajinwu',
         admin: "ajinwu",
-        id: '2019-11-09T16-05-02',
+        id: '2019-12-10T20-51-09',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -716,9 +687,9 @@ a*x^i因为多次求幂，消耗了大量的计算时间
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/';
-        this.page.identifier = '/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/';
-        this.page.title = '秦九韶算法详解';
+        this.page.url = 'https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/';
+        this.page.identifier = '/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/';
+        this.page.title = 'docker构建一次性镜像以及缓存问题';
     };
     let disqus_shortname = '';
 
@@ -745,29 +716,79 @@ a*x^i因为多次求幂，消耗了大量的计算时间
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/09/python-shu-ju-mo-xing/">
+                <a href="/2019/12/10/docker-wang-luo-pei-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="python数据模型">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="docker网络配置">
                         
-                        <span class="card-title">python数据模型</span>
+                        <span class="card-title">docker网络配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            python 风格
-特殊风格
+                            网络设备docker网络有六种设备, 对于不同的情景使用最优的设备是最好的选择
 
-getitem方法是实现列表进行选取的方法, 并且还支持切片语法, 并且只要实现了这个方法, 这个对象就变成了可迭代的对象, 实现方式, 返回一个本对象的一个结点
-in运算符是contains方法实现的, 如
+bridge: 桥接网络, 是容器的默认网络, 桥接网络是经常使用在独立容器应用中, 用来通信的网络
+host: 对于独立的容器, 去掉容器和主机之间的网络隔
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-10
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/02/wen-ben-yu-zi-fu-xu-lie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="文本与字符序列">
+                        
+                        <span class="card-title">文本与字符序列</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            字符问题对于字节序列, 可以理解为机器转储, Unicode字符是人类可读的文本
+python3的str类型基本相当于python2的Unicode类型
+字节概要python3内置两种基本的二进制序列类型: python3引入的不可变byt
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -783,63 +804,8 @@ in运算符是contains方法实现的, 如
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="秦九韶算法详解">
-                        
-                        <span class="card-title">秦九韶算法详解</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #秦九韶算法秦九韶算法是将一元n次多项式的求值问题转化为n个一次式的算法，比普通计算方式提高了一个数量级普通算式
-a*x^i因为多次求幂，消耗了大量的计算时间
-我们来分析一下秦九韶算法例如：
-求
-1+x+2x^2+3x^3
-当x=2时的值首
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E6%96%87%E6%9C%AC%E4%B8%8E%E5%AD%97%E7%AC%A6%E5%BA%8F%E5%88%97/">
+                        <span class="chip bg-color">文本与字符序列</span>
                     </a>
                     
                 </div>
