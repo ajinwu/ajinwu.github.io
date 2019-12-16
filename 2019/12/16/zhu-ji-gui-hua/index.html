@@ -4,13 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="序列构成的数组, python bigdata docker spark linux django">
+    <meta name="keywords" content="主机规划, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="内置序列类型
-python标准库使用c实现了丰富的序列类型
-
-容器序列:list, tuple, collection.deque这些序列能存放不同类型的数据
-扁平序列:str, bytes, bytesarray, memoryview和">
+    <meta name="description" content="磁盘链接方式与装置名的关系磁盘安装在不同的插槽, 会被自动识别为/dev/sd[a-p]
+在早期的磁盘中, 第一扇区是储存重要信息, MBR格式, 但是大于2T以上的磁盘分区无法让某些操作系统读取, 因此新一种分区格式为GPT
+分区表格式与">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +16,7 @@ python标准库使用c实现了丰富的序列类型
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>序列构成的数组 | ajin的博客</title>
+    <title>主机规划 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,13 +307,13 @@ python标准库使用c实现了丰富的序列类型
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        序列构成的数组
+                        主机规划
                     </div>
                 </div>
             </div>
@@ -427,8 +425,8 @@ python标准库使用c实现了丰富的序列类型
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/">
+                                <span class="chip bg-color">计算机系统/linux</span>
                             </a>
                         
                     </div>
@@ -439,8 +437,8 @@ python标准库使用c实现了丰富的序列类型
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/" class="post-category">
+                                计算机系统/linux
                             </a>
                         
                     </div>
@@ -452,7 +450,7 @@ python标准库使用c实现了丰富的序列类型
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-12
+                    2019-12-16
                 </div>
                 
 
@@ -461,14 +459,14 @@ python标准库使用c实现了丰富的序列类型
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    981
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 				
@@ -484,97 +482,53 @@ python标准库使用c实现了丰富的序列类型
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="内置序列类型"><a href="#内置序列类型" class="headerlink" title="内置序列类型"></a>内置序列类型</h1><ol>
-<li><p>python标准库使用c实现了丰富的序列类型</p>
+                <h1 id="磁盘链接方式与装置名的关系"><a href="#磁盘链接方式与装置名的关系" class="headerlink" title="磁盘链接方式与装置名的关系"></a>磁盘链接方式与装置名的关系</h1><p>磁盘安装在不同的插槽, 会被自动识别为/dev/sd[a-p]</p>
+<p>在早期的磁盘中, 第一扇区是储存重要信息, MBR格式, 但是大于2T以上的磁盘分区无法让某些操作系统读取, 因此新一种分区格式为GPT</p>
+<h1 id="分区表格式与限制-MBR"><a href="#分区表格式与限制-MBR" class="headerlink" title="分区表格式与限制(MBR)"></a>分区表格式与限制(MBR)</h1><p><del>分区表是将大表的数据分成许多小的子集, 是将分区信息保存在磁盘的第一扇区的64/128字节中, 每个分区占用16个字节, 存有活动状态表示, 文件系统标识, 起止柱面号, 扇区号, 隐含扇区数目(4字节), 分区总扇区数目(4字节)等内容, 这也是MBR分区不能草果4个的原因</del></p>
+<p>MBR(master Boot Record主要开机记录区)来处理开机管理程序与分区表, 通常放在第一扇区(512bytes)</p>
 <ol>
-<li>容器序列:list, tuple, collection.deque这些序列能存放不同类型的数据</li>
-<li>扁平序列:str, bytes, bytesarray, memoryview和array.array, 这种序列只能容纳一种类型<blockquote>
-<p>容器序列存放的是他们所包含的对象的引用, 扁平序列存放的是值, 换句话来说, 扁平序列是一段连续的内存空间</p>
-</blockquote>
-</li>
-<li>可变序列:list, bytesarray, array.array, collections.deque, memoryview</li>
-<li>不可变序列: tuple, str和bytes</li>
+<li>主要启动记录区:446bytes</li>
+<li>分区表: 记录磁盘分区状态, 64bytes</li>
 </ol>
-</li>
-<li><p>列表推导和生成器表达式</p>
+<p>如果有四个分区, 则会被识别为sba[1-4]</p>
 <ol>
-<li>列表推导式并不一定比map慢</li>
-<li>在初始化序列类型时, 使用生成器表达式是更好的选择, 生成器表达式遵守了迭代器协议, 可以逐个产生元素, 列表推导式是先建立一个完整的列表, 然后再把这个列表传递到某个构造函数里面, 不够节省内存.</li>
-<li>生成器表达式每次for循环才会生成一个组合, 所以会省掉笛卡尔积的for循环开销</li>
+<li>分区只是针对64bytes的分区表设定</li>
+<li>磁盘默认分区表仅能写入四组分区信息</li>
+<li>四组分区信息通常称为主分区或扩展分区</li>
+<li>分区槽的最小单位为磁盘柱面</li>
 </ol>
-</li>
-<li><p>元组不仅仅是不可变的列表</p>
+<p>分区考虑</p>
 <ol>
-<li>元组和记录: 元组其实是对数据的记录, 元组的每个元素都存放了一个字段的数据, for循环可以自动拆包元组, 迭代过程中, print可以接受一个元组作为参数输入, 拆包让元组当做记录来使用.</li>
-<li>元组拆包可以应用到任何可迭代对象上, 但是可迭代对象的元素必须要跟接受这些元素的元组的空挡数已知</li>
-<li>拆包中对于不定长参数使用*获取, 可以应用与任何位置, 自动对应长度</li>
-<li>python3中函数参数不接受元组型(不接受所有迭代序列, 例如(a, b), [a, b])</li>
+<li>数据安全性</li>
+<li>系统效率, 柱面搜索范围</li>
 </ol>
-</li>
-<li><p>具名元组</p>
+<p>实际上可以将一个硬盘分区成10个以上的分区槽, 使用扩展分区(利用额外的扇区来记录更多的分区信息)</p>
+<p>实际上扩展分区并不是只占一个区块, 而是会分布在每个分区槽最前面的几个扇区来记在分区信息</p>
+<p>扩展分区的目的是使用额外的分区来记录分区信息, 扩展分区本身不能用来格式化, 我们可以使用扩展分区指向的区块来继续做分区记录, 由扩展分区切出来的分区槽称为逻辑分区</p>
 <ol>
-<li>创建一个具名元组需要两个参数, 一个是类名, 另一个是类的各个字段的名字, 后者可以由数个字符串组成的可迭代对象, 或者是有空格分割开的字段名组成的字符串</li>
-<li>存放在对应字段里的数据要以一串参数的形式传入到构造函数中, 元组的构造函数只接受单一的可迭代对象</li>
-<li>可以通过字段名获取对应位置的字段信息</li>
-<li>具名元组里面可以叠加具名元组, 实现高级数据结构</li>
-<li>具名元组相当于一个类</li>
-<li>重复拼接方法<strong>mul</strong>(n), 生成一个新的对象</li>
+<li>扩展分区只能有一个</li>
+<li>主分区和扩展分区最多只有四个</li>
+<li>逻辑分区是被扩展分区切割出来的分区槽</li>
+<li>扩展分区无法格式化</li>
+<li>linux中sata硬盘可以突破63个以上的分区限制</li>
 </ol>
-</li>
-<li><p>切片</p>
+<h1 id="GPT分区表"><a href="#GPT分区表" class="headerlink" title="GPT分区表"></a>GPT分区表</h1><p>在扇区的定义上使用逻辑区块地址(LBA)来处理, 所有区块都以此来规划(预设512bytes), 从0开始</p>
 <ol>
-<li>切片和区间操作会忽略最后一个元素, 符合以0为开始的风格</li>
-<li>python的内置序列类型都是一维的, 他们只支持单一索引</li>
-<li>如果把切片放在赋值语句的左边, 或者把他作为del操作的对象, 我们就可以对序列进行嫁接, 切除, 或者就地修改等操作</li>
-<li>如果赋值的对象是一个切片, 那么右值必须是一个可迭代序列</li>
+<li>LBA0(MBR相容区块)<br>与MBR相似的是与之前使用446bytes来储存第一阶段的开机信息, 而在原本的分区表记录区内放入一段特殊标记分区表示GPT格式之意</li>
+<li>GPT分区没有主, 扩展, 逻辑分区的区别</li>
 </ol>
-</li>
-<li><p>对序列使用+*</p>
-<ol>
-<li>序列支持+*, 在拼接的过程中, 两个被操作的序列都不回被修改, python会新建一个包含同类型的序列作为拼接的结果</li>
-<li>不要使用[[“_”]] * 3这种语法</li>
-<li>序列增量赋值要实现<strong>iadd</strong>方法, 如果没有实现, 解释器会自动转向<strong>add</strong>方法</li>
-<li>在元组中, 有可变序列时, 需要append而不是直接+=</li>
-</ol>
-</li>
-<li><p>list.sort和内置函数sorted</p>
-<ol>
-<li>list.sort()方法会原地赋值, 返回值为None, 并不会产生新的对象</li>
-<li>sorted可以接受任何可迭代的对象作为参数, 甚至不可变序列或生成器</li>
-<li>reverse和key作为可选关键字, key用于序列中的每一个元素, 作为排序的对比关键字, 比如key=len, 进行基于字符串长度的排序</li>
-</ol>
-</li>
-<li><p>用bisect来管理已排序的序列</p>
-<ol>
-<li>bisect.insort(list, item), 讲一个新的item放入list, 保持有序的同时插入, 函数有返回值, 返回值为在新序列中的位置</li>
-<li>bisect中的方法都有left和right可选, 区别在于放在左边还是右边</li>
-</ol>
-</li>
-<li><p>当列表不是首选时</p>
-<ol>
-<li>数组<ol>
-<li>数组支持所有跟可变序列有关的操作, 还提供从文件读取和存入文件更快的方法, frombytes和tofile方法</li>
-<li>数组只能存放限定类型的数据</li>
-</ol>
-</li>
-<li>内存视图, 看不懂</li>
-<li>双向队列<ol>
-<li>maxlen是可选参数, 固定后不可改变</li>
-<li>对满队列添加元素时会自动删除左端或者右端元素</li>
-<li>deque原子操作, 是线程安全的</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>总结</p>
-<ol>
-<li>序列类型分为可变序列和不可变序列, 或者说是扁平序列和容器序列, 扁平序列只能保存原子操作, 容器序列可以保存其他序列, 容器:有些对象包含其他对象的引用.</li>
-<li>对于重复拼接在遇到不可变序列时, 会产生新的序列, 如果遇到可变的会就地修改</li>
-<li>元组存放没有关系的数据</li>
-<li>sorted和list.sort背后的算法是timsort自适应算法, 会根据原始数据的特点交替使用插入排序和归并排序</li>
-</ol>
-</li>
-</ol>
+<h1 id="linux中开机流程的BIOS和uefi开机检测程序"><a href="#linux中开机流程的BIOS和uefi开机检测程序" class="headerlink" title="linux中开机流程的BIOS和uefi开机检测程序"></a>linux中开机流程的BIOS和uefi开机检测程序</h1><p>CMOS是记录各项硬件参数且嵌入到主板上面的存储器, BIOS是写入到硬件的一个软件程序, 是开机执行的第一个程序</p>
+<p>接下来BIOS会寻找能够能够开机的硬盘, 并且到该硬盘去读取第一个扇区的MBR位置, 放有最基本的开机管理程序(如果分区表为GPT, BIOS也能从LBA0的MBR兼容区块读取第一阶段的开机管理程序代码)</p>
+<p>UEFI是由C语言编写, 对于硬件是直接使用驱动程序, 支持多平台, 可编程</p>
+<p>安全启动是uefi加入的, 有些时刻需要关闭才能开机</p>
+<h1 id="恢复linux引导"><a href="#恢复linux引导" class="headerlink" title="恢复linux引导"></a>恢复linux引导</h1><p>找到sysimage,让后<code>chroot /mnt/sysimage  grub2-install /dev/sd?</code></p>
+<h1 id="开启X-Window"><a href="#开启X-Window" class="headerlink" title="开启X-Window"></a>开启X-Window</h1><p><code>startx</code></p>
+<h1 id="系统语言设置"><a href="#系统语言设置" class="headerlink" title="系统语言设置"></a>系统语言设置</h1><pre class="line-numbers language-bash"><code class="language-bash">LANG<span class="token operator">=</span>en_US.utf8
+<span class="token function">export</span> LC_ALL<span class="token operator">=</span>en_US.utf8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="分区规划-去参考arch-wiki"><a href="#分区规划-去参考arch-wiki" class="headerlink" title="分区规划(去参考arch wiki)"></a>分区规划(去参考arch wiki)</h1><p>/boot 2GB</p>
+<p>/</p>
+<p>/home</p>
+<p>swap 2G</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -618,7 +572,7 @@ python标准库使用c实现了丰富的序列类型
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/">https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/</a>
+                    <a href="https://www.ajin.cloud/2019/12/16/zhu-ji-gui-hua/">https://www.ajin.cloud/2019/12/16/zhu-ji-gui-hua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -656,8 +610,8 @@ python标准库使用c实现了丰富的序列类型
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/">
+                                    <span class="chip bg-color">计算机系统/linux</span>
                                 </a>
                             
                         </div>
@@ -828,7 +782,7 @@ python标准库使用c实现了丰富的序列类型
         repo: 'ajinwu.github.io',
         owner: 'ajinwu',
         admin: "ajinwu",
-        id: '2019-11-12T18-46-01',
+        id: '2019-12-16T20-07-08',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -849,9 +803,9 @@ python标准库使用c实现了丰富的序列类型
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/';
-        this.page.identifier = '/2019/11/12/xu-lie-gou-cheng-de-shu-zu/';
-        this.page.title = '序列构成的数组';
+        this.page.url = 'https://www.ajin.cloud/2019/12/16/zhu-ji-gui-hua/';
+        this.page.identifier = '/2019/12/16/zhu-ji-gui-hua/';
+        this.page.title = '主机规划';
     };
     let disqus_shortname = '';
 
@@ -874,80 +828,31 @@ python标准库使用c实现了丰富的序列类型
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/12/zi-dian-he-ji-he/">
+                <a href="/2019/12/16/zhu-ji-gui-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="字典和集合">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="主机规划">
                         
-                        <span class="card-title">字典和集合</span>
+                        <span class="card-title">主机规划</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            泛映射类型collection.abc 模块中有mapping和mutaleMapping这两个抽象基类, 往往为dict和其他类似的类型定义形式接口
-非抽象映射类型一般不会直接继承抽象基类, 会直接对dict或者collection.us
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/11/ji-suan-ji-gai-lun/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="计算机概论">
-                        
-                        <span class="card-title">计算机概论</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            数据表示方式数字系统在计算机中, 所有的数据都是二进制
-文字编码系统常用的英文编码都是ascii, 每个符号(英文, 数字, 或符号等)都会占用一个bytes, 总共会有2^8中变化, 目前所使用的Unicode编码系统解决了这个问题
-软件
+                            磁盘链接方式与装置名的关系磁盘安装在不同的插槽, 会被自动识别为/dev/sd[a-p]
+在早期的磁盘中, 第一扇区是储存重要信息, MBR格式, 但是大于2T以上的磁盘分区无法让某些操作系统读取, 因此新一种分区格式为GPT
+分区表格式与
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-16
                             </span>
                         <span class="publish-author">
                             
@@ -961,11 +866,64 @@ python标准库使用c实现了丰富的序列类型
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/">
                         <span class="chip bg-color">计算机系统/linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/10/docker-wang-luo-pei-zhi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="docker网络配置">
+                        
+                        <span class="card-title">docker网络配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            网络设备docker网络有六种设备, 对于不同的情景使用最优的设备是最好的选择
+
+bridge: 桥接网络, 是容器的默认网络, 桥接网络是经常使用在独立容器应用中, 用来通信的网络
+host: 对于独立的容器, 去掉容器和主机之间的网络隔
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>

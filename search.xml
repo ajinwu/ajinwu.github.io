@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>主机规划</title>
+      <link href="/2019/12/16/zhu-ji-gui-hua/"/>
+      <url>/2019/12/16/zhu-ji-gui-hua/</url>
+      
+        <content type="html"><![CDATA[<h1 id="磁盘链接方式与装置名的关系"><a href="#磁盘链接方式与装置名的关系" class="headerlink" title="磁盘链接方式与装置名的关系"></a>磁盘链接方式与装置名的关系</h1><p>磁盘安装在不同的插槽, 会被自动识别为/dev/sd[a-p]</p><p>在早期的磁盘中, 第一扇区是储存重要信息, MBR格式, 但是大于2T以上的磁盘分区无法让某些操作系统读取, 因此新一种分区格式为GPT</p><h1 id="分区表格式与限制-MBR"><a href="#分区表格式与限制-MBR" class="headerlink" title="分区表格式与限制(MBR)"></a>分区表格式与限制(MBR)</h1><p><del>分区表是将大表的数据分成许多小的子集, 是将分区信息保存在磁盘的第一扇区的64/128字节中, 每个分区占用16个字节, 存有活动状态表示, 文件系统标识, 起止柱面号, 扇区号, 隐含扇区数目(4字节), 分区总扇区数目(4字节)等内容, 这也是MBR分区不能草果4个的原因</del></p><p>MBR(master Boot Record主要开机记录区)来处理开机管理程序与分区表, 通常放在第一扇区(512bytes)</p><ol><li>主要启动记录区:446bytes</li><li>分区表: 记录磁盘分区状态, 64bytes</li></ol><p>如果有四个分区, 则会被识别为sba[1-4]</p><ol><li>分区只是针对64bytes的分区表设定</li><li>磁盘默认分区表仅能写入四组分区信息</li><li>四组分区信息通常称为主分区或扩展分区</li><li>分区槽的最小单位为磁盘柱面</li></ol><p>分区考虑</p><ol><li>数据安全性</li><li>系统效率, 柱面搜索范围</li></ol><p>实际上可以将一个硬盘分区成10个以上的分区槽, 使用扩展分区(利用额外的扇区来记录更多的分区信息)</p><p>实际上扩展分区并不是只占一个区块, 而是会分布在每个分区槽最前面的几个扇区来记在分区信息</p><p>扩展分区的目的是使用额外的分区来记录分区信息, 扩展分区本身不能用来格式化, 我们可以使用扩展分区指向的区块来继续做分区记录, 由扩展分区切出来的分区槽称为逻辑分区</p><ol><li>扩展分区只能有一个</li><li>主分区和扩展分区最多只有四个</li><li>逻辑分区是被扩展分区切割出来的分区槽</li><li>扩展分区无法格式化</li><li>linux中sata硬盘可以突破63个以上的分区限制</li></ol><h1 id="GPT分区表"><a href="#GPT分区表" class="headerlink" title="GPT分区表"></a>GPT分区表</h1><p>在扇区的定义上使用逻辑区块地址(LBA)来处理, 所有区块都以此来规划(预设512bytes), 从0开始</p><ol><li>LBA0(MBR相容区块)<br>与MBR相似的是与之前使用446bytes来储存第一阶段的开机信息, 而在原本的分区表记录区内放入一段特殊标记分区表示GPT格式之意</li><li>GPT分区没有主, 扩展, 逻辑分区的区别</li></ol><h1 id="linux中开机流程的BIOS和uefi开机检测程序"><a href="#linux中开机流程的BIOS和uefi开机检测程序" class="headerlink" title="linux中开机流程的BIOS和uefi开机检测程序"></a>linux中开机流程的BIOS和uefi开机检测程序</h1><p>CMOS是记录各项硬件参数且嵌入到主板上面的存储器, BIOS是写入到硬件的一个软件程序, 是开机执行的第一个程序</p><p>接下来BIOS会寻找能够能够开机的硬盘, 并且到该硬盘去读取第一个扇区的MBR位置, 放有最基本的开机管理程序(如果分区表为GPT, BIOS也能从LBA0的MBR兼容区块读取第一阶段的开机管理程序代码)</p><p>UEFI是由C语言编写, 对于硬件是直接使用驱动程序, 支持多平台, 可编程</p><p>安全启动是uefi加入的, 有些时刻需要关闭才能开机</p><h1 id="恢复linux引导"><a href="#恢复linux引导" class="headerlink" title="恢复linux引导"></a>恢复linux引导</h1><p>找到sysimage,让后<code>chroot /mnt/sysimage  grub2-install /dev/sd?</code></p><h1 id="开启X-Window"><a href="#开启X-Window" class="headerlink" title="开启X-Window"></a>开启X-Window</h1><p><code>startx</code></p><h1 id="系统语言设置"><a href="#系统语言设置" class="headerlink" title="系统语言设置"></a>系统语言设置</h1><pre class="line-numbers language-bash"><code class="language-bash">LANG<span class="token operator">=</span>en_US.utf8<span class="token function">export</span> LC_ALL<span class="token operator">=</span>en_US.utf8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h1 id="分区规划-去参考arch-wiki"><a href="#分区规划-去参考arch-wiki" class="headerlink" title="分区规划(去参考arch wiki)"></a>分区规划(去参考arch wiki)</h1><p>/boot 2GB</p><p>/</p><p>/home</p><p>swap 2G</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机系统/linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机系统/linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker网络配置</title>
       <link href="/2019/12/10/docker-wang-luo-pei-zhi/"/>
       <url>/2019/12/10/docker-wang-luo-pei-zhi/</url>
