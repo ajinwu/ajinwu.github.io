@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-12-16T12:09:54.528Z</updated>
+  <updated>2019-12-21T09:08:50.685Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一等函数</title>
+    <link href="https://www.ajin.cloud/2019/12/21/yi-deng-han-shu/"/>
+    <id>https://www.ajin.cloud/2019/12/21/yi-deng-han-shu/</id>
+    <published>2019-12-21T09:06:31.000Z</published>
+    <updated>2019-12-21T09:08:50.685Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;sorted使用&quot;&gt;&lt;a href=&quot;#sorted使用&quot; class=&quot;headerlink&quot; title=&quot;sorted使用&quot;&gt;&lt;/a&gt;sorted使用&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;sorted是没有返回值的&lt;/li&gt;
+&lt;li&gt;sorted的key是一个函数,
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>主机规划</title>
