@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-12-27T07:04:28.124Z</updated>
+  <updated>2019-12-27T08:42:40.756Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对象引用</title>
+    <link href="https://www.ajin.cloud/2019/12/27/dui-xiang-yin-yong/"/>
+    <id>https://www.ajin.cloud/2019/12/27/dui-xiang-yin-yong/</id>
+    <published>2019-12-27T08:42:08.000Z</published>
+    <updated>2019-12-27T08:42:40.756Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;变量不是盒子-是引用&quot;&gt;&lt;a href=&quot;#变量不是盒子-是引用&quot; class=&quot;headerlink&quot; title=&quot;变量不是盒子, 是引用&quot;&gt;&lt;/a&gt;变量不是盒子, 是引用&lt;/h1&gt;&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>函数装饰器和闭包</title>
