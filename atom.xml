@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-12-27T08:42:40.756Z</updated>
+  <updated>2019-12-27T11:45:41.456Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pythoner对象</title>
+    <link href="https://www.ajin.cloud/2019/12/27/pythoner-dui-xiang/"/>
+    <id>https://www.ajin.cloud/2019/12/27/pythoner-dui-xiang/</id>
+    <published>2019-12-27T11:45:14.000Z</published>
+    <updated>2019-12-27T11:45:41.456Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;对象可拆包必须实现iter方法&quot;&gt;&lt;a href=&quot;#对象可拆包必须实现iter方法&quot; class=&quot;headerlink&quot; title=&quot;对象可拆包必须实现iter方法&quot;&gt;&lt;/a&gt;对象可拆包必须实现iter方法&lt;/h3&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>对象引用</title>

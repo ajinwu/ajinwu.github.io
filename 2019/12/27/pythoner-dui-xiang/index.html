@@ -4,14 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="一等函数, python bigdata docker spark linux django">
+    <meta name="keywords" content="pythoner对象, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="sorted使用
-sorted是没有返回值的
-sorted的key是一个函数, 定义后使用, 例如使用sorted排序列表sorted(s.items(), key=lambda x:x[1])
-
-高阶函数
-map迭代操作,传入函数和迭代序">
+    <meta name="description" content="对象可拆包必须实现iter方法self 是init里面定义的self值repr是给开发者看的, 使用repr(object)eq是类实例的等于classmethod和staticmethodclassmethod定义操作类, 而不是操作示例">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +14,7 @@ map迭代操作,传入函数和迭代序">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>一等函数 | ajin的博客</title>
+    <title>pythoner对象 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,13 +305,13 @@ map迭代操作,传入函数和迭代序">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        一等函数
+                        pythoner对象
                     </div>
                 </div>
             </div>
@@ -453,7 +448,7 @@ map迭代操作,传入函数和迭代序">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-21
+                    2019-12-27
                 </div>
                 
 
@@ -462,7 +457,7 @@ map迭代操作,传入函数和迭代序">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    453
+                    484
                 </div>
                 
 
@@ -485,51 +480,71 @@ map迭代操作,传入函数和迭代序">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="sorted使用"><a href="#sorted使用" class="headerlink" title="sorted使用"></a>sorted使用</h1><ol>
-<li>sorted是没有返回值的</li>
-<li>sorted的key是一个函数, 定义后使用, 例如使用sorted排序列表<code>sorted(s.items(), key=lambda x:x[1])</code></li>
+                <h3 id="对象可拆包必须实现iter方法"><a href="#对象可拆包必须实现iter方法" class="headerlink" title="对象可拆包必须实现iter方法"></a>对象可拆包必须实现iter方法</h3><h3 id="self-是init里面定义的self值"><a href="#self-是init里面定义的self值" class="headerlink" title="self 是init里面定义的self值"></a>self 是init里面定义的self值</h3><h3 id="repr是给开发者看的-使用repr-object"><a href="#repr是给开发者看的-使用repr-object" class="headerlink" title="repr是给开发者看的, 使用repr(object)"></a>repr是给开发者看的, 使用repr(object)</h3><h3 id="eq是类实例的等于"><a href="#eq是类实例的等于" class="headerlink" title="eq是类实例的等于"></a>eq是类实例的等于</h3><h2 id="classmethod和staticmethod"><a href="#classmethod和staticmethod" class="headerlink" title="classmethod和staticmethod"></a>classmethod和staticmethod</h2><p>classmethod定义操作类, 而不是操作示例的方法, 改变了调用方法的方式, 传入的第一个参数是类本身, 而不是实例, staticmethod就是普通函数</p>
+<h2 id="获得属性使用-property-类似与obj-x"><a href="#获得属性使用-property-类似与obj-x" class="headerlink" title="获得属性使用@property, 类似与obj.x"></a>获得属性使用@property, 类似与obj.x</h2><h2 id="实现hash可使对象变成可散列的"><a href="#实现hash可使对象变成可散列的" class="headerlink" title="实现hash可使对象变成可散列的"></a>实现hash可使对象变成可散列的</h2><h2 id="名称改写来实现私有变量"><a href="#名称改写来实现私有变量" class="headerlink" title="名称改写来实现私有变量"></a>名称改写来实现私有变量</h2><p>在使用两个下划线命名的属性, 会把属性名存入dict属性中, 并且是<code>_obj__mode</code>这样存储, 但是如果是单个下划线不会做处理</p>
+<h2 id="使用-slots-节省空间"><a href="#使用-slots-节省空间" class="headerlink" title="使用__slots__节省空间"></a>使用<code>__slots__</code>节省空间</h2><ol>
+<li>dict是占用空间的, 但是将属性放入slots后会节省大量空间</li>
+<li>定义slots属性后, 示例不能再由其他名称属性</li>
+<li>如果需要弱引用, 那么就要把<code>__weakref__</code>填入slots</li>
 </ol>
-<h1 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h1><ol>
-<li>map迭代操作,传入函数和迭代序列, 注意函数必须是输入参数要和迭代序列数量相同,例如<code>list(map(lambda x, y: {x : y}, [1, 3, 5, 7, 9], [2, 4, 6, 8, 10]))</code>实现zip</li>
-<li>zip <code>dict(zip([1, 3, 5, 7, 9], [2, 4, 6, 8, 10]))</code></li>
-<li>使用map实现<code>{key:value for i in list(map(lambda x, y: {x : y}, [1, 3, 5, 7, 9], [2, 4, 6, 8, 10])) for key,value in i.items()}</code></li>
-<li>filter过滤<code>list(filter(lambda x:x%2, range(10)))</code></li>
-<li>reduce规约函数<code>reduce(lambda x,y:x + y, range(100))</code></li>
-</ol>
-<h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><p>lambda 需要的是可调用的函数, 或者自己写, 只需要实现call方法</p>
-<h1 id="号和-号展开"><a href="#号和-号展开" class="headerlink" title="号和*号展开"></a><em>号和*</em>号展开</h1><ol>
-<li>单*号是将多个未命名参数转换成元组传入</li>
-<li>双*号是将字典展开</li>
-</ol>
-<h1 id="提取函数参数"><a href="#提取函数参数" class="headerlink" title="提取函数参数"></a>提取函数参数</h1><ol>
-<li><p>function的<code>__code__.co_varnames</code>属性可以获得所有的变量, 参数在前面</p>
-</li>
-<li><p>function的<code>__code__argcount</code>计算的参数数量</p>
-</li>
-<li><p>使用inspect中的signature来提取函数签名</p>
-</li>
-<li><p>产生signature示例, str后就是参数</p>
-</li>
-</ol>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>test2<span class="token punctuation">.</span>__defaults__<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>test2<span class="token punctuation">.</span>__code__<span class="token punctuation">.</span>co_varnames<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>test2<span class="token punctuation">.</span>__code__<span class="token punctuation">.</span>co_argcount<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>test<span class="token punctuation">.</span>__annotations__<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 提取带有注解的参数</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> array <span class="token keyword">import</span> array
 
-<span class="token keyword">from</span> inspect <span class="token keyword">import</span> signature
-sig <span class="token operator">=</span> signature<span class="token punctuation">(</span>test2<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>str<span class="token punctuation">(</span>sig<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> name<span class="token punctuation">,</span> param <span class="token keyword">in</span> sig<span class="token punctuation">.</span>parameters<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>param<span class="token punctuation">.</span>kind<span class="token punctuation">,</span> <span class="token string">":"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token string">"="</span><span class="token punctuation">,</span> param<span class="token punctuation">.</span>default<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="functools"><a href="#functools" class="headerlink" title="functools"></a>functools</h1><ol>
-<li>itemgetter, attrgetter, methodcaller都会自行创建函数</li>
-<li>函数冻结, 第一个参数是一个可调用对象, 后面跟着任意个要绑定的定位参数和关键字参数</li>
-</ol>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> partial
-<span class="token keyword">from</span> operator <span class="token keyword">import</span> mul
-partial <span class="token operator">=</span> partial<span class="token punctuation">(</span>mul<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>partial<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>list<span class="token punctuation">(</span>map<span class="token punctuation">(</span>partial<span class="token punctuation">,</span> range<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">import</span> math
+
+<span class="token keyword">class</span> <span class="token class-name">Vector2d</span><span class="token punctuation">:</span>
+    typecode <span class="token operator">=</span> <span class="token string">'d'</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>__x <span class="token operator">=</span> float<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>__y <span class="token operator">=</span> float<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__iter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 可迭代, 可拆包</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 这里必须返回的是可迭代的</span>
+
+    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        class_name <span class="token operator">=</span> type<span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">.</span>__name__
+        <span class="token keyword">return</span> <span class="token string">"{} ({!r}, {!r})"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>class_name<span class="token punctuation">,</span> <span class="token operator">*</span>self<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取分量的提供给format</span>
+
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 这里显示给用户看的</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token operator">*</span>self<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> str<span class="token punctuation">(</span>tuple<span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__bytes__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>bytes<span class="token punctuation">(</span><span class="token punctuation">[</span>ord<span class="token punctuation">(</span>self<span class="token punctuation">.</span>typecode<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token operator">+</span> bytes<span class="token punctuation">(</span>array<span class="token punctuation">(</span>self<span class="token punctuation">.</span>typecode<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__eq__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> tuple<span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">==</span> tuple<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__abs__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> math<span class="token punctuation">.</span>hypot<span class="token punctuation">(</span>self<span class="token punctuation">.</span>x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__bool__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> bool<span class="token punctuation">(</span>abs<span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__format__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> format_spec <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        compontents <span class="token operator">=</span> <span class="token punctuation">(</span>format<span class="token punctuation">(</span>c<span class="token punctuation">,</span> format_spec<span class="token punctuation">)</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> self<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token string">"({},{})"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">*</span>compontents<span class="token punctuation">)</span>
+
+    @property
+    <span class="token keyword">def</span> <span class="token function">x</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>__x
+
+    @property
+    <span class="token keyword">def</span> <span class="token function">y</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>__y
+
+    <span class="token keyword">def</span> <span class="token function">__hash__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> hash<span class="token punctuation">(</span>self<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">^</span> hash<span class="token punctuation">(</span>self<span class="token punctuation">.</span>y<span class="token punctuation">)</span>
+
+
+
+v1 <span class="token operator">=</span> Vector2d<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list<span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>repr<span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+v2 <span class="token operator">=</span> Vector2d<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>v1 <span class="token operator">==</span> v2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>format<span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>set<span class="token punctuation">(</span><span class="token punctuation">[</span>v1<span class="token punctuation">,</span> v2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -573,7 +588,7 @@ partial <span class="token operator">=</span> partial<span class="token punctuat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/12/21/yi-deng-han-shu/">https://www.ajin.cloud/2019/12/21/yi-deng-han-shu/</a>
+                    <a href="https://www.ajin.cloud/2019/12/27/pythoner-dui-xiang/">https://www.ajin.cloud/2019/12/27/pythoner-dui-xiang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -783,7 +798,7 @@ partial <span class="token operator">=</span> partial<span class="token punctuat
         repo: 'ajinwu.github.io',
         owner: 'ajinwu',
         admin: "ajinwu",
-        id: '2019-12-21T17-06-31',
+        id: '2019-12-27T19-45-14',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -804,9 +819,9 @@ partial <span class="token operator">=</span> partial<span class="token punctuat
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/12/21/yi-deng-han-shu/';
-        this.page.identifier = '/2019/12/21/yi-deng-han-shu/';
-        this.page.title = '一等函数';
+        this.page.url = 'https://www.ajin.cloud/2019/12/27/pythoner-dui-xiang/';
+        this.page.identifier = '/2019/12/27/pythoner-dui-xiang/';
+        this.page.title = 'pythoner对象';
     };
     let disqus_shortname = '';
 
@@ -829,33 +844,30 @@ partial <span class="token operator">=</span> partial<span class="token punctuat
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/">
+                <a href="/2019/12/27/pythoner-dui-xiang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="函数装饰器和闭包">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="pythoner对象">
                         
-                        <span class="card-title">函数装饰器和闭包</span>
+                        <span class="card-title">pythoner对象</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            装饰器基本知识装饰器是可调用的对象, 参数是另一个函数(被装饰的函数), 可以将函数返回或者替换
-装饰器调用时机在函数定义后就直接运行(加载时即开始运行)
-装饰器返回的函数与通过参数传入的相同
-闭包def average():
-    se
+                            对象可拆包必须实现iter方法self 是init里面定义的self值repr是给开发者看的, 使用repr(object)eq是类实例的等于classmethod和staticmethodclassmethod定义操作类, 而不是操作示例
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -868,6 +880,7 @@ partial <span class="token operator">=</span> partial<span class="token punctuat
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -886,33 +899,31 @@ partial <span class="token operator">=</span> partial<span class="token punctuat
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/16/zhu-ji-gui-hua/">
+                <a href="/2019/12/27/dui-xiang-yin-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="主机规划">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="对象引用">
                         
-                        <span class="card-title">主机规划</span>
+                        <span class="card-title">对象引用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            磁盘链接方式与装置名的关系磁盘安装在不同的插槽, 会被自动识别为/dev/sd[a-p]
-在早期的磁盘中, 第一扇区是储存重要信息, MBR格式, 但是大于2T以上的磁盘分区无法让某些操作系统读取, 因此新一种分区格式为GPT
-分区表格式与
+                            变量不是盒子, 是引用每个变量都有标识, 类型和值, 对象一旦创建, 他的标识绝不会变is比较的是变量的标识(id), ==比较的是值, x is not None一般的复制是浅复制(复制的是对象的引用), 使用copy.deepcopy才
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/" class="post-category">
-                                    计算机系统/linux
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -922,8 +933,8 @@ partial <span class="token operator">=</span> partial<span class="token punctuat
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/">
-                        <span class="chip bg-color">计算机系统/linux</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
