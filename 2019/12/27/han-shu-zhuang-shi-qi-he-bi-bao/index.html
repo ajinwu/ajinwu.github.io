@@ -4,13 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python数据模型, python bigdata docker spark linux django">
+    <meta name="keywords" content="函数装饰器和闭包, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="python 风格
-特殊风格
-
-getitem方法是实现列表进行选取的方法, 并且还支持切片语法, 并且只要实现了这个方法, 这个对象就变成了可迭代的对象, 实现方式, 返回一个本对象的一个结点
-in运算符是contains方法实现的, 如">
+    <meta name="description" content="装饰器基本知识装饰器是可调用的对象, 参数是另一个函数(被装饰的函数), 可以将函数返回或者替换
+装饰器调用时机在函数定义后就直接运行(加载时即开始运行)
+装饰器返回的函数与通过参数传入的相同
+闭包def average():
+    se">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@ in运算符是contains方法实现的, 如">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>python数据模型 | ajin的博客</title>
+    <title>函数装饰器和闭包 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,13 +309,13 @@ in运算符是contains方法实现的, 如">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        python数据模型
+                        函数装饰器和闭包
                     </div>
                 </div>
             </div>
@@ -452,7 +452,7 @@ in运算符是contains方法实现的, 如">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-09
+                    2019-12-27
                 </div>
                 
 
@@ -461,7 +461,7 @@ in运算符是contains方法实现的, 如">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    769
+                    689
                 </div>
                 
 
@@ -484,51 +484,74 @@ in运算符是contains方法实现的, 如">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="python-风格"><a href="#python-风格" class="headerlink" title="python 风格"></a>python 风格</h1><ol>
-<li><p>特殊风格</p>
-<ol>
-<li><strong>getitem</strong>方法是实现列表进行选取的方法, 并且还支持切片语法, 并且只要实现了这个方法, 这个对象就变成了可迭代的对象, 实现方式, 返回一个本对象的一个结点</li>
-<li>in运算符是contains方法实现的, 如果没有实现这个方法, 那么in运算符就是按顺序进行一次迭代搜索</li>
+                <h1 id="装饰器基本知识"><a href="#装饰器基本知识" class="headerlink" title="装饰器基本知识"></a>装饰器基本知识</h1><p>装饰器是可调用的对象, 参数是另一个函数(被装饰的函数), 可以将函数返回或者替换</p>
+<h1 id="装饰器调用时机"><a href="#装饰器调用时机" class="headerlink" title="装饰器调用时机"></a>装饰器调用时机</h1><p>在函数定义后就直接运行(加载时即开始运行)</p>
+<p>装饰器返回的函数与通过参数传入的相同</p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">average</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    series <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">def</span> <span class="token function">make_average</span><span class="token punctuation">(</span>new_value<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token comment" spellcheck="true"># 1</span>
+        series<span class="token punctuation">.</span>append<span class="token punctuation">(</span>new_value<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># 2</span>
+        <span class="token keyword">return</span> sum<span class="token punctuation">(</span>series<span class="token punctuation">)</span> <span class="token operator">/</span> len<span class="token punctuation">(</span>series<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 3</span>
+    <span class="token keyword">return</span> make_average                     <span class="token comment" spellcheck="true"># 4</span>
+
+avg <span class="token operator">=</span> average<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>avg<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 运行顺序 4->1->2->3</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>avg<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Series变量是一个自由变量, 意思是未在本地作用域绑定的变量(python的变量命名法和作用域), 不可变类型不可以改变其内容, 例如数字, 可变类型可以改变, 如果进行不可变变量更新结果, 会隐式创建一个局部变量</p>
+<h1 id="nonlocal"><a href="#nonlocal" class="headerlink" title="nonlocal"></a>nonlocal</h1><p>nonlocal声明作用是把变量标记为自由变量, 即使在函数中赋予了新值, 也会变成自由变量</p>
+<h1 id="标准库中的装饰器"><a href="#标准库中的装饰器" class="headerlink" title="标准库中的装饰器"></a>标准库中的装饰器</h1><ol>
+<li>functools.wraps(func)装饰器可以处理关键词参数, 并且会将被装饰的name和doc参数复制到里层函数</li>
+<li>functools.lru_cache(maxsize, typed), 这个装饰器可以缓存之前的结果, 用来优化递归等, maxsize指定保存多少个结果, 并且需要是2的幂, typed为True, 会将不同类型的结果分开保存, 使用字段存储结果, 所以被装饰的函数的所有参数也应该是可散列的(原子不可变类型(str, 数值, bytes)都是可散列类型)</li>
+<li>singledispatch装饰器可以实现类似于重载的效果, 具体查文档</li>
 </ol>
-</li>
-<li><p>如何使用特殊风格<br><br>特殊方法的存在是为了被解释器调用的, 不需要自己调用, 也就是你需要len(object)而不是object.len(), 如果是py内置的类型, 如list, str等, cpython的<strong>len</strong>会直接返回pyvarobject中的ob_size属性, pyvarobject是表示内存中长度可变的内置对象的C语言结构体. 速度会快很多.<br>很多时候, 特殊方法的调用是隐式的, 例如for i in xx, 背后使用的是iter(xx)函数, 而iter实现是xx.<strong>iter</strong>()方法, 通过内置的函数, 如len, str来使用特殊方法是最好的选择, 这些内置函数会调用特殊方法, 且对于内置类来说, 他们的速度会更快.</p>
-<ol>
-<li><p>模拟数值类型</p>
-<ol>
-<li>如果一个对象可以获取 obj 的字符串表示, 他需要实现<strong>repr</strong>或者<strong>str</strong>方法, + 为<strong>add</strong>方法, * 为<strong>mul</strong>方法</li>
-</ol>
-</li>
-<li><p>字符串表示形式<br></p>
-<ol>
-<li><strong>repr</strong> 用于生成正式的表示。可以认为是将对象序列化的方法，原则上要能反序列化回对象。</li>
-<li><strong>str</strong> 用于生成非正式的表示。format 或 print 会调用它来为用户生成“友好的”显示。<blockquote>
-<p>str 与repr对比, repr 并不强制生成的字符串可以反序列化</p>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p>1.repr 生成的字符串一般用于 debug，所以一般生成的字符串一般要包含尽可能多的信息，信息要尽可能明确(如默认实现里用 ID 区分开两个不同的对象)。</p>
-</blockquote>
-<blockquote>
-<p>2.不要使用 repr 和 eval 来做序列化/反序列化，用 pickle 或 json。<br>3.obj.<strong>str</strong>() 方法会在 print(obj) 或 ‘{}’.format(obj) 时被调用，一般是为了给用户提供 “友好的” 显示，所以 <strong>str</strong> 不像<strong>repr</strong> 那样原则上对返回值有约定，想怎么搞都行。</p>
-</blockquote>
-<blockquote>
-<p>4.另外，<strong>str</strong> 的默认实现是直接调用了 <strong>repr</strong> 方法。因此如果覆盖了 <strong>repr</strong> 方法，<strong>str</strong> 的结果也会随之改变。</p>
-</blockquote>
-<blockquote>
-<p>5.如果只想实现其中的一个方法, <strong>repr</strong>是最好的选择, 如果一个对象没有str方法而需要使用时, 会使用repr代替</p>
-<ol start="3">
-<li>自定义的布尔值</li>
-<li>默认情况下, 我们自定义的类总是被认为是真的, 除非是对<strong>bool</strong> 或者<strong>len</strong>做了实现, 如果不存在<strong>bool</strong>, 则会调用<strong>len</strong>方法</li>
-</ol>
-</blockquote>
-</li>
-<li><p><a href="https://docs.python.org/zh-cn/3/reference/datamodel.html" target="_blank" rel="noopener">特殊方法对照表</a></p>
-</li>
-</ol>
-</li>
-</ol>
-<p>本章代码<br><a href="/file/getitem_len.py">getitem_len</a><br><a href="/file/vector.py">vector</a></p>
+<h1 id="叠加装饰器执行顺序是从内到外"><a href="#叠加装饰器执行顺序是从内到外" class="headerlink" title="叠加装饰器执行顺序是从内到外"></a>叠加装饰器执行顺序是从内到外</h1><h1 id="参数化装饰器"><a href="#参数化装饰器" class="headerlink" title="参数化装饰器"></a>参数化装饰器</h1><p>参数化装饰器后, 装饰器必须作为函数调用(@register())</p>
+<p>如果不适用<code>@</code>语法, 则调用方式为</p>
+<pre class="line-numbers language-python"><code class="language-python">registry <span class="token operator">=</span> set<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">register</span><span class="token punctuation">(</span>active <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">decorate</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running register(active=%s) ->decorate(%s)"</span> <span class="token operator">%</span><span class="token punctuation">(</span>active<span class="token punctuation">,</span> func<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> active<span class="token punctuation">:</span>
+            registry<span class="token punctuation">.</span>add<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            registry<span class="token punctuation">.</span>discard<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> func
+    <span class="token keyword">return</span> decorate
+
+@register<span class="token punctuation">(</span>active<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running f1"</span><span class="token punctuation">)</span>
+
+@register<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running f2"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">f3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running f3"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>register<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>f3<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>register<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>f2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>registry<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="装饰器金字塔是多包一个外层函数-将实际函数放在中间层-最外层是参数-最里层是函数参数"><a href="#装饰器金字塔是多包一个外层函数-将实际函数放在中间层-最外层是参数-最里层是函数参数" class="headerlink" title="装饰器金字塔是多包一个外层函数, 将实际函数放在中间层, 最外层是参数, 最里层是函数参数"></a>装饰器金字塔是多包一个外层函数, 将实际函数放在中间层, 最外层是参数, 最里层是函数参数</h1><pre class="line-numbers language-python"><code class="language-python">default_fmt <span class="token operator">=</span> <span class="token string">"[{elapsed:0.8f}s] {name}({args}) -> {result}"</span>
+
+<span class="token keyword">def</span> <span class="token function">clock</span><span class="token punctuation">(</span>fmt <span class="token operator">=</span> default_fmt<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">decorate</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">clocked</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            t0 <span class="token operator">=</span> time<span class="token punctuation">.</span>perf_counter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            result <span class="token operator">=</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+            elapsed <span class="token operator">=</span> time<span class="token punctuation">.</span>perf_counter<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> t0
+            name <span class="token operator">=</span> func<span class="token punctuation">.</span>__name__
+            arg_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+            <span class="token keyword">if</span> args<span class="token punctuation">:</span>
+                arg_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str<span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token keyword">for</span> arg <span class="token keyword">in</span> args<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> kwargs<span class="token punctuation">:</span>
+                pairs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"%s=%r"</span> <span class="token operator">%</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> w<span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> w <span class="token keyword">in</span> sorted<span class="token punctuation">(</span>kwargs<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+                arg_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>pairs<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            arg_str <span class="token operator">=</span> <span class="token string">", "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>arg_list<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>fmt<span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">**</span>locals<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> result
+        <span class="token keyword">return</span> clocked
+    <span class="token keyword">return</span> decorate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -572,7 +595,7 @@ in运算符是contains方法实现的, 如">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/11/09/python-shu-ju-mo-xing/">https://www.ajin.cloud/2019/11/09/python-shu-ju-mo-xing/</a>
+                    <a href="https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/">https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -782,7 +805,7 @@ in运算符是contains方法实现的, 如">
         repo: 'ajinwu.github.io',
         owner: 'ajinwu',
         admin: "ajinwu",
-        id: '2019-11-09T19-05-02',
+        id: '2019-12-27T15-03-21',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -803,9 +826,9 @@ in运算符是contains方法实现的, 如">
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/11/09/python-shu-ju-mo-xing/';
-        this.page.identifier = '/2019/11/09/python-shu-ju-mo-xing/';
-        this.page.title = 'python数据模型';
+        this.page.url = 'https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/';
+        this.page.identifier = '/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/';
+        this.page.title = '函数装饰器和闭包';
     };
     let disqus_shortname = '';
 
@@ -828,48 +851,52 @@ in运算符是contains方法实现的, 如">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/11/ji-suan-ji-gai-lun/">
+                <a href="/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="计算机概论">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="函数装饰器和闭包">
                         
-                        <span class="card-title">计算机概论</span>
+                        <span class="card-title">函数装饰器和闭包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数据表示方式数字系统在计算机中, 所有的数据都是二进制
-文字编码系统常用的英文编码都是ascii, 每个符号(英文, 数字, 或符号等)都会占用一个bytes, 总共会有2^8中变化, 目前所使用的Unicode编码系统解决了这个问题
-软件
+                            装饰器基本知识装饰器是可调用的对象, 参数是另一个函数(被装饰的函数), 可以将函数返回或者替换
+装饰器调用时机在函数定义后就直接运行(加载时即开始运行)
+装饰器返回的函数与通过参数传入的相同
+闭包def average():
+    se
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/" class="post-category">
-                                    计算机系统/linux
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/">
-                        <span class="chip bg-color">计算机系统/linux</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -883,36 +910,36 @@ in运算符是contains方法实现的, 如">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/">
+                <a href="/2019/12/21/yi-deng-han-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="秦九韶算法详解">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="一等函数">
                         
-                        <span class="card-title">秦九韶算法详解</span>
+                        <span class="card-title">一等函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            #秦九韶算法秦九韶算法是将一元n次多项式的求值问题转化为n个一次式的算法，比普通计算方式提高了一个数量级普通算式
-a*x^i因为多次求幂，消耗了大量的计算时间
-我们来分析一下秦九韶算法例如：
-求
-1+x+2x^2+3x^3
-当x=2时的值首
+                            sorted使用
+sorted是没有返回值的
+sorted的key是一个函数, 定义后使用, 例如使用sorted排序列表sorted(s.items(), key=lambda x:x[1])
+
+高阶函数
+map迭代操作,传入函数和迭代序
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -922,8 +949,8 @@ a*x^i因为多次求幂，消耗了大量的计算时间
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>

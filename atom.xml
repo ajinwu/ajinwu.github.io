@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-12-21T09:08:50.685Z</updated>
+  <updated>2019-12-27T07:04:28.124Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数装饰器和闭包</title>
+    <link href="https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/"/>
+    <id>https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/</id>
+    <published>2019-12-27T07:03:21.000Z</published>
+    <updated>2019-12-27T07:04:28.124Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;装饰器基本知识&quot;&gt;&lt;a href=&quot;#装饰器基本知识&quot; class=&quot;headerlink&quot; title=&quot;装饰器基本知识&quot;&gt;&lt;/a&gt;装饰器基本知识&lt;/h1&gt;&lt;p&gt;装饰器是可调用的对象, 参数是另一个函数(被装饰的函数), 可以将函数返回或者替换&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>一等函数</title>
