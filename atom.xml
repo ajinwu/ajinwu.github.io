@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-12-27T11:45:41.456Z</updated>
+  <updated>2019-12-29T07:10:21.989Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis命令参考</title>
+    <link href="https://www.ajin.cloud/2019/12/29/redis-ming-ling-can-kao/"/>
+    <id>https://www.ajin.cloud/2019/12/29/redis-ming-ling-can-kao/</id>
+    <published>2019-12-29T07:08:49.000Z</published>
+    <updated>2019-12-29T07:10:21.989Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;http://redisdoc.com/sorted_set/zincrby.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;redis命令参考&lt;/a&gt;&lt;br&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="redis" scheme="https://www.ajin.cloud/categories/redis/"/>
+    
+    
+      <category term="redis" scheme="https://www.ajin.cloud/tags/redis/"/>
+    
+  </entry>
   
   <entry>
     <title>pythoner对象</title>
