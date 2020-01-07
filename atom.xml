@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2019-12-29T07:13:51.725Z</updated>
+  <updated>2020-01-07T13:29:41.640Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>操作系统复习</title>
+    <link href="https://www.ajin.cloud/2020/01/07/cao-zuo-xi-tong-fu-xi/"/>
+    <id>https://www.ajin.cloud/2020/01/07/cao-zuo-xi-tong-fu-xi/</id>
+    <published>2020-01-07T13:28:22.000Z</published>
+    <updated>2020-01-07T13:29:41.640Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;操作系统的目标(方便些, 有效性, 可扩充性, 开放性)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;未配置操作系统的计算机系统&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;人工操作方式(用户独占全机, cpu等待人工操作), 人机矛盾,
+        
+      
+    
+    </summary>
+    
+    
+      <category term="操作系统" scheme="https://www.ajin.cloud/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="操作系统" scheme="https://www.ajin.cloud/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>redis命令参考</title>
     <link href="https://www.ajin.cloud/2019/12/29/redis-ming-ling-can-kao/"/>
     <id>https://www.ajin.cloud/2019/12/29/redis-ming-ling-can-kao/</id>
     <published>2019-12-29T07:08:49.000Z</published>
-    <updated>2019-12-29T07:13:51.725Z</updated>
+    <updated>2020-01-07T13:26:01.972Z</updated>
     
     <summary type="html">
     
@@ -48,7 +80,7 @@
     <link href="https://www.ajin.cloud/2019/12/27/pythoner-dui-xiang/"/>
     <id>https://www.ajin.cloud/2019/12/27/pythoner-dui-xiang/</id>
     <published>2019-12-27T11:45:14.000Z</published>
-    <updated>2019-12-27T11:45:41.456Z</updated>
+    <updated>2020-01-07T13:25:57.384Z</updated>
     
     <summary type="html">
     
@@ -75,7 +107,7 @@
     <link href="https://www.ajin.cloud/2019/12/27/dui-xiang-yin-yong/"/>
     <id>https://www.ajin.cloud/2019/12/27/dui-xiang-yin-yong/</id>
     <published>2019-12-27T08:42:08.000Z</published>
-    <updated>2019-12-27T08:42:40.756Z</updated>
+    <updated>2020-01-07T13:24:55.304Z</updated>
     
     <summary type="html">
     
@@ -102,7 +134,7 @@
     <link href="https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/"/>
     <id>https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/</id>
     <published>2019-12-27T07:03:21.000Z</published>
-    <updated>2019-12-27T07:04:28.124Z</updated>
+    <updated>2020-01-07T13:25:03.752Z</updated>
     
     <summary type="html">
     
@@ -130,7 +162,7 @@
     <link href="https://www.ajin.cloud/2019/12/21/yi-deng-han-shu/"/>
     <id>https://www.ajin.cloud/2019/12/21/yi-deng-han-shu/</id>
     <published>2019-12-21T09:06:31.000Z</published>
-    <updated>2019-12-21T09:08:50.685Z</updated>
+    <updated>2020-01-07T13:25:27.140Z</updated>
     
     <summary type="html">
     
@@ -159,7 +191,7 @@
     <link href="https://www.ajin.cloud/2019/12/16/zhu-ji-gui-hua/"/>
     <id>https://www.ajin.cloud/2019/12/16/zhu-ji-gui-hua/</id>
     <published>2019-12-16T12:07:08.000Z</published>
-    <updated>2019-12-16T12:09:54.528Z</updated>
+    <updated>2020-01-07T13:25:31.780Z</updated>
     
     <summary type="html">
     
@@ -186,7 +218,7 @@
     <link href="https://www.ajin.cloud/2019/12/10/docker-wang-luo-pei-zhi/"/>
     <id>https://www.ajin.cloud/2019/12/10/docker-wang-luo-pei-zhi/</id>
     <published>2019-12-10T12:52:44.000Z</published>
-    <updated>2019-12-10T12:53:46.292Z</updated>
+    <updated>2020-01-07T13:25:50.100Z</updated>
     
     <summary type="html">
     
@@ -215,7 +247,7 @@
     <link href="https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/"/>
     <id>https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/</id>
     <published>2019-12-10T12:51:09.000Z</published>
-    <updated>2019-12-10T12:52:16.016Z</updated>
+    <updated>2020-01-07T13:25:46.352Z</updated>
     
     <summary type="html">
     
@@ -242,7 +274,7 @@
     <link href="https://www.ajin.cloud/2019/12/02/wen-ben-yu-zi-fu-xu-lie/"/>
     <id>https://www.ajin.cloud/2019/12/02/wen-ben-yu-zi-fu-xu-lie/</id>
     <published>2019-12-02T13:39:29.000Z</published>
-    <updated>2019-12-02T13:44:13.048Z</updated>
+    <updated>2020-01-07T13:25:18.804Z</updated>
     
     <summary type="html">
     
@@ -269,7 +301,7 @@
     <link href="https://www.ajin.cloud/2019/11/28/ji-suan-ji-wang-luo-fu-xi-gai-yao/"/>
     <id>https://www.ajin.cloud/2019/11/28/ji-suan-ji-wang-luo-fu-xi-gai-yao/</id>
     <published>2019-11-28T11:19:15.000Z</published>
-    <updated>2019-11-28T11:20:30.801Z</updated>
+    <updated>2020-01-07T13:25:11.372Z</updated>
     
     <summary type="html">
     
@@ -296,7 +328,7 @@
     <link href="https://www.ajin.cloud/2019/11/21/docker-gao-ji/"/>
     <id>https://www.ajin.cloud/2019/11/21/docker-gao-ji/</id>
     <published>2019-11-21T08:36:23.000Z</published>
-    <updated>2019-11-21T08:41:33.700Z</updated>
+    <updated>2020-01-07T13:25:43.004Z</updated>
     
     <summary type="html">
     
@@ -324,7 +356,7 @@
     <link href="https://www.ajin.cloud/2019/11/21/docker-chu-ji/"/>
     <id>https://www.ajin.cloud/2019/11/21/docker-chu-ji/</id>
     <published>2019-11-21T08:31:40.000Z</published>
-    <updated>2019-11-21T08:32:56.072Z</updated>
+    <updated>2020-01-07T13:25:38.996Z</updated>
     
     <summary type="html">
     
@@ -353,7 +385,7 @@
     <link href="https://www.ajin.cloud/2019/11/12/zi-dian-he-ji-he/"/>
     <id>https://www.ajin.cloud/2019/11/12/zi-dian-he-ji-he/</id>
     <published>2019-11-12T14:19:31.000Z</published>
-    <updated>2019-11-12T14:19:58.596Z</updated>
+    <updated>2020-01-07T13:25:35.724Z</updated>
     
     <summary type="html">
     
@@ -380,7 +412,7 @@
     <link href="https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/"/>
     <id>https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/</id>
     <published>2019-11-12T10:46:01.000Z</published>
-    <updated>2019-11-12T10:47:21.968Z</updated>
+    <updated>2020-01-07T13:25:22.712Z</updated>
     
     <summary type="html">
     
@@ -407,7 +439,7 @@
     <link href="https://www.ajin.cloud/2019/11/11/ji-suan-ji-gai-lun/"/>
     <id>https://www.ajin.cloud/2019/11/11/ji-suan-ji-gai-lun/</id>
     <published>2019-11-11T12:07:50.000Z</published>
-    <updated>2019-11-11T12:10:56.981Z</updated>
+    <updated>2020-01-07T13:25:07.624Z</updated>
     
     <summary type="html">
     
@@ -434,7 +466,7 @@
     <link href="https://www.ajin.cloud/2019/11/09/python-shu-ju-mo-xing/"/>
     <id>https://www.ajin.cloud/2019/11/09/python-shu-ju-mo-xing/</id>
     <published>2019-11-09T11:05:02.000Z</published>
-    <updated>2019-11-09T12:13:00.118Z</updated>
+    <updated>2020-01-07T13:25:53.656Z</updated>
     
     <summary type="html">
     
@@ -461,7 +493,7 @@
     <link href="https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/"/>
     <id>https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/</id>
     <published>2019-11-09T08:05:02.000Z</published>
-    <updated>2019-11-21T08:43:48.396Z</updated>
+    <updated>2020-01-07T13:25:15.284Z</updated>
     
     <summary type="html">
     
