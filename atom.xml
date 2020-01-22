@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2020-01-07T13:29:41.640Z</updated>
+  <updated>2020-01-22T12:25:01.776Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,142 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hadoop小结</title>
+    <link href="https://www.ajin.cloud/2020/01/22/hadoop-xiao-jie/"/>
+    <id>https://www.ajin.cloud/2020/01/22/hadoop-xiao-jie/</id>
+    <published>2020-01-22T12:21:46.000Z</published>
+    <updated>2020-01-22T12:25:01.776Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/categories/Hadoop/"/>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mapreduce工作流程</title>
+    <link href="https://www.ajin.cloud/2020/01/22/mapreduce-gong-zuo-liu-cheng/"/>
+    <id>https://www.ajin.cloud/2020/01/22/mapreduce-gong-zuo-liu-cheng/</id>
+    <published>2020-01-22T10:13:53.000Z</published>
+    <updated>2020-01-22T12:26:28.544Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/medias/image_upload/mapreduce%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B1.png&quot; alt=&quot;mapreduce工作流程1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/categories/Hadoop/"/>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>datanode工作机制</title>
+    <link href="https://www.ajin.cloud/2020/01/22/datanode-gong-zuo-ji-zhi/"/>
+    <id>https://www.ajin.cloud/2020/01/22/datanode-gong-zuo-ji-zhi/</id>
+    <published>2020-01-22T02:36:10.000Z</published>
+    <updated>2020-01-22T06:38:07.117Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/categories/Hadoop/"/>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>namenode工作机制</title>
+    <link href="https://www.ajin.cloud/2020/01/22/namenode-gong-zuo-ji-zhi/"/>
+    <id>https://www.ajin.cloud/2020/01/22/namenode-gong-zuo-ji-zhi/</id>
+    <published>2020-01-22T02:04:55.000Z</published>
+    <updated>2020-01-22T02:31:36.820Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;原理图&quot;&gt;&lt;a href=&quot;#原理图&quot; class=&quot;headerlink&quot; title=&quot;原理图&quot;&gt;&lt;/a&gt;原理图&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/categories/Hadoop/"/>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDFS读写数据流程</title>
+    <link href="https://www.ajin.cloud/2020/01/22/hdfs-du-xie-shu-ju-liu-cheng/"/>
+    <id>https://www.ajin.cloud/2020/01/22/hdfs-du-xie-shu-ju-liu-cheng/</id>
+    <published>2020-01-22T01:12:28.000Z</published>
+    <updated>2020-01-22T01:51:18.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;开局一张图先&quot;&gt;&lt;a href=&quot;#开局一张图先&quot; class=&quot;headerlink&quot; title=&quot;开局一张图先&quot;&gt;&lt;/a&gt;开局一张图先&lt;/h1&gt;&lt;h2 id=&quot;写数据&quot;&gt;&lt;a href=&quot;#写数据&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/categories/Hadoop/"/>
+    
+    
+      <category term="Hadoop" scheme="https://www.ajin.cloud/tags/Hadoop/"/>
+    
+  </entry>
   
   <entry>
     <title>操作系统复习</title>
@@ -431,89 +567,6 @@
     
     
       <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机概论</title>
-    <link href="https://www.ajin.cloud/2019/11/11/ji-suan-ji-gai-lun/"/>
-    <id>https://www.ajin.cloud/2019/11/11/ji-suan-ji-gai-lun/</id>
-    <published>2019-11-11T12:07:50.000Z</published>
-    <updated>2020-01-07T13:25:07.624Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;数据表示方式&quot;&gt;&lt;a href=&quot;#数据表示方式&quot; class=&quot;headerlink&quot; title=&quot;数据表示方式&quot;&gt;&lt;/a&gt;数据表示方式&lt;/h1&gt;&lt;h2 id=&quot;数字系统&quot;&gt;&lt;a href=&quot;#数字系统&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="计算机系统/linux" scheme="https://www.ajin.cloud/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/"/>
-    
-    
-      <category term="计算机系统/linux" scheme="https://www.ajin.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python数据模型</title>
-    <link href="https://www.ajin.cloud/2019/11/09/python-shu-ju-mo-xing/"/>
-    <id>https://www.ajin.cloud/2019/11/09/python-shu-ju-mo-xing/</id>
-    <published>2019-11-09T11:05:02.000Z</published>
-    <updated>2020-01-07T13:25:53.656Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;python-风格&quot;&gt;&lt;a href=&quot;#python-风格&quot; class=&quot;headerlink&quot; title=&quot;python 风格&quot;&gt;&lt;/a&gt;python
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>秦九韶算法详解</title>
-    <link href="https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/"/>
-    <id>https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/</id>
-    <published>2019-11-09T08:05:02.000Z</published>
-    <updated>2020-01-07T13:25:15.284Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;#秦九韶算法&lt;br&gt;秦九韶算法是将一元n次多项式的求值问题转化为n个一次式的算法，比普通计算方式提高了一个数量级&lt;br&gt;普通算式&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;a*x^i&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;因为多次求幂，消耗了大量的计算时间&lt;/p&gt;
-&lt;p&gt;我们来分析一下秦九韶算
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="https://www.ajin.cloud/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="算法" scheme="https://www.ajin.cloud/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

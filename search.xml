@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title>hadoop小结</title>
+      <link href="/2020/01/22/hadoop-xiao-jie/"/>
+      <url>/2020/01/22/hadoop-xiao-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ol><li>namenode:存储文件元数据,文件名,文件目录结构,文件属性(生成时间,副本数,文件权限等)以及每个文件的块列表和块所在的datanode等</li><li>datanode:在本地文件系统存储文件块数据,以及块数据的校验和</li><li>secondary namenode:用来监控HDFS的状态的辅助后台程序,每隔一段时间获取HDFS元数据的快照</li></ol><h1 id="namenode故障处理"><a href="#namenode故障处理" class="headerlink" title="namenode故障处理"></a>namenode故障处理</h1><ol><li>将SecondaryNameNode中数据拷贝到NameNode存储数据的目录</li><li>使用-importCheckpoint选项启动NameNode守护进程，从而将SecondaryNameNode中数据拷贝到NameNode目录中。</li></ol><h1 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h1><ol><li>集群在启动namenode时会进入安全模式,加载fsimage和edits时不能进行写操作</li><li>在安全模式下datanode会向namenode上报块信息</li><li>安全模式会在满足最小副本条件,即99%的块副本数大于1</li><li>安全模式查看<code>bin/hdfs dfsadmin -safemode get</code></li></ol><h1 id="maptask并行度机制"><a href="#maptask并行度机制" class="headerlink" title="maptask并行度机制"></a>maptask并行度机制</h1><ol><li>一个job的并行度由客户端在提交job时的切片决定</li><li>每一个切片分配一个maptask处理</li><li>默认情况下切片大小等于blocksize</li><li>切片时不考虑整体,而是按照单个文件进行</li></ol><p>Filesplit获取切片信息(主要为文件名)</p><p>CombineTextInputFormat应用于小文件较多的场景下,可以将多个小文件逻辑划分为单个切片,在Driver直接设置(先设置InputFormat为本类)</p><h1 id="FileInputFormat实现类"><a href="#FileInputFormat实现类" class="headerlink" title="FileInputFormat实现类"></a>FileInputFormat实现类</h1><ol><li>TextInputFormat是默认的实现类,按行读取数据,key为偏移量,v为content</li><li>keyValueInputFormat,可以使用分隔符来进行区分</li><li>NLineInputformat,不按照块大小来切分,按照指定的行数来切分,输入文件的总行数/N=切片数，如果不整除，切片数=商+1</li></ol><h1 id="partition分区"><a href="#partition分区" class="headerlink" title="partition分区"></a>partition分区</h1><ol><li>分区的数量表示去往哪个reducetask,reducetask数量是手动设置的</li><li>分区和排序是两个过程,每个分区区内有序</li></ol><h1 id="排序实现在bean内"><a href="#排序实现在bean内" class="headerlink" title="排序实现在bean内"></a>排序实现在bean内</h1><p>CompareTO方法重写,继承自WritableComparable</p><h1 id="Combiner合并"><a href="#Combiner合并" class="headerlink" title="Combiner合并"></a>Combiner合并</h1><ol><li>Combiner的父类是reduce</li><li>Combiner在每个maptask结点运行</li><li>进行的是局部汇总,不能影响全局数据</li></ol><h1 id="GroupingComparator辅助排序"><a href="#GroupingComparator辅助排序" class="headerlink" title="GroupingComparator辅助排序"></a>GroupingComparator辅助排序</h1><ol><li>自定义继承自WritableComparator</li></ol><p><img src="/medias/image_upload/job%E6%8F%90%E4%BA%A4%E6%B5%81%E7%A8%8B.png" alt="job提交流程"></p><p><img src="/medias/image_upload/yarn%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="yarn架构图"></p><p><img src="/medias/image_upload/yarn%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6%E5%9B%BE.png" alt="yarn工作机制图"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mapreduce工作流程</title>
+      <link href="/2020/01/22/mapreduce-gong-zuo-liu-cheng/"/>
+      <url>/2020/01/22/mapreduce-gong-zuo-liu-cheng/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/medias/image_upload/mapreduce%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B1.png" alt="mapreduce工作流程1"></p><p><img src="/medias/image_upload/mapreduce%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B2.png" alt="mapreduce工作流程2"></p><h1 id="mapreduce工作流程"><a href="#mapreduce工作流程" class="headerlink" title="mapreduce工作流程"></a>mapreduce工作流程</h1><ol><li>客户端submit前会获取待处理数据的信息,根据这些参数会生成一个任务分配规划</li><li>客户端提交切片信息,程序jar包,任务配置</li><li>yarn计算需要启动的maptask的数量</li><li>maptask拿到切片后调用inputformat中的RecordReader将原始数据转换为KV形式</li><li>将kv值交给mapper</li><li>mapper逻辑处理完成后将数据交给outputcollector写入到环形缓冲区shuffle(80%后溢写,默认100M)</li><li>从shuffle阶段的数据做一次全排序,按照key有序</li><li>快速排序完成后溢写到文件</li><li>归并排序为一个文件</li><li>所有maptask任务完成后启动对应数量的reducetask任务</li><li>maptask产生的文件交给reduce</li><li>所有maptask的文件在发生一次归并排序</li><li>进行reduce逻辑</li><li>交给outputformat的recordWriter写入文件</li></ol><blockquote><p>shuffle的大小影响执行效率,原则上大一点会增加执行效率<br>环形缓冲区的优势,无头无尾,都可以写,一边存k,一边存v,方便排序,提高效率 </p></blockquote><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>datanode工作机制</title>
+      <link href="/2020/01/22/datanode-gong-zuo-ji-zhi/"/>
+      <url>/2020/01/22/datanode-gong-zuo-ji-zhi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p><img src="/medias/image_upload/datanode%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6.png" alt="datanode工作机制"></p><ol><li>datanode首次启动后向namenode注册</li><li>namenode返回注册成功应答</li><li>每周期向namenode上报所以块信息(每小时)</li><li>心跳消息3秒一次,心跳返回结果带有nn给datanode的命令</li><li>超过10分钟没有联系会自动任务不可用 (2*5min(重新检查心跳)+10心跳时间)</li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>namenode工作机制</title>
+      <link href="/2020/01/22/namenode-gong-zuo-ji-zhi/"/>
+      <url>/2020/01/22/namenode-gong-zuo-ji-zhi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h1><p><img src="/medias/image_upload/namenode%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6.png" alt="namenode工作机制"></p><ol><li>首次启动HDFS,首先加载fsimage,启动前有edits操作,加载完fsimage在执行edits操作, 加载完成后开始交给2nn合并</li><li>新来的增删改请求写给edits,先更新文件,在更新内存</li><li>一直写导致edits较大,2nn每隔一段时间检查是否需要合并(checkpoint),合并时机为距离上一次合并过去多长时间,edits数据已满</li><li>请求合并,将edits和fsimage交给2nn(改名并新建edits文件),2nn先加载fsimage,在执行edits,生成新的fsimage并发给namenode</li><li>edits永远不会删除,fsimage只保留最近的两个</li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HDFS读写数据流程</title>
+      <link href="/2020/01/22/hdfs-du-xie-shu-ju-liu-cheng/"/>
+      <url>/2020/01/22/hdfs-du-xie-shu-ju-liu-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="开局一张图先"><a href="#开局一张图先" class="headerlink" title="开局一张图先"></a>开局一张图先</h1><h2 id="写数据"><a href="#写数据" class="headerlink" title="写数据"></a>写数据</h2><p><img src="/medias/image_upload/HDFS%E5%86%99%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B.png" alt="HDFS写数据流程"></p><ol><li>分布式文件系统是HDFS的一个抽象封装,先发出一个上传请求,namenode判断上传是否合法(文件存在性,上传权限等) </li><li>namenode响应上传,客户端将文件逻辑切分成块大小,开启流对拷</li><li>请求上传第一个block</li><li>namenode返回datanode list(副本数为准,第一个为离客户端最近的,剩下的以第一个为准)</li><li>向第一个datanode发起建立通道请求,收到请求后顺次向剩下的发起建立请求</li><li>最后一个datanode收到请求后顺次应答请求,第一个收到后向客户端应答成功</li><li>传输packet(64k),收到后边写边发向后面的datanode,顺次从后向前发送成功应答(队列发送)</li><li>客户端向HDFS发送完成消息</li><li>namenode加入元数据</li></ol><blockquote><p>建立通道失败,直接失败<br>传输packet失败,第一个失败就失败,其他的失败会触发自动备份<br>返回的datanode通过拓扑距离和机架感知计算</p></blockquote><h2 id="读数据"><a href="#读数据" class="headerlink" title="读数据"></a>读数据</h2><p><img src="/medias/image_upload/HDFS%E8%AF%BB%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B.png" alt="HDFS读数据流程"></p><p><a href="https://waltyou.github.io/Data-Wirte-Read-In-HDFS/" target="_blank" rel="noopener">个人认为写的好的文章</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>操作系统复习</title>
       <link href="/2020/01/07/cao-zuo-xi-tong-fu-xi/"/>
       <url>/2020/01/07/cao-zuo-xi-tong-fu-xi/</url>
