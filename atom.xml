@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2020-01-22T12:25:01.776Z</updated>
+  <updated>2020-02-09T08:08:26.388Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python实现Java中的比较器</title>
+    <link href="https://www.ajin.cloud/2020/02/09/python-shi-xian-java-zhong-de-bi-jiao-qi/"/>
+    <id>https://www.ajin.cloud/2020/02/09/python-shi-xian-java-zhong-de-bi-jiao-qi/</id>
+    <published>2020-02-09T08:07:27.000Z</published>
+    <updated>2020-02-09T08:08:26.388Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; functools &lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>hadoop小结</title>
@@ -530,33 +557,6 @@
         
         
           &lt;h1 id=&quot;泛映射类型&quot;&gt;&lt;a href=&quot;#泛映射类型&quot; class=&quot;headerlink&quot; title=&quot;泛映射类型&quot;&gt;&lt;/a&gt;泛映射类型&lt;/h1&gt;&lt;p&gt;collection.abc 模块中有mapping和mutaleMapping这两个抽象基类,
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>序列构成的数组</title>
-    <link href="https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/"/>
-    <id>https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/</id>
-    <published>2019-11-12T10:46:01.000Z</published>
-    <updated>2020-01-07T13:25:22.712Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;内置序列类型&quot;&gt;&lt;a href=&quot;#内置序列类型&quot; class=&quot;headerlink&quot;
         
       
     
