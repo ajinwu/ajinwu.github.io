@@ -4,21 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="redis命令参考, python bigdata docker spark linux django">
+    <meta name="keywords" content="grpc概述, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="redis命令参考redis-python命令参考
-redis提供的5中数据结构
-
-
-结构类型
-结构存储的值
-结构的读写能力
-
-
-
-string
-可以是字符串, 整数, 或者浮点数
-对整个字符串或者字符串中的一部分进行执行操作, 对整数和浮">
+    <meta name="description" content="overviewRPC(Remote Procedure Call), grpc中, 客户端可以像使用本地对象一样, 直接调用其他机器上面的服务端应用程序方法, 能够很容易的构建分布式的应用程序和服务, grpc基于服务, 指定能够调用远程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +14,7 @@ string
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>redis命令参考 | ajin的博客</title>
+    <title>grpc概述 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -317,13 +305,13 @@ string
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        redis命令参考
+                        grpc概述
                     </div>
                 </div>
             </div>
@@ -435,8 +423,8 @@ string
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/redis/">
-                                <span class="chip bg-color">redis</span>
+                            <a href="/tags/grpc/">
+                                <span class="chip bg-color">grpc</span>
                             </a>
                         
                     </div>
@@ -447,8 +435,8 @@ string
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/redis/" class="post-category">
-                                redis
+                            <a href="/categories/grpc/" class="post-category">
+                                grpc
                             </a>
                         
                     </div>
@@ -460,7 +448,7 @@ string
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-29
+                    2020-04-03
                 </div>
                 
 
@@ -469,14 +457,14 @@ string
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    572
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    2 分
                 </div>
                 
 				
@@ -492,230 +480,32 @@ string
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="http://redisdoc.com/sorted_set/zincrby.html" target="_blank" rel="noopener">redis命令参考</a><br><a href="https://redis-py.readthedocs.io/en/latest/" target="_blank" rel="noopener">redis-python命令参考</a></p>
-<h1 id="redis提供的5中数据结构"><a href="#redis提供的5中数据结构" class="headerlink" title="redis提供的5中数据结构"></a>redis提供的5中数据结构</h1><table>
-<thead>
-<tr>
-<th>结构类型</th>
-<th>结构存储的值</th>
-<th>结构的读写能力</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>string</td>
-<td>可以是字符串, 整数, 或者浮点数</td>
-<td>对整个字符串或者字符串中的一部分进行执行操作, 对整数和浮点数执行自增或者自减操作</td>
-</tr>
-<tr>
-<td>list</td>
-<td>一个链表, 链表上的每个结点都包含一个字符串</td>
-<td>从链表的两端推入或者弹出元素, 根据偏移量进行改变, 读取单个或者多个元素; 根据值查找或者移除元素</td>
-</tr>
-<tr>
-<td>set</td>
-<td>无需集合</td>
-<td>添加, 获取, 移除单个元素, 检查是否存在, 计算交并补, 随机读</td>
-</tr>
-<tr>
-<td>hash</td>
-<td>包含键值对的无需散列表</td>
-<td>添加, 获取, 移除单个键值对, 获取所有键值对</td>
-</tr>
-<tr>
-<td>zset</td>
-<td>字符串和浮点数的有序映射</td>
-<td>添加, 获取, 删除单个元素, 根据范围来获取元素</td>
-</tr>
-</tbody></table>
-<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>动作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>get</td>
-<td>获取特定key的值</td>
-</tr>
-<tr>
-<td>set</td>
-<td>设置特定key的值</td>
-</tr>
-<tr>
-<td>del</td>
-<td>删除特定key的值</td>
-</tr>
-</tbody></table>
-<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>动作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>rpush/lpush</td>
-<td>将定值插入key某端</td>
-</tr>
-<tr>
-<td>lrange</td>
-<td>获取范围内的key</td>
-</tr>
-<tr>
-<td>lindex</td>
-<td>获取给定位置的value</td>
-</tr>
-<tr>
-<td>lpop/rpop</td>
-<td>从某端弹出一个value</td>
-</tr>
-<tr>
-<td>lindex</td>
-<td>返回偏移量的元素</td>
-</tr>
-<tr>
-<td>ltrim</td>
-<td>只保留start到end的元素</td>
-</tr>
-</tbody></table>
-<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>动作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>sadd</td>
-<td>添加一个元素进入key, 1成功, 0存在</td>
-</tr>
-<tr>
-<td>smember</td>
-<td>显示所有的元素</td>
-</tr>
-<tr>
-<td>sismember</td>
-<td>是否存在与集合</td>
-</tr>
-<tr>
-<td>srem</td>
-<td>删除</td>
-</tr>
-</tbody></table>
-<h2 id="hash散列表-字典"><a href="#hash散列表-字典" class="headerlink" title="hash散列表(字典)"></a>hash散列表(字典)</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>动作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>hset</td>
-<td>设置键值对</td>
-</tr>
-<tr>
-<td>hget</td>
-<td>获取键的值</td>
-</tr>
-<tr>
-<td>hgetall</td>
-<td>获取所有键值对</td>
-</tr>
-<tr>
-<td>hdel</td>
-<td>删除键</td>
-</tr>
-</tbody></table>
-<h2 id="zset-有序集合"><a href="#zset-有序集合" class="headerlink" title="zset(有序集合)"></a>zset(有序集合)</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>动作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>zadd</td>
-<td>讲一个带有分支的成员添加到有序集合里面</td>
-</tr>
-<tr>
-<td>zrange</td>
-<td>根据元素所在位置获取多个元素</td>
-</tr>
-<tr>
-<td>zrangebyscores</td>
-<td>根据分值范围获取元素</td>
-</tr>
-<tr>
-<td>zrem</td>
-<td>如果存在则删除成员</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> redis
-conn <span class="token operator">=</span> redis<span class="token punctuation">.</span>Redis<span class="token punctuation">(</span>host <span class="token operator">=</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> port <span class="token operator">=</span> <span class="token number">6379</span><span class="token punctuation">,</span> db <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <h2 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h2><p>RPC(Remote Procedure Call), grpc中, 客户端可以像使用本地对象一样, 直接调用其他机器上面的服务端应用程序方法, 能够很容易的构建分布式的应用程序和服务, grpc基于服务, 指定能够调用远程方法的参数和返回值, 在服务端, 服务实现接口并运行grpc服务去处理客户端调用, 在客户端, 客户端有一个stub(客户机), 提供和服务端相同的方法</p>
+<p><img src="https://grpc.io/img/landing-2.svg" alt="调用图"></p>
+<p>grpc客户端和服务端可以在各种环境中运行并支持各种语言, 举个例子, 你可以使用服务端语言为Java, 客户端语言为python</p>
+<h2 id="Protocol-buffers"><a href="#Protocol-buffers" class="headerlink" title="Protocol buffers"></a>Protocol buffers</h2><p>默认的, grpc使用Protocol buffers, Google成熟的开源序列结构化数据方式</p>
+<p>第一步是在<em>proto</em>文件中定义你想序列化的结构化数据, 这是一个使用<strong>proto</strong>作为扩展名的文本文件, Protocol buffers数据结构为<em>message</em>;每一个message是一个小的包含一系列name-value组的可调用字段的逻辑记录,举个例子</p>
+<pre><code>message Person {
+  string name = 1;
+  int32 id = 2;
+  bool has_ponycopter = 3;
+}</code></pre><p>接下来, 你需要指定你的数据结构, 你可以通过你的proto定义在你喜欢的语言中使用协议缓冲区编译proto文件去生成数据权限接口, 他提供了一个简单的存取访问, 例如 <em>name()</em>, <em>set_name()</em>, 以及一个从原始数据/序列化数据进行序列化/反序列化的方法, 你可以在你的应用中填充生成的class</p>
+<p>你可以在普通文件中定义rpc服务, 并指定rpc方法参数和返回值类型</p>
+<pre><code>// The greeter service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
 
-<span class="token comment" spellcheck="true"># 阻塞操作, 在等待的时间内如果出现了才会继续操作, 没有数据会直接返回None</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>brpoplpush<span class="token punctuation">(</span><span class="token string">'list'</span><span class="token punctuation">,</span> <span class="token string">'list2'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>lrange<span class="token punctuation">(</span><span class="token string">'list'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>lrange<span class="token punctuation">(</span><span class="token string">'list2'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
 
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>sadd<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># set添加</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>smembers<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 返回集合所有成员</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>scard<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 返回集合 key 的基数(集合中元素的数量)。</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>sismember<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 是否存在与集合</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>srandmember<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 整数不重复， 负数会重复</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>srem<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 删除</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>smove<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token string">"set-key2"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 移动</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>smove<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token string">"set-key2"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>smembers<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>smembers<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>smembers<span class="token punctuation">(</span><span class="token string">"set-key2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>sdiff<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token string">"set-key2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 差</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>sinter<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token string">"set-key2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 交</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>sunion<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">,</span> <span class="token string">"set-key2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 并</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>sdiffstore<span class="token punctuation">(</span><span class="token string">"set-key2"</span><span class="token punctuation">,</span> <span class="token string">"set-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 结果放入新集合</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>smembers<span class="token punctuation">(</span><span class="token string">"set-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>smembers<span class="token punctuation">(</span><span class="token string">"set-key2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hset<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">,</span><span class="token string">"k"</span><span class="token punctuation">,</span> <span class="token string">"v"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hget<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">,</span> <span class="token string">"k"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hgetall<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hmset<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"k1"</span><span class="token punctuation">:</span><span class="token string">"v1"</span><span class="token punctuation">,</span> <span class="token string">"k2"</span><span class="token punctuation">:</span><span class="token string">"v2"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hmget<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"k"</span><span class="token punctuation">,</span> <span class="token string">"k1"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hlen<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hdel<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">,</span> <span class="token string">"k"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hgetall<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hexists<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">,</span> <span class="token string">"k0"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hkeys<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hvals<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hincrby<span class="token punctuation">(</span><span class="token string">"counter"</span><span class="token punctuation">,</span> <span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 自增</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hincrby<span class="token punctuation">(</span><span class="token string">"counter"</span><span class="token punctuation">,</span> <span class="token string">"test"</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hget<span class="token punctuation">(</span><span class="token string">"counter"</span><span class="token punctuation">,</span> <span class="token string">"test"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>hdel<span class="token punctuation">(</span><span class="token string">"hash-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zadd<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"a"</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 添加</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zcard<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true"># 数量</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zincrby<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 自增</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zscore<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 分值</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrank<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 排名</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zcount<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 分值范围的总和</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrem<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrange<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> withscores<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true"># 从小到大排序</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrevrange<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> withscores<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 返回区间的元素排名, 成员按照分值大到小排列</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrevrank<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 不理解</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrangebyscore<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zadd<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"d"</span><span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token string">"e"</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrange<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> withscores<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zremrangebyrank<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 按照分数排名从高到低删除</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrange<span class="token punctuation">(</span><span class="token string">"zset-key"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> withscores<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-conn<span class="token punctuation">.</span>zadd<span class="token punctuation">(</span><span class="token string">"zset-1"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"a"</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-conn<span class="token punctuation">.</span>zadd<span class="token punctuation">(</span><span class="token string">"zset-2"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"b"</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zunionstore<span class="token punctuation">(</span><span class="token string">"zset-0"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"zset-1"</span><span class="token punctuation">,</span> <span class="token string">"zset-2"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">.</span>zrange<span class="token punctuation">(</span><span class="token string">"zset-0"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> withscores<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}</code></pre><p>grpc使用protoc指定grpc插件从你的proto文件中去生成代码, 你可以生成客户端和服务端代码, 他提供常用的protocol buffer代码去填充, 系列化, 返回消息类型</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -759,7 +549,7 @@ conn<span class="token punctuation">.</span>zadd<span class="token punctuation">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/12/29/redis-ming-ling-can-kao/">https://www.ajin.cloud/2019/12/29/redis-ming-ling-can-kao/</a>
+                    <a href="https://www.ajin.cloud/2020/04/03/grpc-gai-shu/">https://www.ajin.cloud/2020/04/03/grpc-gai-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -797,8 +587,8 @@ conn<span class="token punctuation">.</span>zadd<span class="token punctuation">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/redis/">
-                                    <span class="chip bg-color">redis</span>
+                                <a href="/tags/grpc/">
+                                    <span class="chip bg-color">grpc</span>
                                 </a>
                             
                         </div>
@@ -969,7 +759,7 @@ conn<span class="token punctuation">.</span>zadd<span class="token punctuation">
         repo: 'ajinwu.github.io',
         owner: 'ajinwu',
         admin: "ajinwu",
-        id: '2019-12-29T15-08-49',
+        id: '2020-04-03T14-44-51',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -990,9 +780,9 @@ conn<span class="token punctuation">.</span>zadd<span class="token punctuation">
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/12/29/redis-ming-ling-can-kao/';
-        this.page.identifier = '/2019/12/29/redis-ming-ling-can-kao/';
-        this.page.title = 'redis命令参考';
+        this.page.url = 'https://www.ajin.cloud/2020/04/03/grpc-gai-shu/';
+        this.page.identifier = '/2020/04/03/grpc-gai-shu/';
+        this.page.title = 'grpc概述';
     };
     let disqus_shortname = '';
 
@@ -1019,37 +809,31 @@ conn<span class="token punctuation">.</span>zadd<span class="token punctuation">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/07/cao-zuo-xi-tong-fu-xi/">
+                <a href="/2020/04/03/protocol-buffers/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="操作系统复习">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Protocol buffers">
                         
-                        <span class="card-title">操作系统复习</span>
+                        <span class="card-title">Protocol buffers</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-操作系统的目标(方便些, 有效性, 可扩充性, 开放性)
-
-未配置操作系统的计算机系统
-
-人工操作方式(用户独占全机, cpu等待人工操作), 人机矛盾, 人工操作方式严重降低了计算机资源的利用率
-脱机输入输出(解决人机矛盾及CPU和IO
+                            什么是protocol buffers?protocol buffers是一个灵活的, 高性能的, 自动化的数据结构序列化机制, 就像xml, 但是更小, 更快, 更简单, 你可以定义你想要的数据结构, 然后使用特定的代码生成工具生成代码去
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
+                            <a href="/categories/grpc/" class="post-category">
+                                    grpc
                                 </a>
                             
                             
@@ -1059,8 +843,8 @@ conn<span class="token punctuation">.</span>zadd<span class="token punctuation">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">操作系统</span>
+                    <a href="/tags/grpc/">
+                        <span class="chip bg-color">grpc</span>
                     </a>
                     
                 </div>
@@ -1074,24 +858,27 @@ conn<span class="token punctuation">.</span>zadd<span class="token punctuation">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/27/pythoner-dui-xiang/">
+                <a href="/2020/03/20/zhuang-shi-qi-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="pythoner对象">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="装饰器学习">
                         
-                        <span class="card-title">pythoner对象</span>
+                        <span class="card-title">装饰器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对象可拆包必须实现iter方法self 是init里面定义的self值repr是给开发者看的, 使用repr(object)eq是类实例的等于classmethod和staticmethodclassmethod定义操作类, 而不是操作示例
+                            写在开头, 昨天参加了一场面试, 可能是疏于使用, 面试官的一道装饰器题目没有写出来, 因此这次我们来翻译一篇python装饰器的文章并结合具体题目来学习装饰器, 原文链接 stackouverflow
+题目
+
+装饰器基础###　pytho
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-20
                             </span>
                         <span class="publish-author">
                             
