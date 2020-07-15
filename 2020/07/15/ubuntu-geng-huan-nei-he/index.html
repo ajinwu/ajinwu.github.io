@@ -4,16 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="docker高级, python bigdata docker spark linux django">
+    <meta name="keywords" content="ubuntu更换内核, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="Docker
-docker隔离的东西(linux namespace+chroot)
-UTS(主机名和域名)
-User(用户)
-Mount挂载点(文件系统)
-IPC(信号量, 消息队列, 共享队列)
-Pid(进程编号)
-Network(网络">
+    <meta name="description" content="就在三天前, 我意外更新了最新ubuntu最新内核,然后,系统双双崩了,电脑键盘坏了,网络坏了,蓝牙坏了,什么都坏了,开始了修电脑
+先重启,万一会好呢结论是,不会, linux不是windows
+google怎么换内核,发现都是一半一半, ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +16,7 @@ Network(网络">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>docker高级 | ajin的博客</title>
+    <title>ubuntu更换内核 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,13 +308,13 @@ Network(网络">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        docker高级
+                        ubuntu更换内核
                     </div>
                 </div>
             </div>
@@ -431,8 +426,8 @@ Network(网络">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/docker/">
-                                <span class="chip bg-color">docker</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -443,8 +438,8 @@ Network(网络">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/docker/" class="post-category">
-                                docker
+                            <a href="/categories/linux/" class="post-category">
+                                linux
                             </a>
                         
                     </div>
@@ -456,7 +451,7 @@ Network(网络">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-21
+                    2020-07-15
                 </div>
                 
 
@@ -465,14 +460,14 @@ Network(网络">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    441
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    1 分
                 </div>
                 
 				
@@ -488,193 +483,23 @@ Network(网络">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><ol>
-<li>docker隔离的东西(linux namespace+chroot)<ul>
-<li>UTS(主机名和域名)</li>
-<li>User(用户)</li>
-<li>Mount挂载点(文件系统)</li>
-<li>IPC(信号量, 消息队列, 共享队列)</li>
-<li>Pid(进程编号)</li>
-<li>Network(网络)</li>
-</ul>
+                <p>就在三天前, 我意外更新了最新ubuntu最新内核,然后,系统双双崩了,电脑键盘坏了,网络坏了,蓝牙坏了,什么都坏了,开始了修电脑</p>
+<h3 id="先重启-万一会好呢"><a href="#先重启-万一会好呢" class="headerlink" title="先重启,万一会好呢"></a>先重启,万一会好呢</h3><p>结论是,不会, linux不是windows</p>
+<h3 id="google怎么换内核-发现都是一半一半-都讲的不完整"><a href="#google怎么换内核-发现都是一半一半-都讲的不完整" class="headerlink" title="google怎么换内核,发现都是一半一半, 都讲的不完整"></a>google怎么换内核,发现都是一半一半, 都讲的不完整</h3><ol>
+<li><p>本人系统是ubuntu, 系统下载的旧内核会保留几份, 所以很好救</p>
 </li>
-<li>Control Groups(控制组)</li>
-<li>LinuX Container(LXC)的增强版是docker</li>
-<li>镜像:静态=&gt;进程</li>
-<li>容器:生命周期=&gt;程序  </li>
-</ol>
-<h1 id="docker挂载机制"><a href="#docker挂载机制" class="headerlink" title="docker挂载机制"></a>docker挂载机制</h1><ol>
-<li>采用分层挂载机制, 最底层为bootfs, 其次为rootfs<ol>
-<li>bootfs:用于系统引导的文件系统, 包括bootloader和kernel, 容器启动后会被卸载以节约内存资源</li>
-<li>rootfs:位于bootfs之上, 表现为容器的根文件系统<ol>
-<li>传统模式中, 系统启动之时.内核会挂载rootfs时会首先将其挂载为只读模式, 完整性自检完成后将其重新挂载为读写模式</li>
-<li>docker中, rootfs有内核挂载为只读模式, 而后通过联合挂载技术额外挂载一个可写层</li>
-</ol>
+<li><p>首先进入grub, 选择advance那个的最旧的那个(因为你不确定你升级了几次内核, 万一上一个版本也是坏的呢, 我是上一个版本也是坏的), 不是recory那个</p>
 </li>
-<li><blockquote>
-<p>联合挂载的意思是自下往上依次挂载</p>
+<li><p>如果你进不去grub, 直接进入了系统, 你也可以选择使用虚拟键盘操作(你得有一个免驱鼠标), 先把grub显示出来, <code>GRUB_TIMEOUT=3,GRUB_TIMEOUT_STYLE=menu</code>, 在<code>/etc/default/grub</code>里面把这个修改了,时间可以调整大一点,<code>sudo update-grub</code></p>
+</li>
+<li><p>删除最新的内核(或者坏的内核), 在<code>/boot</code>里面, <code>config-5.4.0-42-generic, initrd.img-5.4.0-42-generic, System.map-5.4.0-42-generic, vmlinuz-5.4.0-42-generic</code>, 我删除的是这几个, 其他版本的不要删除</p>
+</li>
+<li><p>更新grub, <code>sudo update-grub</code></p>
+</li>
+</ol>
+<blockquote>
+<p>ps, 搞了几天, 网上都教的是grub默认选择哪个内核,而不是修改默认的选项, 太傻了, 还是雪梨姐姐提醒我, grub加载的时候是选择最新的内核加载, 所以简单点, 直接将新内核删掉就好啦, 默默感谢雪梨姐姐</p>
 </blockquote>
-</li>
-<li><blockquote>
-<p>每一个功能都是一个image(镜像)</p>
-</blockquote>
-</li>
-<li>位于最下层的镜像称为父镜像, 最底层的称为基础镜像</li>
-<li>最上层的为可写层, 其下的均为只读层</li>
-</ol>
-</li>
-</ol>
-<h1 id="docker-虚拟网络"><a href="#docker-虚拟网络" class="headerlink" title="docker 虚拟网络"></a>docker 虚拟网络</h1><ol>
-<li>在宿主机上建立一个桥接网卡docker0, brctl show显示桥接网卡绑定方式</li>
-<li>将docker0的网卡作为一条网线,一般在宿主机docker0上,一般在docker容器中</li>
-<li>docker0是一个nat桥,iptables -t nat -vnL, 可以看见postrouting规则, 所有进入的流量, 只要不是从docker0桥出去的流量, 原地址来自172.17.0.0/16,无论到达任何主机, 都要进行地址伪装</li>
-<li>docker四种网络模式<ol>
-<li>none, 批处理文件所用, 挂载本地卷, docker run -it –name b1 –network none –rm busybox</li>
-<li>bridge网络, nat桥接docker0,default模式, docker run -it –name b1 –network bridge –rm busybox</li>
-<li>共享同一个网络, IPC, pid模式, 网络对于多个容器可见</li>
-<li>桥接物理网卡</li>
-</ol>
-</li>
-<li>创建网络命名空间并实现网卡互联<ol>
-<li>ip netns add r1创建一个网络名称空间r1</li>
-<li>ip netns list 列出名称空间的网卡</li>
-<li>ip netns exec r1 ifconfig -a进入名称空间r1执行ifconfig命令</li>
-<li>ip link add name veth1.1 type veth peer name veth1.2添加一块类型为veth的虚拟网卡veth1.1,另一半网卡名veth1.2</li>
-<li>ip link show 显示两块网卡连接状态</li>
-<li>ip link set dev veth1.2 netns r1,将veth1.2网卡迁移到r1名称空间</li>
-<li>ip netns exec r1 ip link set dev veth1.2 name eth0进入r1名称空间,并设置设备veth1.2的网卡名为eth0</li>
-<li>ip netns exec r1 ifconfig eth0 10.1.0.1/24 up,将eth0网卡开启并设置ip为10.1.0.1,24位掩码</li>
-<li>ip link set dev veth1.1 netns r2,将veth1.1网卡迁移到r2名称空间</li>
-<li>ip netns exec r2 ip link set dev veth1.1 name eth0,设置网卡名称</li>
-<li>ip netns exec r2 ifconfig eth0 10.1.0.2/24 up, 设置ip并开启网卡</li>
-<li>ip netns exec r1 ping 10.1.0.2测试网络连通性</li>
-</ol>
-</li>
-</ol>
-<h1 id="docker容器注入"><a href="#docker容器注入" class="headerlink" title="docker容器注入"></a>docker容器注入</h1><ol>
-<li>注入容器中主机名, docker run -it –name b1 –network bridge -h test –rm busybox</li>
-<li>注入dns服务器, docker run -it –name b1 –network bridge -h test –dns 114.114.114.114 –rm busybox</li>
-<li>注入host, docker run -it –name b1 –network bridge -h test –dns 114.114.114.114 –add-host <a href="http://www.baidu.com:192.168.0.148">www.baidu.com:192.168.0.148</a> –rm busybox</li>
-</ol>
-<h1 id="docker-端口映射"><a href="#docker-端口映射" class="headerlink" title="docker 端口映射"></a>docker 端口映射</h1><ol>
-<li>docker run -d –name b1 –rm -p 80 ajinwu/httpd:v1.1</li>
-<li>docker run -d –name b1 –rm -p 192.168.0.148::80 ajinwu/httpd:v1.1</li>
-<li>docker run -d –name b1 –rm -p 192.168.0.148:80:80 ajinwu/httpd:v1.1</li>
-<li>docker run -d –name b1 –rm -p 80:80 ajinwu/httpd:v1.1</li>
-<li>自动暴露使用大写的p</li>
-</ol>
-<h1 id="联盟式容器"><a href="#联盟式容器" class="headerlink" title="联盟式容器"></a>联盟式容器</h1><ol>
-<li>docker run -it –name b2 –network container:b1 –rm busybox, 共享b1的网络名称空间, 但是文件系统也是隔离的</li>
-<li>docker run -it –name b1 –network host –rm busybox, 共享主机的网络</li>
-<li>docker远程连接机器控制docker, 按照官方文档, 修改docker.service文件可行, ubuntu19.04修改daemon.json文件无效, 原因未知</li>
-</ol>
-<h1 id="自己创建网络"><a href="#自己创建网络" class="headerlink" title="自己创建网络"></a>自己创建网络</h1><ol>
-<li>docker network create -d bridge –subnet “172.26.0.0/16” –gateway “172.26.0.1” mybr0, 创建网络mybr0,方式为桥接,子网为172.26.0.0, 网关如上</li>
-</ol>
-<h1 id="数据卷的必要性"><a href="#数据卷的必要性" class="headerlink" title="数据卷的必要性"></a>数据卷的必要性</h1><ol>
-<li>关闭并重启容器, 其数据不受影响, 但是删除docker容器, 其更改会消失</li>
-<li>存在的问题<ol>
-<li>存储在联合文件系统中, 不易于宿主机访问</li>
-<li>容器间数据共享不方便</li>
-<li>删除数据数据会丢失</li>
-</ol>
-</li>
-<li>解决方案:卷<ol>
-<li>卷是容器上的一个或多个目录, 此类目录会绕过联合文件系统, 与宿主机上的某目录绑定关联</li>
-</ol>
-</li>
-<li>docker run –name b1 -it -v /data busybox, docker自己管理的绑定卷, 使用inspect可以查看挂载地址</li>
-<li>docker run –name b1 -it -v /home/ajin_w/docker/volumes:/data –rm busybox, 挂载本地卷存放数据, 不存在会默认创建, 双向创建</li>
-<li>容器间共享数据:使用挂载卷, 两个容器使用同一个挂载卷</li>
-<li>复制一个容器已存在的卷<ol>
-<li>docker run –name infracon -it -v /home/ajin_w/docker/volumes/infracon:/data/web/html busybox, 创建一个基础容器, 可以不用交互式, 也可以不用启动, 但是不能删除, 只提供给其他容器复制</li>
-<li>docker run –name nginx –network container:infracon –volumes-from infracon -it –rm busybox, 创建一个nginx容器, 继承infracon容器的网络, 存储卷也使用infracon相同的配置</li>
-</ol>
-</li>
-</ol>
-<h1 id="docker信息查询"><a href="#docker信息查询" class="headerlink" title="docker信息查询"></a>docker信息查询</h1><ol>
-<li>docker inspect b1 -f , 使用json层级读取数据</li>
-</ol>
-<h1 id="dockerfile制作"><a href="#dockerfile制作" class="headerlink" title="dockerfile制作"></a>dockerfile制作</h1><ol>
-<li>指令格式format<ol>
-<li>comment, 注释信息</li>
-<li>指令和指令参数</li>
-</ol>
-</li>
-<li>指令本身不区分字符大小写, 约定俗称使用大写</li>
-<li>docker运行自上而下</li>
-<li>第一个非注释行一定是以from开头</li>
-<li>dockerfile文件首字母一定要大写</li>
-<li>打包文件一定要在本目录以及本目录之下</li>
-<li>FROM格式, FROM <repository>[:tag] 或者FROM <repository>@<digest> digest为哈希码, 不会被冒名顶替</digest></repository></repository></li>
-<li>COPY, 将本机的文件复制到镜像, 源文件一般为相对与dockerfile文件目录, 目标文件一般为镜像中的绝对路径<ol>
-<li>复制目录目录本身不会被复制, 只会递归复制目录下的文件</li>
-<li>必须以/结尾</li>
-</ol>
-</li>
-<li>ADD, 语法和COPY相同, 可以加上url, 会自动下载文件, 本地打包文件会自动解压</li>
-<li>WORKDIR, 制定工作目录</li>
-<li>VOLUME, 指定挂载卷, 只能指定容器内的, 容器外只能使用默认的</li>
-<li>EXPOSE, 为容器打开指定要监听的端口与外部通信, 在dockerfile中写入只是会作为待暴露的端口, 而不是直接暴露, 加上P会暴露</li>
-<li>ENV <key>=<value> …value中含有空白字符等需要使用反斜杠转义, 或者引号转义, 反斜线也可以进行续行</value></key></li>
-<li>RUN, 正常写linux操作命令, 必须是基础镜像有的命令, 在docker build的时候执行<ol>
-<li>作为shell的子进程来运行, 以”/bin/bash -c”来运行, 此进程pid不为1, 不能接受unix信号, 因此, docker stop无法停止容器</li>
-<li>RUN [“<executable>“, “param”]格式的命令不以”bash”运行, 因此shell常见操作不会进行(通配符))</executable></li>
-<li>依赖shell特性可RUN[“bin/bash”, “-c”, “executable”, “param”]信号也不是1</li>
-</ol>
-</li>
-<li>CMD, 类似与RUN指令, 定义一个镜像文件启动为容器时默认要运行的程序, 只能出现一个CMD, CMD指令可以被dockerfile命令选项覆盖<ol>
-<li>CMD <commend> pid不为1,可以使用shell命令</commend></li>
-<li>CMD[“executable”,”param”]创建的是pid为1的进程, 这里不能默认启动shell, 可以手动运行为shell子进程</li>
-<li>CMD [“param”]结合entrypoint来运行</li>
-</ol>
-</li>
-<li>ENTRYPOINT命令不会被覆盖, 也不允许被覆盖, 多余输入的命令会被当做参数传入, 可以在启动容器时修改entrypoint命令<ol>
-<li>如果CMD和ENTRYPOINT同时使用, 则CMD的命令会被当做参数传入ENTRYPOINT</li>
-</ol>
-</li>
-<li>docker参数-e, 设置环境变量</li>
-<li>shell命令, exec顶替上一个进程, “$@”, 后面任意长度字段的作为参数, exec “$@”, 顶替当前进程, 然后将后面的命令传入当做下一个程序执行</li>
-<li>HEALTHCHECK健康监测<ol>
-<li>HEALTHCHECK –interval=duration(default:30s), 检测周期</li>
-<li>–timeout=duration(default:30s)超时时间</li>
-<li>–start-period=duration(default:0s), 容器启动多少秒开始检测</li>
-<li>–retries=N (default:3), 检测次数</li>
-<li>example===&gt; HEALTHCHECK –interval=5m –timeout=3s CMD curl -f <a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a> || exit 1</li>
-</ol>
-</li>
-<li>ONBUILD触发器命令, 在别人使用你的镜像时会执行这个命令, 后门</li>
-</ol>
-<h1 id="docker-仓库"><a href="#docker-仓库" class="headerlink" title="docker 仓库"></a>docker 仓库</h1><ol>
-<li>apt install docker-registry</li>
-<li>insecure-registries</li>
-<li>vmrare harbor</li>
-</ol>
-<h1 id="docker-资源限制"><a href="#docker-资源限制" class="headerlink" title="docker 资源限制"></a>docker 资源限制</h1><ol>
-<li>linux 通过内核来管理资源调度, 使用内存计算算法来管理, oom-score最高的会被最先杀死, 重要应用应使用oom_obj来分配权重</li>
-<li>内存限制<ol>
-<li>–momery内存不应该大于主机内存</li>
-<li>–momery-swap为交换空间, 不设置memory则无法设置此选项<ol>
-<li>-m-s为正数S, m为正数M, 容器总空间为S, 其中ram为M, swap为(S-M), 如S=M, 则无可用swap资源</li>
-<li>0, M, 相当于未设置swap(unset)</li>
-<li>unset, M, 若主机弃用了swap, 容器可用swap为2*M</li>
-<li>-1, M, 若主机弃用了swap, 容器可使用最大主机swap资源</li>
-</ol>
-</li>
-<li>–oom-kill-disable, 禁止kill</li>
-</ol>
-</li>
-<li>cpu限制<ol>
-<li>默认可使用所有的cpu</li>
-<li>cpu可压缩, 共享式cpu-shares共享, 按照比例切分, 不用的时候cpu可以尽可能共享给他人, 使用的时候按比例给他最大的, 然后检查其他进程cpu资源是否空闲, 空闲可继续使用</li>
-<li>–cpus=1.5, 显示cpu最多使用几核, 可使用小数</li>
-<li>–cpuset-cpus, 限制使用的cpu是哪几个, 不建议使用</li>
-</ol>
-</li>
-<li>docker run –name stress -it –rm -m 256m lorel/docker-stress-ng stress –vm 2, 验证memory限制, docker stats显示详细信息</li>
-<li>docker run –name stress -it –rm –cpus 2 lorel/docker-stress-ng stress –cpu 8, cpu压测</li>
-<li>docker run –name stress -it –rm –cpu-shares 1024 lorel/docker-stress-ng stress –cpu 8, 共享式分配, 首先会占用完cpu, 然后再来一个容器会互相分配</li>
-</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -718,7 +543,7 @@ Network(网络">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/11/21/docker-gao-ji/">https://www.ajin.cloud/2019/11/21/docker-gao-ji/</a>
+                    <a href="https://www.ajin.cloud/2020/07/15/ubuntu-geng-huan-nei-he/">https://www.ajin.cloud/2020/07/15/ubuntu-geng-huan-nei-he/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -756,8 +581,8 @@ Network(网络">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/docker/">
-                                    <span class="chip bg-color">docker</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -923,9 +748,9 @@ Network(网络">
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/11/21/docker-gao-ji/';
-        this.page.identifier = '/2019/11/21/docker-gao-ji/';
-        this.page.title = 'docker高级';
+        this.page.url = 'https://www.ajin.cloud/2020/07/15/ubuntu-geng-huan-nei-he/';
+        this.page.identifier = '/2020/07/15/ubuntu-geng-huan-nei-he/';
+        this.page.title = 'ubuntu更换内核';
     };
     let disqus_shortname = '';
 
@@ -948,55 +773,50 @@ Network(网络">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/28/ji-suan-ji-wang-luo-fu-xi-gai-yao/">
+                <a href="/2020/07/15/ubuntu-geng-huan-nei-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="计算机网络复习概要">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="ubuntu更换内核">
                         
-                        <span class="card-title">计算机网络复习概要</span>
+                        <span class="card-title">ubuntu更换内核</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            概述互联网的核心部分起特殊作用的是路由器. 路由器实现分组交换的关键构件, 其任务是转发收到的分组
-
-电路交换的三个步骤:
-
-建立连接
-通话
-释放连接;在通话的全部时间内, 通话的两个用户始终占用全部端到端的通信资源
-
-
-分组交换技术的主要
+                            就在三天前, 我意外更新了最新ubuntu最新内核,然后,系统双双崩了,电脑键盘坏了,网络坏了,蓝牙坏了,什么都坏了,开始了修电脑
+先重启,万一会好呢结论是,不会, linux不是windows
+google怎么换内核,发现都是一半一半, 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">计算机网络</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
@@ -1010,36 +830,31 @@ Network(网络">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/21/docker-chu-ji/">
+                <a href="/2020/04/05/yuan-lei-bian-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="docker初级">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="元类编程">
                         
-                        <span class="card-title">docker初级</span>
+                        <span class="card-title">元类编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            获取docker镜像
-获取镜像
-docker pull ubuntu:18.10  下载镜像
-默认不填版本号会选最新版本的，即latest，默认使用官方镜像
-非官方镜像下载 
-docker pull hub.c.163.com/public
+                            属性获取在python的类中, 如果想通过user.attr获取属性, 可以在init函数中定义, 也可以使用property装饰, 函数就相当于一个属性, attr.setter装饰器可以使用user.attr=xx来进行值的set, 注
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/docker/" class="post-category">
-                                    docker
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -1049,8 +864,8 @@ docker pull hub.c.163.com/public
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>

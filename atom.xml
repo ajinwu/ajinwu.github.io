@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2020-04-05T05:18:00.876Z</updated>
+  <updated>2020-07-15T14:21:46.708Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -14,7 +14,35 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu更换内核</title>
+    <link href="https://www.ajin.cloud/2020/07/15/ubuntu-geng-huan-nei-he/"/>
+    <id>https://www.ajin.cloud/2020/07/15/ubuntu-geng-huan-nei-he/</id>
+    <published>2020-07-15T14:19:40.000Z</published>
+    <updated>2020-07-15T14:21:46.708Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;就在三天前, 我意外更新了最新ubuntu最新内核,然后,系统双双崩了,电脑键盘坏了,网络坏了,蓝牙坏了,什么都坏了,开始了修电脑&lt;/p&gt;
+&lt;h3 id=&quot;先重启-万一会好呢&quot;&gt;&lt;a href=&quot;#先重启-万一会好呢&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ajin.cloud/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://www.ajin.cloud/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>元类编程</title>
@@ -48,7 +76,7 @@
     <link href="https://www.ajin.cloud/2020/04/03/protocol-buffers/"/>
     <id>https://www.ajin.cloud/2020/04/03/protocol-buffers/</id>
     <published>2020-04-03T06:45:07.000Z</published>
-    <updated>2020-04-03T06:47:03.536Z</updated>
+    <updated>2020-04-03T06:47:03.000Z</updated>
     
     <summary type="html">
     
@@ -537,33 +565,6 @@
     
     
       <category term="docker" scheme="https://www.ajin.cloud/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文本与字符序列</title>
-    <link href="https://www.ajin.cloud/2019/12/02/wen-ben-yu-zi-fu-xu-lie/"/>
-    <id>https://www.ajin.cloud/2019/12/02/wen-ben-yu-zi-fu-xu-lie/</id>
-    <published>2019-12-02T13:39:29.000Z</published>
-    <updated>2020-01-07T13:25:18.804Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;字符问题&quot;&gt;&lt;a href=&quot;#字符问题&quot; class=&quot;headerlink&quot; title=&quot;字符问题&quot;&gt;&lt;/a&gt;字符问题&lt;/h1&gt;&lt;p&gt;对于字节序列, 可以理解为机器转储,
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://www.ajin.cloud/categories/python/"/>
-    
-    
-      <category term="文本与字符序列" scheme="https://www.ajin.cloud/tags/%E6%96%87%E6%9C%AC%E4%B8%8E%E5%AD%97%E7%AC%A6%E5%BA%8F%E5%88%97/"/>
     
   </entry>
   
