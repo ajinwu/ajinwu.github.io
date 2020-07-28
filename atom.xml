@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2020-07-15T14:21:46.708Z</updated>
+  <updated>2020-07-28T15:55:40.142Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux环境变量加载</title>
+    <link href="https://www.ajin.cloud/2020/07/28/linux-huan-jing-bian-liang-jia-zai/"/>
+    <id>https://www.ajin.cloud/2020/07/28/linux-huan-jing-bian-liang-jia-zai/</id>
+    <published>2020-07-28T15:54:07.000Z</published>
+    <updated>2020-07-28T15:55:40.142Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;水一篇linux下path路径设置的问题吧&lt;/p&gt;
+&lt;p&gt;今天在使用一个程序的时候, 发现使用sudo执行的时候查找不到命令, 想了想, 是sudo后切换了环境, 使用的是root的环境, 而我想用普通用户的权限来执行自然是用不了的&lt;/p&gt;
+&lt;p&gt;原文来自于 &lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ajin.cloud/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://www.ajin.cloud/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>ubuntu更换内核</title>
@@ -528,33 +557,6 @@
           &lt;h1 id=&quot;网络设备&quot;&gt;&lt;a href=&quot;#网络设备&quot; class=&quot;headerlink&quot; title=&quot;网络设备&quot;&gt;&lt;/a&gt;网络设备&lt;/h1&gt;&lt;p&gt;docker网络有六种设备, 对于不同的情景使用最优的设备是最好的选择&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;bridge:
-        
-      
-    
-    </summary>
-    
-    
-      <category term="docker" scheme="https://www.ajin.cloud/categories/docker/"/>
-    
-    
-      <category term="docker" scheme="https://www.ajin.cloud/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker构建一次性镜像以及缓存问题</title>
-    <link href="https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/"/>
-    <id>https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/</id>
-    <published>2019-12-10T12:51:09.000Z</published>
-    <updated>2020-01-07T13:25:46.352Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;通过管道传递dockerfile&quot;&gt;&lt;a href=&quot;#通过管道传递dockerfile&quot; class=&quot;headerlink&quot;
         
       
     

@@ -357,6 +357,59 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2020/01/22/datanode-gong-zuo-ji-zhi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="datanode工作机制">
+                            
+                            <span class="card-title">datanode工作机制</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                原理
+
+datanode首次启动后向namenode注册
+namenode返回注册成功应答
+每周期向namenode上报所以块信息(每小时)
+心跳消息3秒一次,心跳返回结果带有nn给datanode的命令
+超过10分钟没有联系会自动任务不可
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Hadoop/" class="post-category">
+                                    Hadoop
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Hadoop/">
+                            <span class="chip bg-color">Hadoop</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2020/01/22/namenode-gong-zuo-ji-zhi/">
                         <div class="card-image">
                             
@@ -914,55 +967,6 @@ echo -e 'FROM busybox\nRUN echo "hello world"' | docker build -
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/12/02/wen-ben-yu-zi-fu-xu-lie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="文本与字符序列">
-                            
-                            <span class="card-title">文本与字符序列</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                字符问题对于字节序列, 可以理解为机器转储, Unicode字符是人类可读的文本
-python3的str类型基本相当于python2的Unicode类型
-字节概要python3内置两种基本的二进制序列类型: python3引入的不可变byt
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%96%87%E6%9C%AC%E4%B8%8E%E5%AD%97%E7%AC%A6%E5%BA%8F%E5%88%97/">
-                            <span class="chip bg-color">文本与字符序列</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1007,7 +1011,7 @@ python3的str类型基本相当于python2的Unicode类型
                 <br>
                 
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                    class="white-color">35.9k</span>&nbsp;字
+                    class="white-color">36.5k</span>&nbsp;字
                 
                 
                 
@@ -1210,6 +1214,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 
 </html>
