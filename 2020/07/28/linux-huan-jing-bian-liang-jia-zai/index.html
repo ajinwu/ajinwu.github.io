@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    610
+                    689
                 </div>
                 
 
@@ -500,6 +500,7 @@
 <li>~/.&lt;shell&gt;rc, 同系统下, 打开shell生效</li>
 </ol>
 <p>目前的解决方案: 将go的bin目录加入到/etc/environment, go的配置放在了/etc/environment.d/*.conf, 使其在登录root的时候也可以正常使用, 然后配置了一些在.profile里面,然后在.zshrc里面在source了.profile(这样不好)</p>
+<p>but, 还有个问题, sudo运行还是没有go命令,原因是sudoers文件设置了一个secure_path, 意思都懂, 就是安全路径, 只允许使用这几个路径下面的, 我为了省事一点是直接注释了这一行, 正确应该学这个做<a href="https://my.oschina.net/u/4384240/blog/4240541" target="_blank" rel="noopener">添加环境路径</a></p>
 <h4 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h4><p>su - ：具有root的权限，但是使用的是普通用户的环境变量。</p>
 <p>env命令用于显示系统中已存在的环境变量，以及在定义的环境中执行指令。该命令只使用”-“作为参数选项时，隐藏了选项”-i”的功能。若没有设置任何选项和参数时，则直接显示当前的环境变量。</p>
 <p>path优先级问题, 会先读取系统的,才会读取自己设置的,比如java, 我自己装了一个java, 但是有次某程序给我装了openjdk,安装在了/usr/bin下面,导致我的不生效了就很烦</p>
@@ -933,7 +934,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 <br>
                 
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                    class="white-color">36.5k</span>&nbsp;字
+                    class="white-color">36.6k</span>&nbsp;字
                 
                 
                 
