@@ -4,15 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="操作系统复习, python bigdata docker spark linux django">
+    <meta name="keywords" content="安全之蜜罐初探, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="
-操作系统的目标(方便些, 有效性, 可扩充性, 开放性)
-
-未配置操作系统的计算机系统
-
-人工操作方式(用户独占全机, cpu等待人工操作), 人机矛盾, 人工操作方式严重降低了计算机资源的利用率
-脱机输入输出(解决人机矛盾及CPU和IO">
+    <meta name="description" content="蜜罐技术以及思想以下仅为本人对于蜜罐的一些认识，其中引用了有用的回答，如有侵权，请发邮件给我，下文如有错误，敬请指出
+来源蜜罐技术最早应用于圣地牙哥超级电脑中心， 由以为安全专家设立”蜜罐”引诱攻击者上钩， 通过朔源技术追踪，最终逮捕入侵者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>操作系统复习 | ajin的博客</title>
+    <title>安全之蜜罐初探 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,13 +307,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        操作系统复习
+                        安全之蜜罐初探
                     </div>
                 </div>
             </div>
@@ -430,8 +425,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                                <span class="chip bg-color">操作系统</span>
+                            <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                <span class="chip bg-color">安全</span>
                             </a>
                         
                     </div>
@@ -442,8 +437,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                操作系统
+                            <a href="/categories/%E5%AE%89%E5%85%A8/" class="post-category">
+                                安全
                             </a>
                         
                     </div>
@@ -455,7 +450,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-07
+                    2020-09-08
                 </div>
                 
 
@@ -464,14 +459,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    7 分
                 </div>
                 
 				
@@ -487,272 +482,71 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li><p>操作系统的目标(方便些, 有效性, 可扩充性, 开放性)</p>
-</li>
-<li><p>未配置操作系统的计算机系统</p>
+                <h2 id="蜜罐技术以及思想"><a href="#蜜罐技术以及思想" class="headerlink" title="蜜罐技术以及思想"></a>蜜罐技术以及思想</h2><p>以下仅为本人对于蜜罐的一些认识，其中引用了有用的回答，如有侵权，请发邮件给我，下文如有错误，敬请指出</p>
+<h4 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h4><p>蜜罐技术最早应用于圣地牙哥超级电脑中心， 由以为安全专家设立”蜜罐”引诱攻击者上钩， 通过朔源技术追踪，最终逮捕入侵者。 <a href="https://zh.wikipedia.org/wiki/%E8%9C%9C%E7%BD%90_(%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8)" target="_blank" rel="noopener">来源</a></p>
+<p>蜜罐技术通过模拟真实的os， 应用程序等，并对攻击者信息的提取，来实现对企业资产的保护，对攻击者的预防等优势，在安全圈广受好评</p>
+<h4 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h4><p>本段摘抄自知乎,其中由本人实践的一些认知，因不会提取答案直链，此处放出问题，摘抄处放置回答人的id， <a href="https://www.zhihu.com/question/48743267" target="_blank" rel="noopener">问题来源</a></p>
+<p>蜜罐使用以来发展迅速，可以分为生产型蜜罐和研究型蜜罐，生产型蜜罐通常为低交互蜜罐，仅捕获有限信息， 研究型蜜罐通常交互性高，可以捕获大量攻击者信息， 还可以分为纯蜜罐（仅提供节点监视攻击者），低交互蜜罐（只模拟攻击者常用服务，消耗资源少），高交互蜜罐（交互性高，真实性强，能够捕获大量payload，攻击字典，能够对于服务安全性提前观测，用于研究服务的漏洞，能够获取更多威胁情报）等， <strong>来源</strong>(知道创宇 云安全)</p>
+<h4 id="蜜罐的一些使用点"><a href="#蜜罐的一些使用点" class="headerlink" title="蜜罐的一些使用点"></a>蜜罐的一些使用点</h4><p>因蜜罐直面攻击者，需要保障服务可用性，承受压力会很高，而且部署的蜜罐也可能会出现漏洞，影响蜜罐机器，导致攻击者进入内网渗透，所以必须要保证宿主机器的安全， 还要保障蜜罐挂掉能够迅速重启</p>
+<p>对于攻击者攻破蜜罐后，可能会迅速清理自身痕迹，可能删除蜜罐产生的固有情报，产生的情报可以使用流式日志收集平台进行秒级收集，保护情报安全</p>
+<p>对于攻击者攻破蜜罐后，需要对同网段主机保护，同网段可能含有真实业务系统，所以可以虚拟一个网络，扰乱攻击者视线，消耗攻击者时间，提前收到响应，修复漏洞</p>
+<p>对于攻击者，我们不能被动防守，可以借助固有的一些情报，加上自身蜜罐产生的情报，进行数据分析，对攻击者行为提前防守甚至反制</p>
+<h4 id="蜜罐制作流程"><a href="#蜜罐制作流程" class="headerlink" title="蜜罐制作流程"></a>蜜罐制作流程</h4><ol>
+<li>对于网络攻击，所有的操作都需要通过网络流量，在浩如烟海的网络流量中如何排查有效的攻击信息至关重要，而攻击者一般定向打击，所以我们可以通过镜像对应端口的流量，分析攻击者行为，对攻击者进行响应</li>
+<li>流量中信息包含了大量控制信息，对于一些常用的协议，通过分析一次完整的网络请求，可以得到某个或某种命令的完整行为</li>
+<li>网络请求进行模拟，通过一些网络操作，进行网络编程，实现请求，对于请求中的敏感信息，我们必须进行拦截并返回虚假信息，迷惑攻击者</li>
+<li>攻击信息提取， 一般攻击者连接蜜罐后总会留下痕迹，我们留下的指纹信息，他的攻击爆破信息等，可以交由数据分析</li>
+<li>完成蜜罐制作后，我们需要进行测试，防止自己的蜜罐程序发生bug，导致攻击者攻击程序本身，导致主机直接沦陷</li>
+</ol>
+<h4 id="蜜罐优缺点"><a href="#蜜罐优缺点" class="headerlink" title="蜜罐优缺点"></a>蜜罐优缺点</h4><ol>
+<li>能有效诱骗攻击者，消耗攻击者信息，能够有足够的时间通知管理员处理攻击事件</li>
+<li>通常能够攻击蜜罐的攻击者真实性较高，能够获取攻击者情报，对于情报平台建设更加高效</li>
+<li>溯源能力高，因为已经建立情报平台，对于进来的攻击者，可以快速进行画像，在情报库中进行比对</li>
+<li>蜜罐整套平台部署过贵，小微企业常无法负担部署费用， 知道创宇部署价格为 6600RMB/month， 单个蜜罐定制开发为30000RMB</li>
+<li>单个蜜罐开发慢，周期长，之前的成果无法复用, 每一个全新蜜罐都是新的协议，所以需要研究协议组成，反复抓包分析</li>
+<li>国内安全重视程度较低，很少企业购买类似的产品</li>
+</ol>
+<h4 id="蜜罐埋点"><a href="#蜜罐埋点" class="headerlink" title="蜜罐埋点"></a>蜜罐埋点</h4><ol>
+<li>攻击者通过企业资产进行攻击，可以”意外”提供一个漏洞进入，然后诱导进入整个蜜罐群</li>
+<li>在一些重要的资产边部署一些蜜罐，攻击者主要目标无法攻击，一般会选择旁路有漏洞或者熟悉的机器</li>
+<li>主动暴露一些端口，攻击者在扫描时会发现一些能够进入的端口去爆破登录等</li>
+</ol>
+<h4 id="如何攻击蜜罐"><a href="#如何攻击蜜罐" class="headerlink" title="如何攻击蜜罐"></a>如何攻击蜜罐</h4><ol>
+<li>对于蜜罐，一般为网络程序，有些可能会放行某些可能安全的命令来保障真实性，可以包装这些命令，生成新的payload</li>
+<li>攻击蜜罐程序本身，蜜罐程序会使用一些库，从供应链端进行污染，类似于（request),还可以查看蜜罐程序使用的编程语言，寻找对应漏洞攻击(php， 你躺枪实属无奈)</li>
+<li>渗透进蜜罐后，可能在一些容器，虚拟机内部，可以对容器虚拟机等方向进行渗透</li>
+</ol>
+<h4 id="多蜜罐组织，蜜网"><a href="#多蜜罐组织，蜜网" class="headerlink" title="多蜜罐组织，蜜网"></a>多蜜罐组织，蜜网</h4><p>蜜网是由多个蜜罐组织在一起的大型蜜罐群，通过一个通用网关，外部进行流量清洗后，把疑似攻击者诱导入蜜网中，当攻击者以为进入了一个内网，开始进攻的时候，管理员已经收到了警报， 攻击者的每一次攻击行为都会被记录，<br>后续可以对攻击者的行为进行分析，专项保护某些应用安全，撒网捕捞猎物</p>
+<h4 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h4><p>目前蜜罐大多布置在lxd，docker， VMware esxi, kvm等虚拟化机器中，有些通过软件虚拟化，有些通过硬件虚拟化，虽然攻击者攻破蜜罐后发现是蜜罐后，可能会直接离开该网络， 但不排除网络管理员在蜜罐的旁路网络布置了应用，我们可以通过<br>虚拟化的漏洞来进行攻击，拿到主机</p>
+<p>一些虚拟化产品的漏洞</p>
 <ol>
-<li>人工操作方式(用户独占全机, cpu等待人工操作), 人机矛盾, 人工操作方式严重降低了计算机资源的利用率</li>
-<li>脱机输入输出(解决人机矛盾及CPU和IO设计之间速度不匹配的矛盾)(减少了cpu空闲时间,提高了IO速度)</li>
+<li><a href="https://tech.sina.cn/2020-08-17/detail-iivhvpwy1449744.d.html" target="_blank" rel="noopener">vmware</a></li>
+<li><a href="https://www.chaosec.com/?p=907" target="_blank" rel="noopener">kvm</a></li>
 </ol>
-</li>
-<li><p>单批道处理系统(配置监督程序装入内存),(系统中的资源得不到充分的利用,内存仅有一道程序)</p>
-</li>
-<li><p>多批道处理系统(提交作业放入外存, 排成一个后备队列, 选择若干进入内存)</p>
+<p>一些容器提权技巧 <a href="https://mp.weixin.qq.com/s/LN5UOAGNTau8ANQZGrLj1A" target="_blank" rel="noopener">来源</a></p>
 <ol>
-<li>资源利用率高, 系统吞吐量大, 平均周转时间长, 无交互能力</li>
-<li>处理机争用问题(利用率), 内存分配与保护问题, IO设备分配问题, 文件组织和管理问题, 作业管理问题, 用户与系统接口问题</li>
+<li>容器配置不当，导致docker内部能访问到docker.sock</li>
+<li>远程访问未授权，挂载根目录</li>
+<li>特权参数启动，允许对未知目录进行访问</li>
+<li>挂载敏感目录，写入密钥等</li>
+<li>docker软件本身的漏洞</li>
+<li>容器运行时runC漏洞，允许重写runc文件</li>
+<li>宿主机内核漏洞</li>
 </ol>
-</li>
-<li><p>分时系统</p>
+<p>对于虚拟化问题的一些防范， 可以在通过程序模拟一个docker， 有些程序需要执行系统命令， 我们可以通过自己制作的容器来执行， 自身限制挂载位置， 操作均在受限位置执行，可以有效保障安全性</p>
+<p>以上实现要点:</p>
 <ol>
-<li>人机交互(调试), 共享主机(价格)</li>
-<li>等待时间长, 及时接受, 及时处理(作业直接进入内存, 采用轮转运行方式,时间片)</li>
-<li>多路性, 独立性, 及时性, 交互性</li>
+<li>namespace, 限制资源访问位置</li>
+<li>cgoup， 限制资源使用量，防止一些资源使用的溢出漏洞</li>
 </ol>
-</li>
-<li><p>实时系统</p>
-<ol>
-<li>工业控制系统, 信息查询系统, 多媒体系统, 嵌入式系统</li>
-<li>周期性实时任务(循环,截止时间), 硬实时任务和软实时任务</li>
+<h4 id="一些易于部署的开源蜜罐"><a href="#一些易于部署的开源蜜罐" class="headerlink" title="一些易于部署的开源蜜罐"></a>一些易于部署的开源蜜罐</h4><ol>
+<li><a href="https://github.com/DinoTools/dionaea" target="_blank" rel="noopener">dionaea</a> 一个著名的开源蜜罐，支持很多协议， 方便部署使用</li>
+<li><a href="https://github.com/telekom-security/tpotce" target="_blank" rel="noopener">tpotce</a> 集成了许多蜜罐， 拥有可视化操作平台，基于web观测使用</li>
+<li><a href="https://github.com/cowrie/cowrie" target="_blank" rel="noopener">cowrie</a> 一个ssh/telnet蜜罐，通过虚拟机形式实现</li>
+<li><a href="https://github.com/alphaSeclab/awesome-honeypot" target="_blank" rel="noopener">awesome-honeypot</a> 收集了许多开源蜜罐的实现，蜜罐开发资料</li>
 </ol>
-</li>
-<li><p>实时分时比较,多路性, 独立性, 及时性, 交互性, 可靠性</p>
-</li>
-<li><p>操作系统基本特征,</p>
-<ol>
-<li>并行和并发(并行是同时, 并发是一段时间)</li>
-<li>共享(资源复用, 互斥共享, 同时访问)</li>
-<li>虚拟(时分复用或空分复用), 时分(虚拟机处理技术,虚拟设备技术), 空分(提高信道利用率)</li>
-<li>异步</li>
-</ol>
-</li>
-<li><p>前驱图和程序执行(有向无环图), 并发执行特征(间断性共享系统资源, 失去封闭性资源状态, 不可再现性)</p>
-</li>
-<li><p>进程的描述</p>
-<ol>
-<li>为使参与并发执行的每个程序都能独立运行, 配置专门的数据结构(进程控制块PCB)</li>
-<li>进程是程序的一次执行</li>
-<li>进程是一个程序机器数据在处理机上顺序执行时所发生的活动</li>
-<li>进程是具有独立功能的程序在一个数据集合上运行的过程</li>
-</ol>
-</li>
-<li><p>进程的特征(动态性(进程的实质就是进程实体的执行过程), 并发性(多个进程实体共存于内存中), 独立性(独立运行调度获得资源的基本单位), 异步性(进程各自独立))</p>
-</li>
-<li><p>进程的三种状态(创建,就绪, 执行, 阻塞, 挂起, 终止)</p>
-</li>
-<li><p>进程同步(是多个相关进程在执行次序上进行协调, 使并发执行的诸进程间按照一定规则共享系统资源), 临界资源(打印机等)</p>
-</li>
-<li><p>临界区,每个进程中访问临界资源的那段代码称为临界区, 互斥访问</p>
-</li>
-<li><p>同步机制遵循规则, 空闲让进, 忙则等待, 有限等待(保证优先时间内能进入自己的临界区), 让权等待(不能进入临界区应立即释放处理机)</p>
-</li>
-<li><p>信号量机制(表示资源)</p>
-<ol>
-<li>整型信号量(原子操作, PV, wait, signal)</li>
-<li>记录型信号量(忙等)</li>
-<li>AND信号量(死锁, 全分配)</li>
-<li>信号量集(Swait(S,1,1))</li>
-</ol>
-</li>
-<li><p>生产者消费者问题</p>
-<ol>
-<li>利用记录型信号量解决问题, 公用缓冲区具有n个缓冲区, 利用互斥信号量metex实现诸进程对缓冲池的互斥使用, 利用empty和full判断空满, 未满进入, 未空取出</li>
-<li>利用AND信号量, Swait(empty, mutex)和Ssignal(mutex, full)</li>
-<li>利用管程解决, 建立管程, put放入, get取出, cwait(condition)和csignal哦按段进程占用阻塞</li>
-</ol>
-</li>
-<li><p>哲学家进餐问题</p>
-<ol>
-<li>记录型信号量, 筷子是临界资源, 对筷子进行互斥访问(死锁)</li>
-<li>AND型信号量, 两只筷子是临界资源</li>
-</ol>
-</li>
-<li><p>线程与进程之间的比较</p>
-<ol>
-<li>调度的基本单位, 进程是独立调度和分派的基本单位,能够独立运行,调度事需要进行上下文切换开销较大, 反之线程开销较小</li>
-<li>并发性, 都具有</li>
-<li>拥有资源, 进程拥有资源, 线程本身不拥有资源, 线程只拥有少量资源, 还允许多个线程共享进程的资源</li>
-<li>独立性, 进程都拥有一个独立的地址空间和其他资源, 除了共享全局变量, 不允许其他进程访问, 线程共享进程的内存地址和资源</li>
-<li>系统开销</li>
-<li>支持多处理机系统, 单进程不管有多少处理机, 该进程只运行在一个处理机上, 对于多线程进程可以将多个线程分配到多个处理机上并发执行</li>
-</ol>
-</li>
-<li><p>处理机调度的层次</p>
-<ol>
-<li>高级调度称为长程调度, 调度对象是作业, 根据某种算法决定将外存上处于后备队列的哪几个作业调入内存</li>
-<li>低级调度称为进程调度, 调度对象是进程, 根据某种算法决定就绪队列中的哪几个进程获得处理机</li>
-<li>中级调度称为内存调度, 提高内存利用率和系统吞吐量</li>
-</ol>
-</li>
-<li><p>计算机死锁,竞争不可抢占性资源引起死锁,竞争可消耗资源引起死锁(等待资源),进程推进顺序不当引起死锁</p>
-</li>
-<li><p>死锁的必要条件和处理方法</p>
-<ol>
-<li>在一组进程发生死锁的情况下, 这组死锁每一个进程都在等待另一个死锁所占有的资源</li>
-<li>互斥条件(资源只能被单个进程使用), 请求和保持条件(等待资源), 不可抢占条件(未用完不能被使用), 循环等待</li>
-<li>预防死锁, 避免死锁, 检测死锁, 解除死锁(撤销进程, 回收资源)</li>
-<li>银行家算法, 必须声明每种资源的最大数目(可利用资源向量, 最大需求矩阵, 分配矩阵, 需求矩阵)</li>
-<li>资源分配图(不会)</li>
-<li>死锁解除算法(抢占资源分配给死锁进程, 终止进程)</li>
-<li>终止进程(全部终止, 逐个终止(按优先级, 进程执行时间还需多少时间, 资源使用数目还需多少资源, 进程是交互式还是批处理))</li>
-</ol>
-</li>
-<li><p>多层结构的存储器系统(寄存器,高速缓存,主存储器,磁盘缓存,固定磁盘,可移动存储介质)</p>
-</li>
-<li><p>程序的链接(源程序经过编译后,可得到一组目标模块后. 链接程序的功能是将这组目标模块以及他们所需要的库函数装配成一个完整的装入模块)</p>
-</li>
-<li><p>静态链接方式,在程序运行之前,先将各目标模块以及他们所需的库函数链接成一个完整的装配模块不在拆开(对相对地址进行修改, 变换外部符号(将每个模块的外部符号也都变换为相对地址,这种先行链接所形成的完整模块又称为可执行文件))</p>
-</li>
-<li><p>装入时动态链接, 在装入一个目标模块时, 若发生一个外部模块调用时间,将引起程序去找出相应的外部目标模块,并装入内存(便于修改和更新,便于实现对目标模块的共享)</p>
-</li>
-<li><p>运行时动态链接, 对某些模块的链接推迟到程序执行时才进行</p>
-</li>
-<li><p>动态分区分配,根据进程的需要,动态的为之分配内存空间</p>
-<ol>
-<li>数据结构,(空闲分区表在系统中设置一张空闲分区表,用于记录每个空闲分区的状况,包括分区号,分区大小,分区地址),(空闲分区链,在每个分区的起始部分设置一些用于控制分区分配的信息以及用于链接各分区所用的前向指针和后向指针)</li>
-<li>分区分配操作,查表,查大小,查多余(是否不可在分配),分配移出链</li>
-<li>回收内存,查找表目,是否前一个相邻,后一个相邻,插入,返回</li>
-<li>基于顺序搜索的动态分区分配算法(首次适应算法, 循环首次适应, 最佳适应, 最坏适应)</li>
-<li>基于索引搜索的动态分区分配算法(快速适应算法, 伙伴系统, 哈希算法)</li>
-</ol>
-</li>
-<li><p>动态重定位分区分配</p>
-<ol>
-<li>紧凑,一个系统或用户程序必须被转入一段连续的内存空间中</li>
-<li>动态重定位,作业装入内存后的所有地址仍然是相对地址,而将相对地址转换为绝对地址的工作被推迟到程序指令要真正执行时进行</li>
-</ol>
-</li>
-<li><p>分页存储管理方式, 离散分配(分页存储管理方式, 分段式存储管理方式,段页式管理方式)</p>
-</li>
-<li><p>虚拟存储器局部性原理(在一段时间内,程序的执行仅局限于某个部分,相应的,他所访问的存储空间也局限于某个区域),(1,程序大部分顺序执行,2,过程调用调用的深度在大多数情况下不超过5,3程序存在许多循环结构,程序中包括许多对数据结构的处理,4程序中对数据结构的处理在很小的范围内, 还有时间局限性(循环)和空间局限性(顺序))</p>
-</li>
-<li><p>虚拟存储器是具有请求调入和置换功能,能从逻辑上对内存容量加以扩充的一种存储器系统,(多次性(只需将当前要运行的那部分程序和数据装入内存即可运行),对换性(在进程运行期间,允许将那些暂不使用的代码和数据从内存调至外存的对换去),虚拟性(能在逻辑上扩冲内存容量))</p>
-</li>
-<li><p>虚拟存储器实现方法</p>
-<ol>
-<li>分页请求系统(在分页系统基础上增加了请求调页功能和页面置换功能所形成的页式虚拟存储系统),(硬件支持(请求分页的页表机制,在纯分页的页表机制上增加若干项形成,作为请求的数据结构),缺页中断机构(访问页面未调入内存产生中断请求调入),地址变换机构)</li>
-<li>请求分段系统,在分段系统的基础上,增加了请求分段及分段置换功能形成的段式虚拟存储系统</li>
-</ol>
-</li>
-<li><p>内存分配策略</p>
-<ol>
-<li>固定分配局部置换,为每个进程分配一组固定数目的物理块,在进程运行期间不在改变,如果程序运行期间发现缺页,则只能从分配给该进程的n个页面选出一页换出在调入</li>
-<li>可变分配全局置换,先分配一定数目物理块,适当增加减少,发现缺页将保留空闲物理块取出分配</li>
-<li>可变局部局部置换,</li>
-</ol>
-</li>
-<li><p>物理块分配算法</p>
-<ol>
-<li>平均分配算法</li>
-<li>按比例分配算法 m=(页面数/总页面数)*物理块总数</li>
-<li>考虑优先权的分配算法</li>
-</ol>
-</li>
-<li><p>缺页率计算=访问页面失败/(访问页面成功+失败)</p>
-<ol>
-<li>页面大小(页面划分越大,缺页率越低)</li>
-<li>进程所分配的物理块数目越多缺页绿越低</li>
-<li>页面置换算法</li>
-<li>程序固有特性</li>
-<li>缺页中断处理时间 被置换页面被修改概率×缺页中断处理时间 + (1-被置换页面被修改概率)×被置换页面没有被修改的缺页中断时间</li>
-</ol>
-</li>
-<li><p>页面置换算法(不会)</p>
-<ol>
-<li>最佳算法,选择淘汰的是未来很长时间不在使用的</li>
-<li>先进先出,淘汰最老页面</li>
-<li>最久未使用算法</li>
-</ol>
-</li>
-<li><p>IO通道,建立独立的IO的操作不仅使数据的传送独立于CPU, 并且有关IO的组织管理尽量独立</p>
-<ol>
-<li>字节多路类型通道,按字节交叉方式工作的通道, 含有许多未分配子通道, 每个子通道连接一台IO设备,子通道按照时间片轮转方式共享主通道</li>
-<li>数组选择通道, 只有一个,慢</li>
-<li>数组多路通道分时并行</li>
-</ol>
-</li>
-<li><p>中断和陷入</p>
-<ol>
-<li>中断是CPU对IO设备发来的中断信号的一种响应</li>
-<li>陷入CPU内存事件引起的终端叫做陷入</li>
-<li>中断向量表放置中断处理程序的入口地址</li>
-<li>屏蔽中断,嵌套中断</li>
-</ol>
-</li>
-<li><p>中断处理程序</p>
-<ol>
-<li>测定是否有未响应的中断信号</li>
-<li>保护被中断进程的cpu环境</li>
-<li>转入响应设备处理</li>
-<li>中断处理</li>
-<li>恢复cpu现场并退出中断</li>
-</ol>
-</li>
-<li><p>直接存储器访问方式</p>
-<ol>
-<li>数据传输单位是数据块</li>
-<li>传送的数据从块设备送入内存</li>
-<li>仅在传送一个或多个数据块的开始和结束,才需要cpu干预</li>
-</ol>
-</li>
-<li><p>DMA控制器组成(命令/状态控制器CR,内存地址控制器MAR,数据寄存器DR,数据计数器DC)</p>
-</li>
-<li><p>SPOOLing组成(输入井和输出井,输入输出缓冲区,输入输出进程,井管理程序)</p>
-</li>
-<li><p>SPOOLing的特点,提高了IO速度,将独占设备改造为共享设备,实现了虚拟设备功能</p>
-</li>
-<li><p>磁盘访问时间</p>
-<ol>
-<li>寻道时间T=磁盘驱动器速度*磁头移动n条磁道花费时间+启动磁臂时间</li>
-<li>旋转延迟时间</li>
-<li>传输时间T=每次读写字节数/(磁盘每秒转速*一条磁道上字节数)</li>
-</ol>
-</li>
-<li><p>磁盘调度算法</p>
-<ol>
-<li>先来先服务</li>
-<li>最短寻道时间优先</li>
-</ol>
-</li>
-<li><p>文件目录(实现按名存取,提高对目录的检索程度,文件共享,允许文件重名)</p>
-<ol>
-<li>文件控制块是对系统中大量文件进行有效管理, 应包含基本信息(文件名,物理位置,逻辑结构,文件物理结构), 存取控制信息(存取权限)及使用信息</li>
-<li>检索目录文件时只用到文件名,文件索引结点包括(文件主标识符,文件类型,文件存取权限,文件物理地址,文件长度,文件连接计数,文件存取时间),内存索引结点(索引结点编号,状态,访问计数,文件所属文件系统块设备号,链接指针)</li>
-</ol>
-</li>
-<li><p>简单文件目录(逻辑结构和物理结构)</p>
-</li>
-<li><p>外村组织方式</p>
-<ol>
-<li>连续组织方式(顺序访问容易, 顺序访问速度快,容易产生外部碎片,必须事先知道文件长度)</li>
-<li>链接组织方式(分配不连续的磁盘空间通过链接指针链接,消除了外部碎片,插入删除修改很容易,适应文件动态增长)</li>
-<li>索引组织方式</li>
-</ol>
-</li>
-<li><p>FAT技术,文件分配表技术来记录每个文件中给所有盘块之间的链接</p>
-<ol>
-<li>fat12是盘块做基本单位</li>
-<li>fat12的文件簇,簇是一组相邻的扇区</li>
-</ol>
-</li>
-<li><p>NTFS</p>
-<ol>
-<li>以簇为单位</li>
-<li>4K对齐的意思是NTFS磁盘默认簇为4K</li>
-</ol>
-</li>
-<li><p>RAID磁盘冗余阵列</p>
-<ol>
-<li>并行交叉读取</li>
-<li>raid0,只有并行交叉存取,能实现高效传输,一个磁盘坏掉全坏</li>
-<li>raid1,具有磁盘镜像功能,可靠性好, 利用率低</li>
-<li>raid3具有并行传输功能和数据校验功能</li>
-<li>raid5具有独立传送功能,各驱动器都有独立的数据通路,可以独立读写,无校验,纠错的校验信息以螺旋方式散步在所有数据盘</li>
-<li>raid6/7,在6中设置专门的可快速访问的异步校验盘,具有独立的数据访问通路,7是对6的改进,所有磁盘都具有较高的传输速率和优异的性能,最高档次</li>
-</ol>
-</li>
-</ol>
+<h4 id="成熟的蜜罐产品"><a href="#成熟的蜜罐产品" class="headerlink" title="成熟的蜜罐产品"></a>成熟的蜜罐产品</h4><p>以下信息来源知乎 <a href="https://www.zhihu.com/question/67113972/answer/1256794451" target="_blank" rel="noopener">来源</a></p>
+<p>幻盾、幻阵（默安）<br>谛听（长亭）<br>蜃景（360）<br>有影、有饵（元支点）<br>春秋云阵（永信至诚）<br>幻云（锦行科技）<br>魅影（观安）<br>捕风（安天）<br>明鉴迷网（安恒）<br>御阵（腾讯）<br>猎风、创宇蜜罐（知道创宇）<br>潜听（天融信）<br>听无声、戍将（经纬信安）<br>幻影（非凡安全）<br>天燕（启明星辰）<br>幻境（卫达）<br>谛听（长亭）</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -796,7 +590,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2020/01/07/cao-zuo-xi-tong-fu-xi/">https://www.ajin.cloud/2020/01/07/cao-zuo-xi-tong-fu-xi/</a>
+                    <a href="https://www.ajin.cloud/2020/09/08/an-quan-zhi-mi-guan-chu-tan/">https://www.ajin.cloud/2020/09/08/an-quan-zhi-mi-guan-chu-tan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -834,8 +628,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                                    <span class="chip bg-color">操作系统</span>
+                                <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                    <span class="chip bg-color">安全</span>
                                 </a>
                             
                         </div>
@@ -876,9 +670,9 @@
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2020/01/07/cao-zuo-xi-tong-fu-xi/';
-        this.page.identifier = '/2020/01/07/cao-zuo-xi-tong-fu-xi/';
-        this.page.title = '操作系统复习';
+        this.page.url = 'https://www.ajin.cloud/2020/09/08/an-quan-zhi-mi-guan-chu-tan/';
+        this.page.identifier = '/2020/09/08/an-quan-zhi-mi-guan-chu-tan/';
+        this.page.title = '安全之蜜罐初探';
     };
     let disqus_shortname = '';
 
@@ -901,51 +695,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/01/22/hdfs-du-xie-shu-ju-liu-cheng/">
+                <a href="/2020/09/08/an-quan-zhi-mi-guan-chu-tan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="HDFS读写数据流程">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="安全之蜜罐初探">
                         
-                        <span class="card-title">HDFS读写数据流程</span>
+                        <span class="card-title">安全之蜜罐初探</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            开局一张图先写数据
-
-分布式文件系统是HDFS的一个抽象封装,先发出一个上传请求,namenode判断上传是否合法(文件存在性,上传权限等) 
-namenode响应上传,客户端将文件逻辑切分成块大小,开启流对拷
-请求上传第一个block
-n
+                            蜜罐技术以及思想以下仅为本人对于蜜罐的一些认识，其中引用了有用的回答，如有侵权，请发邮件给我，下文如有错误，敬请指出
+来源蜜罐技术最早应用于圣地牙哥超级电脑中心， 由以为安全专家设立”蜜罐”引诱攻击者上钩， 通过朔源技术追踪，最终逮捕入侵者
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hadoop/" class="post-category">
-                                    Hadoop
+                            <a href="/categories/%E5%AE%89%E5%85%A8/" class="post-category">
+                                    安全
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hadoop/">
-                        <span class="chip bg-color">Hadoop</span>
+                    <a href="/tags/%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">安全</span>
                     </a>
                     
                 </div>
@@ -959,43 +751,33 @@ n
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/29/redis-ming-ling-can-kao/">
+                <a href="/2020/07/28/linux-huan-jing-bian-liang-jia-zai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="redis命令参考">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="linux环境变量加载">
                         
-                        <span class="card-title">redis命令参考</span>
+                        <span class="card-title">linux环境变量加载</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            redis命令参考redis-python命令参考
-redis提供的5中数据结构
-
-
-结构类型
-结构存储的值
-结构的读写能力
-
-
-
-string
-可以是字符串, 整数, 或者浮点数
-对整个字符串或者字符串中的一部分进行执行操作, 对整数和浮
+                            水一篇linux下path路径设置的问题吧
+今天在使用一个程序的时候, 发现使用sudo执行的时候查找不到命令, 想了想, 是sudo后切换了环境, 使用的是root的环境, 而我想用普通用户的权限来执行自然是用不了的
+原文来自于 stac
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/redis/" class="post-category">
-                                    redis
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
                                 </a>
                             
                             
@@ -1005,8 +787,8 @@ string
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/redis/">
-                        <span class="chip bg-color">redis</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>

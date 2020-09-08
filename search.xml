@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>安全之蜜罐初探</title>
+      <link href="/2020/09/08/an-quan-zhi-mi-guan-chu-tan/"/>
+      <url>/2020/09/08/an-quan-zhi-mi-guan-chu-tan/</url>
+      
+        <content type="html"><![CDATA[<h2 id="蜜罐技术以及思想"><a href="#蜜罐技术以及思想" class="headerlink" title="蜜罐技术以及思想"></a>蜜罐技术以及思想</h2><p>以下仅为本人对于蜜罐的一些认识，其中引用了有用的回答，如有侵权，请发邮件给我，下文如有错误，敬请指出</p><h4 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h4><p>蜜罐技术最早应用于圣地牙哥超级电脑中心， 由以为安全专家设立”蜜罐”引诱攻击者上钩， 通过朔源技术追踪，最终逮捕入侵者。 <a href="https://zh.wikipedia.org/wiki/%E8%9C%9C%E7%BD%90_(%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8)" target="_blank" rel="noopener">来源</a></p><p>蜜罐技术通过模拟真实的os， 应用程序等，并对攻击者信息的提取，来实现对企业资产的保护，对攻击者的预防等优势，在安全圈广受好评</p><h4 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h4><p>本段摘抄自知乎,其中由本人实践的一些认知，因不会提取答案直链，此处放出问题，摘抄处放置回答人的id， <a href="https://www.zhihu.com/question/48743267" target="_blank" rel="noopener">问题来源</a></p><p>蜜罐使用以来发展迅速，可以分为生产型蜜罐和研究型蜜罐，生产型蜜罐通常为低交互蜜罐，仅捕获有限信息， 研究型蜜罐通常交互性高，可以捕获大量攻击者信息， 还可以分为纯蜜罐（仅提供节点监视攻击者），低交互蜜罐（只模拟攻击者常用服务，消耗资源少），高交互蜜罐（交互性高，真实性强，能够捕获大量payload，攻击字典，能够对于服务安全性提前观测，用于研究服务的漏洞，能够获取更多威胁情报）等， <strong>来源</strong>(知道创宇 云安全)</p><h4 id="蜜罐的一些使用点"><a href="#蜜罐的一些使用点" class="headerlink" title="蜜罐的一些使用点"></a>蜜罐的一些使用点</h4><p>因蜜罐直面攻击者，需要保障服务可用性，承受压力会很高，而且部署的蜜罐也可能会出现漏洞，影响蜜罐机器，导致攻击者进入内网渗透，所以必须要保证宿主机器的安全， 还要保障蜜罐挂掉能够迅速重启</p><p>对于攻击者攻破蜜罐后，可能会迅速清理自身痕迹，可能删除蜜罐产生的固有情报，产生的情报可以使用流式日志收集平台进行秒级收集，保护情报安全</p><p>对于攻击者攻破蜜罐后，需要对同网段主机保护，同网段可能含有真实业务系统，所以可以虚拟一个网络，扰乱攻击者视线，消耗攻击者时间，提前收到响应，修复漏洞</p><p>对于攻击者，我们不能被动防守，可以借助固有的一些情报，加上自身蜜罐产生的情报，进行数据分析，对攻击者行为提前防守甚至反制</p><h4 id="蜜罐制作流程"><a href="#蜜罐制作流程" class="headerlink" title="蜜罐制作流程"></a>蜜罐制作流程</h4><ol><li>对于网络攻击，所有的操作都需要通过网络流量，在浩如烟海的网络流量中如何排查有效的攻击信息至关重要，而攻击者一般定向打击，所以我们可以通过镜像对应端口的流量，分析攻击者行为，对攻击者进行响应</li><li>流量中信息包含了大量控制信息，对于一些常用的协议，通过分析一次完整的网络请求，可以得到某个或某种命令的完整行为</li><li>网络请求进行模拟，通过一些网络操作，进行网络编程，实现请求，对于请求中的敏感信息，我们必须进行拦截并返回虚假信息，迷惑攻击者</li><li>攻击信息提取， 一般攻击者连接蜜罐后总会留下痕迹，我们留下的指纹信息，他的攻击爆破信息等，可以交由数据分析</li><li>完成蜜罐制作后，我们需要进行测试，防止自己的蜜罐程序发生bug，导致攻击者攻击程序本身，导致主机直接沦陷</li></ol><h4 id="蜜罐优缺点"><a href="#蜜罐优缺点" class="headerlink" title="蜜罐优缺点"></a>蜜罐优缺点</h4><ol><li>能有效诱骗攻击者，消耗攻击者信息，能够有足够的时间通知管理员处理攻击事件</li><li>通常能够攻击蜜罐的攻击者真实性较高，能够获取攻击者情报，对于情报平台建设更加高效</li><li>溯源能力高，因为已经建立情报平台，对于进来的攻击者，可以快速进行画像，在情报库中进行比对</li><li>蜜罐整套平台部署过贵，小微企业常无法负担部署费用， 知道创宇部署价格为 6600RMB/month， 单个蜜罐定制开发为30000RMB</li><li>单个蜜罐开发慢，周期长，之前的成果无法复用, 每一个全新蜜罐都是新的协议，所以需要研究协议组成，反复抓包分析</li><li>国内安全重视程度较低，很少企业购买类似的产品</li></ol><h4 id="蜜罐埋点"><a href="#蜜罐埋点" class="headerlink" title="蜜罐埋点"></a>蜜罐埋点</h4><ol><li>攻击者通过企业资产进行攻击，可以”意外”提供一个漏洞进入，然后诱导进入整个蜜罐群</li><li>在一些重要的资产边部署一些蜜罐，攻击者主要目标无法攻击，一般会选择旁路有漏洞或者熟悉的机器</li><li>主动暴露一些端口，攻击者在扫描时会发现一些能够进入的端口去爆破登录等</li></ol><h4 id="如何攻击蜜罐"><a href="#如何攻击蜜罐" class="headerlink" title="如何攻击蜜罐"></a>如何攻击蜜罐</h4><ol><li>对于蜜罐，一般为网络程序，有些可能会放行某些可能安全的命令来保障真实性，可以包装这些命令，生成新的payload</li><li>攻击蜜罐程序本身，蜜罐程序会使用一些库，从供应链端进行污染，类似于（request),还可以查看蜜罐程序使用的编程语言，寻找对应漏洞攻击(php， 你躺枪实属无奈)</li><li>渗透进蜜罐后，可能在一些容器，虚拟机内部，可以对容器虚拟机等方向进行渗透</li></ol><h4 id="多蜜罐组织，蜜网"><a href="#多蜜罐组织，蜜网" class="headerlink" title="多蜜罐组织，蜜网"></a>多蜜罐组织，蜜网</h4><p>蜜网是由多个蜜罐组织在一起的大型蜜罐群，通过一个通用网关，外部进行流量清洗后，把疑似攻击者诱导入蜜网中，当攻击者以为进入了一个内网，开始进攻的时候，管理员已经收到了警报， 攻击者的每一次攻击行为都会被记录，<br>后续可以对攻击者的行为进行分析，专项保护某些应用安全，撒网捕捞猎物</p><h4 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h4><p>目前蜜罐大多布置在lxd，docker， VMware esxi, kvm等虚拟化机器中，有些通过软件虚拟化，有些通过硬件虚拟化，虽然攻击者攻破蜜罐后发现是蜜罐后，可能会直接离开该网络， 但不排除网络管理员在蜜罐的旁路网络布置了应用，我们可以通过<br>虚拟化的漏洞来进行攻击，拿到主机</p><p>一些虚拟化产品的漏洞</p><ol><li><a href="https://tech.sina.cn/2020-08-17/detail-iivhvpwy1449744.d.html" target="_blank" rel="noopener">vmware</a></li><li><a href="https://www.chaosec.com/?p=907" target="_blank" rel="noopener">kvm</a></li></ol><p>一些容器提权技巧 <a href="https://mp.weixin.qq.com/s/LN5UOAGNTau8ANQZGrLj1A" target="_blank" rel="noopener">来源</a></p><ol><li>容器配置不当，导致docker内部能访问到docker.sock</li><li>远程访问未授权，挂载根目录</li><li>特权参数启动，允许对未知目录进行访问</li><li>挂载敏感目录，写入密钥等</li><li>docker软件本身的漏洞</li><li>容器运行时runC漏洞，允许重写runc文件</li><li>宿主机内核漏洞</li></ol><p>对于虚拟化问题的一些防范， 可以在通过程序模拟一个docker， 有些程序需要执行系统命令， 我们可以通过自己制作的容器来执行， 自身限制挂载位置， 操作均在受限位置执行，可以有效保障安全性</p><p>以上实现要点:</p><ol><li>namespace, 限制资源访问位置</li><li>cgoup， 限制资源使用量，防止一些资源使用的溢出漏洞</li></ol><h4 id="一些易于部署的开源蜜罐"><a href="#一些易于部署的开源蜜罐" class="headerlink" title="一些易于部署的开源蜜罐"></a>一些易于部署的开源蜜罐</h4><ol><li><a href="https://github.com/DinoTools/dionaea" target="_blank" rel="noopener">dionaea</a> 一个著名的开源蜜罐，支持很多协议， 方便部署使用</li><li><a href="https://github.com/telekom-security/tpotce" target="_blank" rel="noopener">tpotce</a> 集成了许多蜜罐， 拥有可视化操作平台，基于web观测使用</li><li><a href="https://github.com/cowrie/cowrie" target="_blank" rel="noopener">cowrie</a> 一个ssh/telnet蜜罐，通过虚拟机形式实现</li><li><a href="https://github.com/alphaSeclab/awesome-honeypot" target="_blank" rel="noopener">awesome-honeypot</a> 收集了许多开源蜜罐的实现，蜜罐开发资料</li></ol><h4 id="成熟的蜜罐产品"><a href="#成熟的蜜罐产品" class="headerlink" title="成熟的蜜罐产品"></a>成熟的蜜罐产品</h4><p>以下信息来源知乎 <a href="https://www.zhihu.com/question/67113972/answer/1256794451" target="_blank" rel="noopener">来源</a></p><p>幻盾、幻阵（默安）<br>谛听（长亭）<br>蜃景（360）<br>有影、有饵（元支点）<br>春秋云阵（永信至诚）<br>幻云（锦行科技）<br>魅影（观安）<br>捕风（安天）<br>明鉴迷网（安恒）<br>御阵（腾讯）<br>猎风、创宇蜜罐（知道创宇）<br>潜听（天融信）<br>听无声、戍将（经纬信安）<br>幻影（非凡安全）<br>天燕（启明星辰）<br>幻境（卫达）<br>谛听（长亭）</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>linux环境变量加载</title>
       <link href="/2020/07/28/linux-huan-jing-bian-liang-jia-zai/"/>
       <url>/2020/07/28/linux-huan-jing-bian-liang-jia-zai/</url>
