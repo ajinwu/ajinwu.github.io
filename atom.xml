@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ajin.cloud/"/>
-  <updated>2020-09-08T10:32:20.715Z</updated>
+  <updated>2020-11-14T08:57:53.078Z</updated>
   <id>https://www.ajin.cloud/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sqli-labs注入学习</title>
+    <link href="https://www.ajin.cloud/2020/11/14/sqli-labs-zhu-ru-xue-xi/"/>
+    <id>https://www.ajin.cloud/2020/11/14/sqli-labs-zhu-ru-xue-xi/</id>
+    <published>2020-11-14T08:46:29.000Z</published>
+    <updated>2020-11-14T08:57:53.078Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;查库  &lt;code&gt;select schema_name from information_schema.schemata;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查表  &lt;code&gt;select table_name from
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安全" scheme="https://www.ajin.cloud/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="安全" scheme="https://www.ajin.cloud/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>安全之蜜罐初探</title>
@@ -538,33 +567,6 @@
     
     
       <category term="python" scheme="https://www.ajin.cloud/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>主机规划</title>
-    <link href="https://www.ajin.cloud/2019/12/16/zhu-ji-gui-hua/"/>
-    <id>https://www.ajin.cloud/2019/12/16/zhu-ji-gui-hua/</id>
-    <published>2019-12-16T12:07:08.000Z</published>
-    <updated>2020-01-07T13:25:31.780Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;磁盘链接方式与装置名的关系&quot;&gt;&lt;a href=&quot;#磁盘链接方式与装置名的关系&quot; class=&quot;headerlink&quot; title=&quot;磁盘链接方式与装置名的关系&quot;&gt;&lt;/a&gt;磁盘链接方式与装置名的关系&lt;/h1&gt;&lt;p&gt;磁盘安装在不同的插槽,
-        
-      
-    
-    </summary>
-    
-    
-      <category term="计算机系统/linux" scheme="https://www.ajin.cloud/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/"/>
-    
-    
-      <category term="计算机系统/linux" scheme="https://www.ajin.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-linux/"/>
     
   </entry>
   

