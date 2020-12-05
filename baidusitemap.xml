@@ -1,131 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.ajin.cloud/2020/11/14/sqli-labs-zhu-ru-xue-xi/</loc>
+    <loc>https://blog.ajin.cloud/posts/sqli-labs-zhu-ru-xue-xi.html</loc>
     <lastmod>2020-11-14</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/09/08/an-quan-zhi-mi-guan-chu-tan/</loc>
+    <loc>https://blog.ajin.cloud/posts/an-quan-zhi-mi-guan-chu-tan.html</loc>
     <lastmod>2020-09-08</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/07/28/linux-huan-jing-bian-liang-jia-zai/</loc>
+    <loc>https://blog.ajin.cloud/posts/linux-huan-jing-bian-liang-jia-zai.html</loc>
     <lastmod>2020-07-28</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/07/15/ubuntu-geng-huan-nei-he/</loc>
+    <loc>https://blog.ajin.cloud/posts/ubuntu-geng-huan-nei-he.html</loc>
     <lastmod>2020-07-15</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/04/05/yuan-lei-bian-cheng/</loc>
+    <loc>https://blog.ajin.cloud/posts/yuan-lei-bian-cheng.html</loc>
     <lastmod>2020-04-05</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/04/03/protocol-buffers/</loc>
+    <loc>https://blog.ajin.cloud/posts/protocol-buffers.html</loc>
     <lastmod>2020-04-03</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/04/03/grpc-gai-shu/</loc>
+    <loc>https://blog.ajin.cloud/posts/grpc-gai-shu.html</loc>
     <lastmod>2020-04-03</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/03/20/zhuang-shi-qi-xue-xi/</loc>
+    <loc>https://blog.ajin.cloud/posts/zhuang-shi-qi-xue-xi.html</loc>
     <lastmod>2020-03-25</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/02/09/python-shi-xian-java-zhong-de-bi-jiao-qi/</loc>
+    <loc>https://blog.ajin.cloud/posts/python-shi-xian-java-zhong-de-bi-jiao-qi.html</loc>
     <lastmod>2020-02-09</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/01/22/mapreduce-gong-zuo-liu-cheng/</loc>
+    <loc>https://blog.ajin.cloud/posts/mapreduce-gong-zuo-liu-cheng.html</loc>
     <lastmod>2020-01-22</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/01/22/hadoop-xiao-jie/</loc>
+    <loc>https://blog.ajin.cloud/posts/hadoop-xiao-jie.html</loc>
     <lastmod>2020-01-22</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/01/22/datanode-gong-zuo-ji-zhi/</loc>
+    <loc>https://blog.ajin.cloud/posts/datanode-gong-zuo-ji-zhi.html</loc>
     <lastmod>2020-01-22</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/01/22/namenode-gong-zuo-ji-zhi/</loc>
+    <loc>https://blog.ajin.cloud/posts/namenode-gong-zuo-ji-zhi.html</loc>
     <lastmod>2020-01-22</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/01/22/hdfs-du-xie-shu-ju-liu-cheng/</loc>
+    <loc>https://blog.ajin.cloud/posts/hdfs-du-xie-shu-ju-liu-cheng.html</loc>
     <lastmod>2020-01-22</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2020/01/07/cao-zuo-xi-tong-fu-xi/</loc>
+    <loc>https://blog.ajin.cloud/posts/cao-zuo-xi-tong-fu-xi.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/29/redis-ming-ling-can-kao/</loc>
+    <loc>https://blog.ajin.cloud/posts/redis-ming-ling-can-kao.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/27/pythoner-dui-xiang/</loc>
+    <loc>https://blog.ajin.cloud/posts/pythoner-dui-xiang.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/11/09/python-shu-ju-mo-xing/</loc>
+    <loc>https://blog.ajin.cloud/posts/python-shu-ju-mo-xing.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/10/docker-wang-luo-pei-zhi/</loc>
+    <loc>https://blog.ajin.cloud/posts/docker-wang-luo-pei-zhi.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/10/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti/</loc>
+    <loc>https://blog.ajin.cloud/posts/docker-gou-jian-yi-ci-xing-jing-xiang-yi-ji-huan-cun-wen-ti.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/11/21/docker-gao-ji/</loc>
+    <loc>https://blog.ajin.cloud/posts/docker-gao-ji.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/11/21/docker-chu-ji/</loc>
+    <loc>https://blog.ajin.cloud/posts/docker-chu-ji.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/11/12/zi-dian-he-ji-he/</loc>
+    <loc>https://blog.ajin.cloud/posts/zi-dian-he-ji-he.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/16/zhu-ji-gui-hua/</loc>
+    <loc>https://blog.ajin.cloud/posts/zhu-ji-gui-hua.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/21/yi-deng-han-shu/</loc>
+    <loc>https://blog.ajin.cloud/posts/yi-deng-han-shu.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/11/12/xu-lie-gou-cheng-de-shu-zu/</loc>
+    <loc>https://blog.ajin.cloud/posts/xu-lie-gou-cheng-de-shu-zu.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/02/wen-ben-yu-zi-fu-xu-lie/</loc>
+    <loc>https://blog.ajin.cloud/posts/wen-ben-yu-zi-fu-xu-lie.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/11/09/qin-jiu-shao-suan-fa-xiang-jie/</loc>
+    <loc>https://blog.ajin.cloud/posts/qin-jiu-shao-suan-fa-xiang-jie.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/11/28/ji-suan-ji-wang-luo-fu-xi-gai-yao/</loc>
+    <loc>https://blog.ajin.cloud/posts/ji-suan-ji-wang-luo-fu-xi-gai-yao.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/11/11/ji-suan-ji-gai-lun/</loc>
+    <loc>https://blog.ajin.cloud/posts/ji-suan-ji-gai-lun.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/27/han-shu-zhuang-shi-qi-he-bi-bao/</loc>
+    <loc>https://blog.ajin.cloud/posts/han-shu-zhuang-shi-qi-he-bi-bao.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
   <url>
-    <loc>https://www.ajin.cloud/2019/12/27/dui-xiang-yin-yong/</loc>
+    <loc>https://blog.ajin.cloud/posts/dui-xiang-yin-yong.html</loc>
     <lastmod>2020-01-07</lastmod>
   </url>
 </urlset> 
